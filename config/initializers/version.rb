@@ -1,9 +1,8 @@
 class Version
   attr_reader :current_version
-  def initialize
+  def self.current_version
     @current_version = '0.1.0'
   end
 end
 
-ver = Version.new
-puts "Current version #{ver.current_version}"
+puts "Current version #{Version.current_version}"
