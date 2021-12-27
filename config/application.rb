@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+
     config.load_defaults 7.0
     config.time_zone = 'Moscow'
 
