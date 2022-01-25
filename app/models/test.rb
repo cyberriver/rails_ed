@@ -3,12 +3,20 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: :User
   has_many :users_tests
   has_many :users, through: :users_tests
+  validates :title, presence: true,
+    uniqueness: {scope: :level, message: "Can be only one test with one name and lvl"}
+  validates :level, presence: true, numericality: {only_interger: true, greater_than: 0}
 
-  def self.by_category(category_name)
-    joins('JOINS categories on category_id=category.id')
-    .where('categories.title=:category_name', category_name:category_name)
+
+  scope :easy, ->{where(level:0..1)}
+  scope :medium, ->{where(level:2..4)}
+  scope :hard, ->{where(level:5..Float::INFINITY)}
+
+  scope :by_category, ->(category_name) do
+    joins(:category)
+    .where(categories: {title: category_name})
     .order(title: :desc)
     .pluck(:title)
-
   end
+
 end
