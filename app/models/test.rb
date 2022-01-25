@@ -1,4 +1,8 @@
 class Test < ApplicationRecord
+  belongs_to :category
+  belongs_to :author, class_name: :User
+  has_many :users_tests
+  has_many :users, through: :users_tests
 
   def self.by_category(category_name)
     joins('JOINS categories on category_id=category.id')
