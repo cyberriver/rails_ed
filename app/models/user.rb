@@ -1,10 +1,15 @@
 class User < ApplicationRecord
+  require 'uri'
+  #EMAIL_REGEX =/.+@.+\..+/i
   has_many :users_tests
   has_many :tests, through: :users_tests
   has_many :author_tests, class_name: :Test, foreign_key: :author_id
+  validates :name, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  def return_tests(level)
-    Test.joins('JOIN users_tests on test_id=user_test.test_id')
-      .where('test.level=:level AND users_tests.user_id=:user_id', level:level,user_id:id)
+  scope :show_tests, -> (level,user_id) do
+    joins(:users_tests, :tests)
+    .where(users_tests: {user_id: user_id}, tests: {level: level})
   end
+
 end
