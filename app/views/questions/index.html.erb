@@ -1,0 +1,27 @@
+<h1>All Questions</h1>
+<table>
+  <thead>
+    <tr>
+      <th>#question</th>
+      <th>question body</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tr>
+   Create new question
+   <%= link_to "Create", new_question_path %>
+  </tr>
+
+  <tbody>
+    <% @question.each do |q|%>
+    <tr>
+      <td><%=q.id %> </td>
+      <td><%=q.body %> </td>
+      <td><%= link_to "Show", question_path(q.id) %></td>
+      <td><%= link_to "Edit", edit_question_path(q.id) %></td>
+      <td><%= link_to "Delete", question_delete_path(q.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

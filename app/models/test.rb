@@ -3,6 +3,8 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: :User
   has_many :users_tests
   has_many :users, through: :users_tests
+  has_many :questions
+  
   validates :title, presence: true,
     uniqueness: {scope: :level, message: "Can be only one test with one name and lvl"}
   validates :level, presence: true, numericality: {only_interger: true, greater_than: 0}
