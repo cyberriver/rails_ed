@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :tests, shallow: true
-    get '/delete', to: 'questions#destroy'
+  #  get '/delete', to: 'questions#destroy'
   end
 
 end
