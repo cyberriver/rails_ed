@@ -1,0 +1,34 @@
+<h1>All Tests</h1>
+<table>
+  <thead>
+    <tr>
+      <th>#test</th>
+      <th>test title</th>
+      <th>test level</th>
+      <th>test category</th>
+      <th>author_id</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tr>
+   Create new TEST
+   <%= link_to "Create", new_test_path %>
+  </tr>
+
+  <tbody>
+    <% @test.each do |test|%>
+    <tr>
+      <td><%=test.id %> </td>
+      <td><%=test.title %> </td>
+      <td><%=test.level%> </td>
+      <td><%=test.category_id%> </td>
+      <td><%=test.author_id %> </td>
+      <td><%= link_to "Show", test_path(test.id) %></td>
+      <td><%= link_to "Edit", edit_test_path(test.id) %></td>
+      <td><%= link_to "Show_questions", test_questions_path(test.id) %></td>
+      <td><%= button_to "Delete", test_path(test.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

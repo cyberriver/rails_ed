@@ -1,0 +1,23 @@
+
+<h1>Create test</h1>
+<form class="" action="/tests" method="post">
+  <input type="hidden" name="authenticity_token" value ="<%= @form_auth_token %>" >
+  <p>
+      <label for="test-title">Test title</label>
+      <input type="text" name="test[title]" id="test-title">
+      <br>
+      <label for="test-level">Test level</label>
+      <input type="text" name="test[level]" id="test-level">
+      <br>
+      <label for="test-category">Test category id</label>
+      <input type="text" name="test[category_id]" id="test-category">
+      <br>
+      <label for="test-author">Test Author</label>
+      <input type="text" name="test[author_id]" id="test-author">
+  </p>
+  <br>
+  <p>
+    <input type="submit" value="Create">
+  </p>
+
+</form>
