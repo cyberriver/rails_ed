@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
-  before_action :find_test, only: %i[show]
   after_action :send_log_message
   around_action :log_execute_time
 
@@ -25,11 +24,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question.update(body: params[:question][:body])
+    @question.update(question_params)
     redirect_to test_questions_path(session[:test_id])
   end
 
   def create
+    logger.info("test data #{question_params}")
     @question = Question.create(question_params)
     redirect_to test_questions_path(session[:test_id])
   end
@@ -37,12 +37,14 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     redirect_to test_questions_path(session[:test_id])
-  end
+  def find_test
+    @test = Test.find(params[:id])
+  end  end
 
   private
 
   def question_params
-    params.permit(:body, :test_id)
+    params.require(:question).permit(:body, :test_id)
   end
 
   def find_question
@@ -50,9 +52,6 @@ class QuestionsController < ApplicationController
 
   end
 
-  def find_test
-    @test = Test.find(params[:id])
-  end
 
   def send_log_message
     logger.info("Action [#{action_name}] was finished")
