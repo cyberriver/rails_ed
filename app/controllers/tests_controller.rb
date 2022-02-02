@@ -35,7 +35,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.create(test_params)
+    @test = Test.new(test_params)
     if @test.save
        redirect_to tests_path
     else

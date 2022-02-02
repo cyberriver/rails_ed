@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
   before_action :find_test, only: %i[index new create]
-  after_action :send_log_message
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -26,15 +25,21 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    logger.info("АПДЕЙТ [#{question_params}] was finished")
     @question.update(question_params)
-    redirect_to test_questions_path(@question.test_id)
+    if @question.save
+       redirect_to test_questions_path(@question.test_id)
+    else
+       render plain: 'что-то пошло не так в момент сохранения'
+    end
+
   end
 
   def create
 
     @question = @test.questions.new(question_params)
     if @question.save
-       redirect_to test_questions_path(@test.id)
+       redirect_to test_questions_path(@test)
     else
        render plain: 'что-то пошло не так в момент сохранения'
     end
