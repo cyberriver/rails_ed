@@ -3,12 +3,13 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 * Project Entity list
+* Answer (title, correct, question_id)
+* Categories (title)
+* Questions (body, test_id)
+* Tests(title,level, category_id, author_id)
+* User(name, email)
+* Usertests (test_id,user_id)
 
-* User(user_id,name,phone_number, email)
-* Application(quest_id, title,group_id)
-* Group_questions(group_id, q_id)
-* Question (q_id,description, answer1, answer2)
-* User_answers(id, user_id, q_id, chosen_answer)
 
 Things you may want to cover:
 
