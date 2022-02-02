@@ -1,13 +1,14 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
+  before_action :find_test, only: %i[index new create]
   after_action :send_log_message
-  around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    @question = Question.where(test_id: params[:test_id])
-    session[:test_id] = params[:test_id]
+    @questions = @test.questions
+
+
   end
 
   def show
@@ -17,6 +18,7 @@ class QuestionsController < ApplicationController
 
   def new
     @form_auth_token = form_authenticity_token
+
   end
 
   def edit
@@ -25,26 +27,35 @@ class QuestionsController < ApplicationController
 
   def update
     @question.update(question_params)
-    redirect_to test_questions_path(session[:test_id])
+    redirect_to test_questions_path(@question.test_id)
   end
 
   def create
-    logger.info("test data #{question_params}")
-    @question = Question.create(question_params)
-    redirect_to test_questions_path(session[:test_id])
+
+    @question = @test.questions.new(question_params)
+    if @question.save
+       redirect_to test_questions_path(@test.id)
+    else
+       render plain: 'что-то пошло не так в момент сохранения'
+    end
+
   end
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(session[:test_id])
-  def find_test
-    @test = Test.find(params[:id])
-  end  end
+    redirect_to test_questions_path(@question.test_id)
+  end
+
+
 
   private
 
   def question_params
     params.require(:question).permit(:body, :test_id)
+  end
+
+  def find_test
+    @test = Test.find(params[:test_id])
   end
 
   def find_question

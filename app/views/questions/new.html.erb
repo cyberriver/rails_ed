@@ -1,13 +1,12 @@
 
 <h1>Create question</h1>
-<form class="" action="/tests/:test_id/questions" method="post">
+<form class="" action="/tests/<%= @test.id %>/questions" method="post">
   <input type="hidden" name="authenticity_token" value ="<%= @form_auth_token %>" >
   <p>
       <label for="question-body">Question Body</label>
       <input type="text" name="question[body]" id="question-body">
       <br>
-      <label for="question-test_id">Test_ID</label>
-      <input type="text" name="question[test_id]" id="question-test_id" value = <%= session[:test_id] %>>
+
   </p>
   <br>
   <p>

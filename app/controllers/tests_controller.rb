@@ -1,8 +1,6 @@
 class TestsController < ApplicationController
   before_action :find_test, only: %i[show show edit update destroy]
   before_action :find_all_users
-  after_action :send_log_message
-  around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -25,14 +23,27 @@ class TestsController < ApplicationController
   end
 
   def update
-    @test.assign_attributes(test_params)
-    @test.save
-    redirect_to tests_path
+    @test.update(test_params)
+    if @test.save
+       redirect_to tests_path
+    else
+       render plain: 'что-то пошло не так в момент сохранения'
+    end
+
+
+
   end
 
   def create
     @test = Test.create(test_params)
-    redirect_to tests_path
+    if @test.save
+       redirect_to tests_path
+    else
+       render plain: 'что-то пошло не так в момент сохранения'
+    end
+
+
+
   end
 
   def destroy
@@ -45,7 +56,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit([:title, :level, :category_id, :author_id] )
+    params.require(:test).permit(:title, :level, :category_id, :author_id )
   end
 
   def find_test
@@ -56,9 +67,7 @@ class TestsController < ApplicationController
     @user = User.all
   end
 
-  def send_log_message
-    logger.info("Action [#{action_name}] was finished")
-  end
+
 
   def log_execute_time
     start = Time.now
