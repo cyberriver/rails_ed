@@ -1,0 +1,5 @@
+<%= form_for @question do |f| %>
+  Body: <%= f.text_field :body %><br />
+  Test_ID: <%= f.text_field :test_id %><br />
+  <%= f.submit "Submit Changes" %>
+<% end %>

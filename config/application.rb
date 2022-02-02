@@ -6,6 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -13,6 +14,10 @@ module TestGuru
     config.load_defaults 7.0
     config.time_zone = 'Moscow'
     config.i18n.default_locale=:en
+    initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
+      app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
+      app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
+    }
 
     # Configuration for the application, engines, and railties goes here.
     #

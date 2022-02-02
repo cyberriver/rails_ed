@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   require 'uri'
-  #EMAIL_REGEX =/.+@.+\..+/i
+
   has_many :users_tests
   has_many :tests, through: :users_tests
   has_many :author_tests, class_name: :Test, foreign_key: :author_id
@@ -11,5 +11,7 @@ class User < ApplicationRecord
     joins(:users_tests, :tests)
     .where(users_tests: {user_id: user_id}, tests: {level: level})
   end
+
+
 
 end
