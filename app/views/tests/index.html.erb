@@ -20,7 +20,7 @@
     <tr>
       <td><%=test.id %> </td>
       <td><%=test.title %> </td>
-      <td><%=test.level%> </td>
+      <td><%=level_title(test)%> </td>
       <td><%=test.category_id%> </td>
       <td><%=test.author_id %> </td>
       <td><%= link_to "Show", test_path(test.id) %></td>
