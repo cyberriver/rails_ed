@@ -28,7 +28,11 @@
       <td><%= link_to "Show", test_path(test.id) %></td>
       <td><%= link_to "Edit", edit_test_path(test.id) %></td>
       <td><%= link_to "Show_questions", test_questions_path(test.id) %></td>
-      <td><%= button_to "Delete", test_path(test.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %></td>
+      <td><%= button_to "Delete", test_path(test.id),
+                                    method: :delete,
+                                    form: {
+                                      data: { turbo_confirm: "Are you sure?"}
+                                    } %></td>
     </tr>
     <% end %>
   </tbody>
