@@ -7,6 +7,7 @@ class TestsController < ApplicationController
   def index
     @test = Test.all
     save_current_path
+    logger.info("@@@@@!!!!!!author_app: #{config.author_app}")
   end
 
   def show
