@@ -6,8 +6,6 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = @test.questions
-
-
   end
 
   def show
@@ -16,8 +14,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @form_auth_token = form_authenticity_token
-
+    @question = @test.questions.new
   end
 
   def edit
@@ -25,7 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    logger.info("АПДЕЙТ [#{question_params}] was finished")
+    logger.info("edit question START [#{params}] ")
     @question.update(question_params)
     if @question.save
        redirect_to test_questions_path(@question.test_id)
@@ -36,10 +33,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-
-    @question = @test.questions.new(question_params)
+      @question = @test.questions.new(question_params)
     if @question.save
-       redirect_to test_questions_path(@test)
+       redirect_to test_path(@question.test_id)
     else
        render plain: 'что-то пошло не так в момент сохранения'
     end
@@ -48,7 +44,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@question.test_id)
+    redirect_to test_path(@question.test_id)
   end
 
 
@@ -67,7 +63,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
   end
-
 
   def send_log_message
     logger.info("Action [#{action_name}] was finished")

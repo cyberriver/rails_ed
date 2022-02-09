@@ -6,15 +6,15 @@ class TestsController < ApplicationController
 
   def index
     @test = Test.all
-    #render json: {tests: @test}
+    save_current_path
   end
 
   def show
-    
+    save_current_path
   end
 
   def new
-    @form_auth_token = form_authenticity_token
+    @test= Test.new
   end
 
   def edit
@@ -53,6 +53,7 @@ class TestsController < ApplicationController
 
 
   private
+
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id )
