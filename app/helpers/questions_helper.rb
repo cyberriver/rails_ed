@@ -4,12 +4,8 @@ module QuestionsHelper
   #Create New <Test Title> Question, а в форме редактирования Edit <Test Title> Question
   def question_header(question)
     out = ''
-    if params[:action] == "new"
-      out << "<h1>Create New #{question.test.title} Question</h1>"
-
-    elsif params[:action] == "edit"
-      out << "<h1>Edit #{question.test.title} Question</h1>"
-    end
+    out << "<h1>Create New #{question.test.title} Question</h1>" if question.new_record?
+    out << "<h1>Edit #{question.test.title} Question</h1>"if question.persisted?
     out.html_safe
   end
 end

@@ -22,12 +22,11 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    logger.info("edit question START [#{params}] ")
     @question.update(question_params)
     if @question.save
        redirect_to test_questions_path(@question.test_id)
     else
-       render plain: 'что-то пошло не так в момент сохранения'
+       render :edit
     end
 
   end
@@ -37,7 +36,7 @@ class QuestionsController < ApplicationController
     if @question.save
        redirect_to test_path(@question.test_id)
     else
-       render plain: 'что-то пошло не так в момент сохранения'
+       render :new
     end
 
   end

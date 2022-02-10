@@ -7,7 +7,6 @@ class TestsController < ApplicationController
   def index
     @test = Test.all
     save_current_path
-    logger.info("@@@@@!!!!!!author_app: #{config.author_app}")
   end
 
   def show
@@ -27,7 +26,7 @@ class TestsController < ApplicationController
     if @test.save
        redirect_to tests_path
     else
-       render plain: 'что-то пошло не так в момент сохранения'
+       render :edit
     end
 
 
@@ -39,7 +38,7 @@ class TestsController < ApplicationController
     if @test.save
        redirect_to tests_path
     else
-       render plain: 'что-то пошло не так в момент сохранения'
+       render :new
     end
 
 

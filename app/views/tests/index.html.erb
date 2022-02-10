@@ -31,7 +31,7 @@
       <td><%= button_to "Delete", test_path(test.id),
                                     method: :delete,
                                     form: {
-                                      data: { turbo_confirm: "Are you sure?"}
+                                      data: { confirm: "Are you sure?"}
                                     } %></td>
     </tr>
     <% end %>

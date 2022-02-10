@@ -3,3 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 require jquery
 require jquery_ujs
+require data-confirm-modal
+require turbolinks
+require bootstrap
+require tree
