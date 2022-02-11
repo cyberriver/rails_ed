@@ -6,11 +6,11 @@ class TestsController < ApplicationController
 
   def index
     @test = Test.all
-    save_current_path
+  
   end
 
   def show
-    save_current_path
+
   end
 
   def new
