@@ -1,0 +1,10 @@
+<%= render 'shared/errors', resource: @test %>
+<%= form_with model: @test, local:true do |f| %>
+  Title: <%= f.text_field :title %><br />
+  Level: <%= f.text_field :level%><br />
+  Category: <%= f.text_field :category_id%><br />
+  Author: <%= f.text_field :author_id%><br />
+  <%= f.submit "Submit Changes" %>
+<% end %>
+
+<p><%= link_to "Back", tests_path(@test) %></p>

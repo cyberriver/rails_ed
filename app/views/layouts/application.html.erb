@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+<![endif]-->
 <html>
   <head>
     <title>TestGuru</title>
@@ -6,6 +10,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application' %>
 
     <%= javascript_importmap_tags %>
   </head>
@@ -13,4 +18,5 @@
   <body>
     <%= yield %>
   </body>
+  <%= render 'shared/footer' %>
 </html>

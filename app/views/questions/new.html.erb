@@ -1,16 +1,1 @@
-
-<h1>Create question</h1>
-<form class="" action="/tests/<%= @test.id %>/questions" method="post">
-  <input type="hidden" name="authenticity_token" value ="<%= @form_auth_token %>" >
-  <p>
-      <label for="question-body">Question Body</label>
-      <input type="text" name="question[body]" id="question-body">
-      <br>
-
-  </p>
-  <br>
-  <p>
-    <input type="submit" value="Create">
-  </p>
-
-</form>
+<%= render 'form' %>

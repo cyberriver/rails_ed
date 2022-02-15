@@ -1,21 +1,20 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show show edit update destroy]
+  before_action :find_test, only: %i[show edit update destroy]
   before_action :find_all_users
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @test = Test.all
-    #render json: {tests: @test}
+  
   end
 
   def show
-    render json: {question: @test}
 
   end
 
   def new
-    @form_auth_token = form_authenticity_token
+    @test= Test.new
   end
 
   def edit
@@ -27,7 +26,7 @@ class TestsController < ApplicationController
     if @test.save
        redirect_to tests_path
     else
-       render plain: 'что-то пошло не так в момент сохранения'
+       render :edit
     end
 
 
@@ -39,7 +38,7 @@ class TestsController < ApplicationController
     if @test.save
        redirect_to tests_path
     else
-       render plain: 'что-то пошло не так в момент сохранения'
+       render :new
     end
 
 
@@ -54,6 +53,7 @@ class TestsController < ApplicationController
 
 
   private
+
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id )
