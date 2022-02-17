@@ -7,6 +7,6 @@ class Answer < ApplicationRecord
 
   private
   def answers_count_check?
-    errors.add(:title) if question.answers.count >= 4
+    errors.add(:title) if question.answers.count > 4
   end
 end

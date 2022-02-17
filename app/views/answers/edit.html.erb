@@ -1,0 +1,11 @@
+<%= render 'shared/errors', resource: @answer %>
+<h1>Editing answer</h1>
+
+<%= render 'form' %>
+
+<br>
+
+<div>
+  <%= link_to "Show this answer", @answer %> |
+  <%= link_to "Back to answers", question_path(@answer.question) %>
+</div>

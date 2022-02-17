@@ -1,0 +1,14 @@
+
+
+  <li>
+      <%= answer.title%>
+
+        <%= link_to "Edit this answer", edit_answer_path(answer) %> |
+        <%= link_to "Back to answers", question_path(@question) %>
+
+        <%= button_to "Destroy this answer", answer,
+                                             method: :delete,
+                                             form: {
+                                               data: { confirm: "Are you sure?"}
+                                             }%>
+</li>

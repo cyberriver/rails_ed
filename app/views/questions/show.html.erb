@@ -1,0 +1,15 @@
+<h1>Question title </h1>
+<p>
+  <%= @question.body %>
+</p>
+<p>
+  <h2>Answers</h2>
+  <p><%= link_to "New answer", new_question_answer_path(@question) %></p>
+<ol>
+
+  <%=render @question.answers %>
+</ol>
+
+</p>
+
+<p><%= link_to "Back", tests_path %></p>

@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show edit update destroy]
   before_action :find_test, only: %i[index new create]
 
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
@@ -9,8 +10,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render json: {question: @question}
-
   end
 
   def new
