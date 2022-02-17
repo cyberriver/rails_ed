@@ -3,8 +3,6 @@ class TestPassagesController < ApplicationController
   before_action :set_test_pessage, only: %i[show update result]
 
   def show
-    logger.info("LOG [#{params}] ")
-    logger.info("LOG [#{@test_pessage}] title #{@test_pessage.test.title} current_question #{@test_pessage.current_question}")
 
   end
 
@@ -13,13 +11,18 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-
+    @test_passage.accept!(params[:answer_ids])
+    if @test_passage.completed?
+      redirect_to result_test_passage_path(@test_passage)
+    else
+      render :show
+    end
   end
 
   private
 
   def set_test_pessage
-    @test_pessage = TestPassage.find(params[:id])
+    @test_passage = TestPassage.find(params[:id])
 
   end
 
