@@ -1,8 +1,14 @@
 <h1>Pass the <%= @test_passage.test.title%>  Test </h1>
+<p>
+  <h3>Question #<%= @test_passage.current_question_position%> from <%=@test_passage.test.questions.count %> </h3>
+</p>
 
 <b>
   <%= @test_passage.current_question.body%>
 </b>
+
+
+
 
 <%= form_with url: test_passage_path(@test_passage), local:true, method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :title, include_hidden:

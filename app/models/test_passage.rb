@@ -4,21 +4,31 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: :Question, optional: true
 
   before_validation :before_validation_set_first_question, on: :create
+  after_touch :set_next_question
 
   def completed?
     current_question.nil?
-
   end
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_question +=1
+      save!
     end
-    self.current_question = next_question
-    save!
+    self.touch
+  end
+
+  def current_question_position
+    self.test.questions.order(id: :desc).where('id < ?',self.current_question_id).count+1
+
   end
 
   private
+
+  def set_next_question
+    self.current_question = next_question
+    save!
+  end
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
