@@ -46,15 +46,11 @@ class AnswersController < ApplicationController
   private
 
     def find_question
-
       @question = Question.find(params[:question_id])
-
     end
 
     def set_answer
-      logger.info("PARAMS FIND ANSWER  [#{params}] ")
       @answer = Answer.find(params[:id])
-      logger.info("PARAMS FIND ANSWER  [#{@answer}] ")
     end
 
     def answer_params

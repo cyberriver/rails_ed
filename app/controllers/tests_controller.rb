@@ -1,10 +1,7 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show edit update destroy start]
   before_action :set_user, only: :start
-  after_action :push_to_log
-
-
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @test = Test.all
@@ -48,8 +45,6 @@ class TestsController < ApplicationController
   end
 
   def start
-
-    logger.info("LOG @user#{@user}:@user.tests #{@user.tests} @test #{@test}")
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
@@ -67,10 +62,6 @@ class TestsController < ApplicationController
 
   def set_user
     @user = User.first
-  end
-
-  def push_to_log
-    logger.info("LOG ACTION#{params[:action]}: PARAMS #{params}")
   end
 
   def log_execute_time
