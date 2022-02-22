@@ -8,7 +8,7 @@
       <th>test category</th>
       <th>author_id</th>
       <th>Questions count</th>
-      <th colspan="5"></th>
+      <th colspan="5">Actions</th>
     </tr>
   </thead>
   <tr>
@@ -33,6 +33,7 @@
                                     form: {
                                       data: { confirm: "Are you sure?"}
                                     } %></td>
+      <td> <%=button_to "Start", start_test_path(test.id), method: :post %></td>
     </tr>
     <% end %>
   </tbody>

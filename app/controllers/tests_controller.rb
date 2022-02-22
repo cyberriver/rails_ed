@@ -1,12 +1,11 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[show edit update destroy]
-  before_action :find_all_users
-
+  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: :start
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @test = Test.all
-  
+
   end
 
   def show
@@ -28,9 +27,6 @@ class TestsController < ApplicationController
     else
        render :edit
     end
-
-
-
   end
 
   def create
@@ -40,9 +36,6 @@ class TestsController < ApplicationController
     else
        render :new
     end
-
-
-
   end
 
   def destroy
@@ -51,23 +44,25 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
 
   private
-
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id )
   end
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
   end
 
-  def find_all_users
-    @user = User.all
+  def set_user
+    @user = User.first
   end
-
-
 
   def log_execute_time
     start = Time.now

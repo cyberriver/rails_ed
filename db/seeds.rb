@@ -10,11 +10,11 @@ ActiveRecord::Base.connection.disable_referential_integrity do
   begin
     category = Category.find_or_create_by(title: 'Junior Web development tests')
     test = Test.find_or_create_by(title: 'Rails tests seed'. level:1, category_id: category.id)
-    question = Question.find_or_create_by(body: 'Pls choose Correct Answer?',test_id: test.id)
-    answer_correct = Answer.find_or_create_by(title: 'Correct Answer 1', correct: true, question_id: question.id)
-    answer_incorrect = Answer.find_or_create_by(title: 'Incorrect Answer 2', correct: false, question_id: question.id)
+    question = Question.find_or_create_by(body: 'Pls choose seed Correct Answer?',test_id: test.id)
+    answer_correct = Answer.find_or_create_by(title: 'Correct seed Answer 1', correct: true, question_id: question.id)
+    answer_incorrect = Answer.find_or_create_by(title: 'Incorrect seed Answer 2', correct: false, question_id: question.id)
     user = User.find_or_create_by(name: 'John Doe', email: 'test@test.com')
-    UsersTest.find_or_create_by(test_id: test.id, user_id: user.id)
+    TestPassage.find_or_create_by(user_id: user.id, test_id: test.id, current_question_id: question.id)
 
   rescue ActiveRecord::RecordNotUnique
   end
