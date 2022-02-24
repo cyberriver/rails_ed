@@ -2,7 +2,7 @@ module User::Auth
   extend ActiveSupport::Concern
 
   included do
-    validates :name, presence: true
+    
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :password, presence: true, if: Proc.new{ |u| u.password_digest.blank? }
     validates :password, confirmation: true

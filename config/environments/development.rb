@@ -16,6 +16,7 @@ Rails.application.configure do
 
   # Enable server timing
   config.server_timing = true
+  config.assets.check_precompiled_asset = false
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -67,4 +68,12 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Compress CSS using a preprocessor.
+  config.assets.css_compressor = :sass
+  config.assets.js_compressor = {harmony: true}
+#  config.assets.js_compressor = Uglifier.new(harmony: true)
+  # Do not fallback to assets pipeline if a precompiled asset is missed.
+  config.assets.compile = true
+
 end
