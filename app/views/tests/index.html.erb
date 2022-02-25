@@ -26,7 +26,7 @@
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
       <td><%= link_to "Show", test_path(test.id) %></td>
-      <td><%= link_to "Edit", edit_test_path(test.id) %></td>      
+      <td><%= link_to "Edit", edit_test_path(test.id) %></td>
       <td><%= button_to "Delete", test_path(test.id),
                                     method: :delete,
                                     form: {

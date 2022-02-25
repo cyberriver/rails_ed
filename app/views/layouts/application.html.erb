@@ -6,6 +6,7 @@
 <html>
   <head>
     <title>TestGuru</title>
+    <%= flash_message!%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,6 +16,12 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p class="nav user"> Welcome, <b> <%= current_user.email %> </b> Guru
+        <%= button_to "Quit", logout_path, method: :delete, class: 'button'%>
+      </p>
+
+    <% end %>
     <%= yield %>
   </body>
   <%= render 'shared/footer' %>
