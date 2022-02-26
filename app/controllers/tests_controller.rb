@@ -1,7 +1,7 @@
 class TestsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: :start
+  before_action :set_user, only: %i[create new start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -54,7 +54,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id )
+    params.require(:test).permit(:title, :level, :category_id, :user_id )
   end
 
   def set_test
