@@ -12,4 +12,12 @@ module ApplicationHelper
       content_tag :p, msg, :id => key, class: "flash #{key}"
     end.join.html_safe
   end
+
+  def set_err_flash(resource)
+    resource.errors.full_messages.each do |message|
+       flash.now[:alert]||=[]
+       flash.now[:alert] << message
+     end
+  end
+
 end

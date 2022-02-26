@@ -16,12 +16,9 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user"> Welcome, <b> <%= current_user.email %> </b> Guru
-        <%= button_to "Quit", logout_path, method: :delete, class: 'button'%>
-      </p>
+    <%= render 'shared/navigation' %>
 
-    <% end %>
+
     <%= yield %>
   </body>
   <%= render 'shared/footer' %>

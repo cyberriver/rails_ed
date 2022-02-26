@@ -1,9 +1,17 @@
 class ApplicationController < ActionController::Base
+  before_action :set_current_path
   protect_from_forgery with: :exception
   helper_method :current_user,
-                :logged_in?
+                :logged_in?,
+                :set_current_path
+
+
 
   private
+
+  def set_current_path
+    session[:return_link] ||= request.url
+  end
 
   def authenticate_user!
     unless current_user

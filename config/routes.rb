@@ -10,9 +10,12 @@ Rails.application.routes.draw do
  get :signup, to: 'users#new'
  get :login, to: 'sessions#new'
  delete :logout, to: 'sessions#destroy'
+ get :my_profile, to: 'users#show'
+ get :edit_profile, to: 'users#edit'
+ get :my_tests, to: 'test_passages#index'
 
- resources :users, only: :create
-  resources :sessions, only: :create
+resources :users, only: %i[create edit update]
+resources :sessions, only: :create
 
   resources :tests  do
     resources :questions, shallow: true, expect: :index do

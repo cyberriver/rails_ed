@@ -11,5 +11,32 @@
   display: block;
   margin-left: auto;
   margin-right: 0;
+  padding: 15px 5px;
 
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0E3FA9;
+}
+
+li {
+    float: left;
+    list-style-type: none;
+    color: #03B06C
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    
+}
+
+li a:hover {
+    background-color: #03B06C;
 }
