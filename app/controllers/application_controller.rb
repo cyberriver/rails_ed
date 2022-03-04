@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_path
+  before_action :authenticate_user!
   protect_from_forgery with: :exception
   helper_method :current_user,
                 :logged_in?,
@@ -9,14 +9,15 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_current_path
-    session[:return_link] ||= request.url
-  end
-
   def authenticate_user!
     unless current_user
+      set_current_path
       redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
     end
+  end
+
+  def set_current_path
+    session[:return_link] ||= request.url
   end
 
   def current_user

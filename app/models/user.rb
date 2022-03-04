@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :author_tests, class_name: :Test, foreign_key: :author_id
 
   validates :name, presence: true
-  validates :email, presence:true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates_uniqueness_of :email, message: "such email is already busy"
+  validates :email, uniqueness: {message: "such email is already busy"} , format: { with: URI::MailTo::EMAIL_REGEXP }
+
 
   has_secure_password
 

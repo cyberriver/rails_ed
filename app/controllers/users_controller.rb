@@ -1,20 +1,21 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :authenticate_user!, only: %i[show edit update]
-  before_action :set_user, only: %i[show edit update]
+  before_action :current_user, only: %i[show edit update]
 
   def show
 
   end
 
   def new
-    @user=User.new
+    @current_user=User.new
   end
 
   def create
-    @user=User.new(user_params)
+    @current_user=User.new(user_params)
 
-    if @user.save
-      session[:user_id] = @user.id
+    if @current_user.save
+      session[:user_id] = @current_user.id
       redirect_to tests_path
     else
       render :new
@@ -26,8 +27,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    if @user.save
+    @current_user.update(user_params)
+    if @current_user.save
        redirect_to tests_path
     else
        render :edit
@@ -39,10 +40,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email,:name, :password, :password_confirmation)
-  end
-
-  def set_user
-    @user = User.find(session[:user_id])
   end
 
 end

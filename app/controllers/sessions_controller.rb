@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!
   def new
   end
 
@@ -6,12 +7,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      if session[:return_link]
-        redirect_to session[:return_link], notice: "You have successfully logged in"
-      else
-        redirect_to tests_path, notice: "You have successfully logged in"
 
-      end
+      redirect_to session[:return_link] || tests_path, notice: "You have successfully logged in"
 
     else
       flash.now[:alert] = 'Are you a Guru? Verify your Email and Password please'

@@ -9,7 +9,9 @@ module ApplicationHelper
 
   def flash_message!
     flash.map do |key,msg|
-      content_tag :p, msg, :id => key, class: "flash #{key}"
+      if key && msg
+        content_tag :p, msg, :id => key, class: "flash #{key}"
+      end
     end.join.html_safe
   end
 
