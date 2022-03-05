@@ -13,7 +13,7 @@ class TestsController < ApplicationController
   end
 
   def new
-    @test= @user.tests.new
+    @test= @user.author_tests.new
   end
 
   def edit
