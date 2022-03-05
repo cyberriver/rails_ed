@@ -1,5 +1,5 @@
 class TestPassagesController < ApplicationController
-  before_action :set_user
+  before_action :current_user
   before_action :set_test_pessage, only: %i[show update result]
 
   def index
@@ -24,10 +24,6 @@ class TestPassagesController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(session[:user_id])
-  end
 
   def set_test_pessage
     @test_passage = TestPassage.find(params[:id])
