@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show edit update destroy start]
-  before_action :set_user, only: %i[create new start]
+  before_action :current_user, only: %i[create new start]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -58,10 +58,6 @@ class TestsController < ApplicationController
 
   def set_test
     @test = Test.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(session[:user_id])
   end
 
   def log_execute_time
