@@ -1,0 +1,10 @@
+<h1>My_profile</h1>
+
+<p>
+  e-mail <%= @current_user.email %>
+</p>
+
+<p>
+  User name <%= @current_user.name %>
+</p>
+<%= link_to "Edit My profile", edit_profile_path(@current_user) %>

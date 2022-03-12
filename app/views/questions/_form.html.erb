@@ -2,8 +2,6 @@
 <%= question_header(@question) %>
 <%= form_with model: [@test, @question], local: true do |f| %>
   Body: <%= f.text_field :body %><br />
-  Test_ID: <%= f.text_field :test_id %><br />
+  Test_ID: <%= f.text_field :test_id, readonly: true  %><br />
   <%= f.submit "Submit Changes" %>
 <% end %>
-
-<p><%= link_to "Back", test_path(@question.test_id) %></p>

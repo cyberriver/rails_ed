@@ -10,30 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_16_171355) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_03_04_220331) do
   create_table "answers", force: :cascade do |t|
     t.string "title", limit: 1000, null: false
     t.boolean "correct", default: false
     t.integer "question_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["id"], name: "by answer", unique: true
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "title", limit: 1000, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["id"], name: "by category", unique: true
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "body", limit: 1000, null: false
     t.integer "test_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -42,8 +41,8 @@ ActiveRecord::Schema.define(version: 2022_02_16_171355) do
     t.integer "test_id", null: false
     t.integer "current_question_id"
     t.integer "correct_question", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -53,8 +52,8 @@ ActiveRecord::Schema.define(version: 2022_02_16_171355) do
     t.string "title", limit: 1000, null: false
     t.integer "level", default: 0, null: false
     t.integer "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
@@ -64,8 +63,10 @@ ActiveRecord::Schema.define(version: 2022_02_16_171355) do
   create_table "users", force: :cascade do |t|
     t.string "name", limit: 1000, null: false
     t.string "email", limit: 500, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["id"], name: "by user", unique: true
   end
 

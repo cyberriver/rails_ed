@@ -8,7 +8,7 @@
       <th>test category</th>
       <th>author_id</th>
       <th>Questions count</th>
-      <th colspan="5">Actions</th>
+      <th colspan="4">Actions</th>
     </tr>
   </thead>
   <tr>
@@ -19,21 +19,24 @@
   <tbody>
     <% @test.each do |test|%>
     <tr>
+
       <td><%=test.id %> </td>
       <td><%=test.title %> </td>
       <td><%=level_title(test)%> </td>
       <td><%=test.category_id%> </td>
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
-      <td><%= link_to "Show", test_path(test.id) %></td>
-      <td><%= link_to "Edit", edit_test_path(test.id) %></td>
-      <td><%= link_to "Show_questions", test_questions_path(test.id) %></td>
-      <td><%= button_to "Delete", test_path(test.id),
+      <ul>
+        <td><li><%= link_to "Show", test_path(test.id) %></li></td>
+        <td><li><%= link_to "Edit", edit_test_path(test.id) %></li></td>
+
+      <td><li><%= button_to "Delete", test_path(test.id),
                                     method: :delete,
                                     form: {
                                       data: { confirm: "Are you sure?"}
-                                    } %></td>
-      <td> <%=button_to "Start", start_test_path(test.id), method: :post %></td>
+                                    } %></li></td>
+      <td> <li><%=button_to "Start", start_test_path(test.id), method: :post %></li></td>
+      </ul>
     </tr>
     <% end %>
   </tbody>
