@@ -8,14 +8,14 @@ class UsersController < ApplicationController
   end
 
   def new
-    @current_user=User.new
+    @user=User.new
   end
 
   def create
-    @current_user=User.new(user_params)
+    @user=User.new(user_params)
 
-    if @current_user.save
-      session[:user_id] = @current_user.id
+    if @user.save
+      session[:user_id] = @user.id
       redirect_to tests_path
     else
       render :new
