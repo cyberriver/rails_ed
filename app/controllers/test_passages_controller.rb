@@ -4,6 +4,7 @@ class TestPassagesController < ApplicationController
 
   def index
 
+
   end
 
   def show
@@ -11,7 +12,7 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-    
+
   end
 
   def update
