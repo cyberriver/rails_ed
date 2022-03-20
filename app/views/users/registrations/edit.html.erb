@@ -1,3 +1,4 @@
+
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -9,8 +10,13 @@
   </div>
 
   <div>
-     <%= f.label :name %><br />
-     <%= f.text_field :name, autofocus: true %>
+     <%= f.label :first_name %><br />
+     <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+  <div>
+     <%= f.label :last_name %><br />
+     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

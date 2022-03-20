@@ -8,13 +8,8 @@
       <th>test category</th>
       <th>author_id</th>
       <th>Questions count</th>
-      <th colspan="4">Actions</th>
     </tr>
   </thead>
-  <tr>
-   Create new TEST
-   <%= link_to "Create", new_test_path %>
-  </tr>
 
   <tbody>
     <% @test.each do |test|%>
@@ -26,17 +21,9 @@
       <td><%=test.category_id%> </td>
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
-      <ul>
-        <td><li><%= link_to "Show", test_path(test.id) %></li></td>
-        <td><li><%= link_to "Edit", edit_test_path(test.id) %></li></td>
 
-      <td><li><%= button_to "Delete", test_path(test.id),
-                                    method: :delete,
-                                    form: {
-                                      data: { confirm: "Are you sure?"}
-                                    } %></li></td>
       <td> <li><%=button_to "Start", start_test_path(test.id), method: :post %></li></td>
-      </ul>
+
     </tr>
     <% end %>
   </tbody>

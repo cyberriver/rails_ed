@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+<table width ="100%">
+  <td><h2><%= link_to "Test Guru", tests_path %></h2></td>
+  <td align="right"><p class = "nav-admin user">
+     Welcom, Admin <b class="nav-admin user-email"> <%= current_user.email %> </b> Guru</p></td>
+</table>
+  <ul>
+      <li><%= link_to "All_tests", admin_tests_path  %></li>
+      <li><%= link_to "My_profile", edit_user_registration_path %></li>
+      <li><%= link_to "Back", :back %></li>
+      <li><%= button_to "Quit", destroy_user_session_path, method: :delete, class: 'button' %></li>
+
+    <% end %>
+
+  </ul>
+
+<p></p>
