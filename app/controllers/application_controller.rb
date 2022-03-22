@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(current_user)
-     admin_tests_path if current_user.is_a?(Admin) || tests_path
+     current_user.admin? ? admin_tests_path : tests_path
   end
 
   protected

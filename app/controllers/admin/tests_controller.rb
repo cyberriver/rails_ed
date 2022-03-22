@@ -22,7 +22,7 @@ class Admin::TestsController < Admin::BaseController
   def update
     @test.update(test_params)
     if @test.save
-       redirect_to tests_path
+       redirect_to admin_tests_path
     else
        render :edit
     end
@@ -32,7 +32,7 @@ class Admin::TestsController < Admin::BaseController
 
     @test = current_user.author_tests.new(test_params)
     if @test.save
-       redirect_to tests_path
+       redirect_to admin_tests_path
     else
        render :new
     end
@@ -41,20 +41,13 @@ class Admin::TestsController < Admin::BaseController
   def destroy
 
     @test.destroy
-    redirect_to tests_path
+    redirect_to admin_tests_path
   end
-
-  def start
-
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
-  end
-
 
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id )
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def set_test
