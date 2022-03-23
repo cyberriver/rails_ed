@@ -6,6 +6,29 @@
   position: relative;
   }
 
+.nav.nav-admin {
+  background-color: #F76A51;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  position: relative;
+  }
+
+  .nav-admin.user {
+
+    floart: right;
+  }
+
+  .nav-admin.user-email {
+    text-decoration: underline;
+  }
+  .nav.nav-admin
+  a {
+    color: #ffffff
+  }
+
+
   .button {
   background-color: #1960F7; /* blue */
   display: block;
@@ -34,7 +57,7 @@ li a {
     color: black;
     text-align: center;
     padding: 14px 16px;
-    
+
 }
 
 li a:hover {

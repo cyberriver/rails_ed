@@ -1,7 +1,8 @@
+
 <h2>My Tests</h2>
 
 <table>
-  <% if @current_user.test_passages.present?%>
+  <% if current_user.test_passages.present?%>
   <thead>
     <tr>
       <th>Test Passage ID</th>
@@ -11,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @current_user.test_passages.order(created_at: :desc).each do |tp| %>
+    <% current_user.test_passages.order(created_at: :desc).each do |tp| %>
 
     <tr>
       <td><%= tp.id %></td>

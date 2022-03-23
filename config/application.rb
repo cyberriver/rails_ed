@@ -16,6 +16,7 @@ module TestGuru
     config.i18n.default_locale=:en
     config.author_app = 'cyberriver'
     config.repo_app = 'rails_ed'
+    
 
 #    initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
 #      app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}

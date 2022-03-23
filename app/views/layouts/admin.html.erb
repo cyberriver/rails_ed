@@ -5,7 +5,7 @@
 <![endif]-->
 <html>
   <head>
-    <title>TestGuru</title>
+    <title>Admin Panel</title>
     <%= flash_message!%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -15,8 +15,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= render 'shared/navigation' %>
+  <body>    
+    <%= render 'admin/shared/navigation' %>
 
     <%= yield %>
   </body>
