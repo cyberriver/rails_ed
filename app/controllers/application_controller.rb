@@ -3,10 +3,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :set_current_path
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
 
   def after_sign_in_path_for(current_user)
      current_user.admin? ? admin_tests_path : tests_path
+  end
+
+  def default_url_options
+    { lang: I18n.locale}
   end
 
   protected
@@ -20,6 +25,11 @@ class ApplicationController < ActionController::Base
 
   def set_current_path
     session[:return_link] ||= request.url
+  end
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+
   end
 
 end

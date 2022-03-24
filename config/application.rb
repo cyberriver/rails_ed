@@ -13,10 +13,10 @@ module TestGuru
 
     config.load_defaults 7.0
     config.time_zone = 'Moscow'
-    config.i18n.default_locale=:en
+    config.i18n.default_locale=:ru
     config.author_app = 'cyberriver'
     config.repo_app = 'rails_ed'
-    
+
 
 #    initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
 #      app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
