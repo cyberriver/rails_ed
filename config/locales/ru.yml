@@ -26,6 +26,8 @@ ru:
       header: "Доступные тесты"
 
   test_passages:
+    index:
+      header: "Мои тесты"
     result:
       header: "Тест %{title} успешно пройден"
 
