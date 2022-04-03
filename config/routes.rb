@@ -32,7 +32,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, shallow: true, expect: :index do
+        resources :answers, shallow: true, expect: :index
+      end
+    end
   end
 
 end

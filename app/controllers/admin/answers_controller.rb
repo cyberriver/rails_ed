@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < ApplicationController
   before_action :find_question, only: %i[ new create ]
   before_action :set_answer, only: %i[ show edit update destroy ]
 
@@ -20,7 +20,7 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
-      redirect_to question_path(@answer.question)
+      redirect_to admin_question_path(@answer.question)
     else
       render :new
     end
@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to question_path(@answer.question)
+      redirect_to admin_question_path(@answer.question)
     else
         render :edit
     end

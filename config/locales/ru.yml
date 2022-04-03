@@ -1,5 +1,7 @@
 ru:
-  hello: "Привет мир"
+  project_info: "Сервис TestGuru"
+  confirm: "Вы уверены?"
+
 
   helpers:
     submit:
@@ -21,6 +23,9 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
+      not_found: "Test was not found"
+
+
   tests:
     index:
       header: "Доступные тесты"
@@ -37,6 +42,16 @@ ru:
         sucess: "Тест успешно создан"
       index:
         header: "Доступные тесты"
+        alert: "Вы не авторизованы, чтобы просматривать эту страницу"
+
+  questions:
+    create:
+      sucess: "Вопрос успешно создан"
+    index:
+      header: "Доступные тесты"
+      alert: "Вы не авторизованы, чтобы просматривать эту страницу"
+
+
 
     shared:
       errors:

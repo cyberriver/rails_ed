@@ -58,10 +58,10 @@ class Admin::TestsController < Admin::BaseController
     start = Time.now
     yield
     finish = Time.now - start
-    logger.info("Execute tome: #{finish *1000}ms")
+    logger.info("Execute time: #{finish *1000}ms")
   end
 
   def rescue_with_test_not_found
-    render plain: 'Test was not found'
+    render plain: t('.not_found')
   end
 end

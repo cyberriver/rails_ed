@@ -1,5 +1,5 @@
 en:
-  hello: "Hello world"
+  project_info: "Service TestGuru"
 
   helpers:
     submit:
@@ -34,6 +34,7 @@ en:
         sucess: "Test has successfully created"
       index:
         header: "All tests"
+        alert: "You are not authorized to view this page"
 
   test_mailer:
     completed_test:
