@@ -3,12 +3,12 @@
 <table>
   <thead>
     <tr>
-      <th>#test</th>
-      <th>test title</th>
-      <th>test level</th>
-      <th>test category</th>
-      <th>author_id</th>
-      <th>Questions count</th>
+      <th><%=t('.num')%></th>
+      <th><%=t('.title')%></th>
+      <th><%=t('.level')%></th>
+      <th><%=t('.category')%></th>
+      <th><%=t('.author')%></th>
+      <th><%=t('.questions_count')%></th>
     </tr>
   </thead>
 
@@ -23,7 +23,7 @@
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
 
-      <td> <li><%=button_to "Start", start_test_path(test.id), method: :post %></li></td>
+      <td> <li><%=button_to t('start'), start_test_path(test.id), method: :post %></li></td>
 
     </tr>
     <% end %>

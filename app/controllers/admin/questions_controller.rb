@@ -1,10 +1,10 @@
-class Admin::QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :find_question, only: %i[show edit update destroy]
-  before_action :find_test, only: %i[new create]
-
-
+  before_action :find_test, only: %i[index,new,update,destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
+  def index
+  end
 
   def show
   end
@@ -71,7 +71,7 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: t('.not_found')
+    render plain: t('shared.errors.not_found')
   end
 
 end

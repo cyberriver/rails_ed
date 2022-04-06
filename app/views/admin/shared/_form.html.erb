@@ -1,9 +1,11 @@
 <%= render 'shared/errors', resource: @question %>
 <%= question_header(@question) %>
 <%= form_with model: [@test, @question], local: true do |f| %>
-  Body: <%= f.text_field :body %><br />
-  Test_ID: <%= f.text_field :test_id %><br />
-  <%= f.submit "Submit Changes" %>
+<%= f.label :body %><br />
+  <%= f.text_field :body %><br />
+  <%= f.label :test_id %><br />
+  <%= f.text_field :test_id %><br />
+  <%= f.submit t('submit') %>
 <% end %>
 
-<p><%= link_to "Back", admin_test_path(@question.test_id) %></p>
+<p><%= link_to t('nav.back.tests'), admin_test_path(@question.test_id) %></p>

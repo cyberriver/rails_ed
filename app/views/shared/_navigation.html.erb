@@ -1,18 +1,18 @@
 <% if user_signed_in? %>
 <table width ="100%">
-  <td><h2><%= link_to "Test Guru", tests_path %></h2></td>
-  <td align="right"><p class = "nav user"> Welcome, <b> <%= current_user.email %> </b> Guru
+  <td><h2><%= link_to t('TestGuru'), tests_path %></h2></td>
+  <td align="right"><p class = "nav user"> <%= t('welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b> Guru
     <%= link_to "Eng", change_locale_path(:en) %>
     <%= link_to "Rus", change_locale_path(:ru)%></p>
 
   </td>
 </table>
   <ul>
-      <li><%= link_to "All_tests", tests_path  %></li>
-      <li><%= link_to "My_tests", my_tests_path  %></li>
-      <li><%= link_to "My_profile", edit_user_registration_path %></li>
-      <li><%= link_to "Back", :back %></li>
-      <li><%= button_to "Quit", destroy_user_session_path, method: :delete, class: 'button' %></li>
+      <li><%= link_to t('nav.menu.all_tests'), tests_path  %></li>
+      <li><%= link_to t('nav.menu.my_tests'), my_tests_path  %></li>
+      <li><%= link_to t('nav.menu.profile'), edit_user_registration_path %></li>
+      <li><%= link_to t('nav.menu.back'), :back %></li>
+      <li><%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: 'button' %></li>
 
     <% end %>
 

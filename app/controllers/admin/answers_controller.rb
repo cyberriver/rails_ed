@@ -1,4 +1,4 @@
-class Admin::AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :find_question, only: %i[ new create ]
   before_action :set_answer, only: %i[ show edit update destroy ]
 
@@ -7,11 +7,9 @@ class Admin::AnswersController < ApplicationController
 
   end
 
-
   def new
     @answer = @question.answers.new
   end
-
 
   def edit
 
@@ -35,7 +33,6 @@ class Admin::AnswersController < ApplicationController
     end
 
   end
-
 
   def destroy
     @answer.destroy

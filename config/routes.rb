@@ -16,10 +16,6 @@ Rails.application.routes.draw do
  get :my_tests, to: 'test_passages#index'
 
   resources :tests, only: :index  do
-    resources :questions, shallow: true, expect: :index do
-      resources :answers, shallow: true, expect: :index
-    end
-
     member do
       post :start
     end

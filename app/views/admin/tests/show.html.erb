@@ -1,11 +1,11 @@
-<h2>Test details </h2>
+<h2><%= t('.header', title: @test.title)%> </h2>
 <table>
   <thead>
-    <th>Test ID</th>
-    <th>Title</th>
-    <th>level-id</th>
-    <th>level_title</th>
-    <th>category name </th>
+    <th> <%= t('.test_id')%> </th>
+    <th><%= t('.title')%> </th>
+    <th><%= t('.level_id')%> </th>
+    <th><%= t('.level')%> </th>
+    <th><%= t('.category')%> </th>
 
   </thead>
   <tbody>
@@ -20,17 +20,17 @@
 </table>
 <p>
   <tr>
-   Create new Question
-   <%= link_to "Create", new_test_question_path(@test) %>
+   <%= t('.create')%>
+   <%= link_to t('create'), new_admin_test_question_path(@test) %>
   </tr>
 
 </p>
 <p>
-  <h3>Test questions</h3>
+  <h3><%= t('.questions_header')%></h3>
   <table>
     <thead>
-      <th>ID</th>
-      <th>body</th>
+      <th><%= t('.question_id')%></th>
+      <th><%= t('.question_body')%></th>
     </thead>
     <tbody>
 
@@ -38,9 +38,9 @@
       <tr>
         <td><%= q.id %></td>
         <td><%= q.body %></td>
-        <td><%= link_to "Show", admin_question_path(q.id) %></td>
-        <td><%= link_to "Edit", edit_admin_question_path(q.id) %></td>
-        <td><%= button_to "Delete", admin_question_path(q.id),
+        <td><%= link_to t('show'), admin_question_path(q.id) %></td>
+        <td><%= link_to t('edit'), edit_admin_question_path(q.id) %></td>
+        <td><%= button_to t('delete'), admin_question_path(q.id),
                                     method: :delete,
                                     form: {
                                        data: { confirm: t('confrim') }
@@ -54,4 +54,4 @@
   </table>
 </p>
 
-<p><%= link_to "Back", admin_tests_path %></p>
+<p><%= link_to t('nav.back.tests'), admin_tests_path %></p>

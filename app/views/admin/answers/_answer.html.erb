@@ -1,14 +1,17 @@
 
-
-  <li>
       <%= answer.title%>
+      <p>
+        <%= link_to t('edit'), edit_admin_answer_path(answer) %>
+      </p>
 
-        <%= link_to "Edit this answer", edit_admin_answer_path(answer) %> |
-        <%= link_to "Back to answers", admin_question_path(@question) %>
+         <p>
+           <%= link_to t('nav.back,answers'), admin_question_path(@question) %>
+         </p>
 
-        <%= button_to "Destroy this answer", answer,
-                                             method: :delete,
-                                             form: {
-                                               data: { confirm: "Are you sure?"}
-                                             }%>
-</li>
+<p>
+  <%= button_to t('delete'), admin_question_path(@question),
+                                       method: :delete,
+                                       form: {
+                                         data: { confirm: t('confirm')}
+                                       }%>
+</p>

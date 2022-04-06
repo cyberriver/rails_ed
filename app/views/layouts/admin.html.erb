@@ -5,7 +5,7 @@
 <![endif]-->
 <html>
   <head>
-    <title>Admin Panel</title>
+    <title> <%= t('nav.menu.title')%> </title>
     <%= flash_message!%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -15,10 +15,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>    
+  <body>
     <%= render 'admin/shared/navigation' %>
 
     <%= yield %>
   </body>
-  <%= render 'shared/footer' %>
+  <%= render 'admin/shared/footer' %>
 </html>

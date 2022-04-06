@@ -7,10 +7,7 @@ class QuestionsController < ApplicationController
   def show
   end
 
-
-
   private
-
 
   def find_question
     @question = Question.find(params[:id])

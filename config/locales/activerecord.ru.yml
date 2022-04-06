@@ -2,11 +2,45 @@ ru:
   activerecord:
     models:
       test: "Тест"
+      test_passage: "Пройденные тесты"
+      question: "Вопрос"
+      category: "Категория"
+      answer: "Ответ"
+      user: "Пользователь"
+      admin: "Администратор"
 
   attributes:
     test:
       title: "Название"
+      level: "Уровень"
+      category_id: "Категория"
+      author_id: "Автор"
+
+    test_passage:
+      user_id: "номер пользователя"
+      test_id: "номер теста"
+      current_question_id: "номер текущего вопроса"
+      correct_question: "вопрос на который правильно ответили"
+
+    question:
+      body: "Тело вопроса"
+      test_id: "номер теста"
+
+    category:
+      title: "Название"
+
+    answer:
+      title: "Название"
+      correct: "Является ли ответ правильным "
+      question_id: "номер вопроса"
+
+    user:
+      first_name: "Имя"
+      last_name: "Фамилия"
+      email: "Email"
+      encrypted_password: "зашифрованный пароль"
 
   errors:
     messages:
       blank: "не может быть пустым"
+      taken: "%{model} уже занят. Создайте с другими параметрами"

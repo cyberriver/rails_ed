@@ -1,8 +1,10 @@
 
 <%= render 'shared/errors', resource: @question %>
 <%= question_header(@question) %>
-<%= form_with model: [@test, @question], local: true do |f| %>
-  Body: <%= f.text_field :body %><br />
-  Test_ID: <%= f.text_field :test_id, readonly: true  %><br />
-  <%= f.submit "Submit Changes" %>
+<%= form_with model: [:admin,@test, @question], local: true do |f| %>
+  <%= f.label :body %><br />
+  <%= f.text_field :body %><br />
+  <%= f.label :test_id %><br />
+  <%= f.text_field :test_id, readonly: true  %><br />
+  <%= f.submit t('submit') %>
 <% end %>
