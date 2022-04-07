@@ -14,8 +14,14 @@ ru:
   actions: "Доступне действия"
   school: "Учебный проект в онлайн-школе Thinknetica"
   start: "Старт"
+  login: "Войти"
+  signup: "Зарегистрироваться"
+
 
   nav:
+    login:
+      email: "Пжлста введите email"
+      remember_me: "Запомнить меня"
     back:
       answers: "Назад к ответам"
       tests: "Назад к тестам"
