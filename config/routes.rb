@@ -7,14 +7,15 @@ Rails.application.routes.draw do
 
  devise_for :users,:tests, path: :gurus, path_names: { sign_in: :login, sign_out: :logout}
 
+ scope "(:locale)", locale: /en|ru/ do
+   resources :tests
+ end
+
+ get '/change_locale/:lang', to: 'settings#change_locale', as: :change_locale
 
  get :my_tests, to: 'test_passages#index'
 
   resources :tests, only: :index  do
-    resources :questions, shallow: true, expect: :index do
-      resources :answers, shallow: true, expect: :index
-    end
-
     member do
       post :start
     end
@@ -27,7 +28,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, shallow: true, expect: :index do
+        resources :answers, shallow: true, expect: :index
+      end
+    end
   end
 
 end

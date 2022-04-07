@@ -6,7 +6,7 @@ class Test < ApplicationRecord
   has_many :questions
 
   validates :title, presence: true,
-    uniqueness: {scope: :level, message: "Can be only one test with one name and lvl"}
+    uniqueness: {scope: :level}
   validates :level, presence: true, numericality: {only_interger: true, greater_than: 0}
 
 

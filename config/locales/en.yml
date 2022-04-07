@@ -1,33 +1,135 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  project_info: "Service TestGuru"
+  TestGuru: "TestGuru"
+  welcome: "Welcome %{title}"
+  author: "Author"
+  year: "Year"
+  confirm: "Are you sure?"
+  submit: "Submit"
+  create: "Create"
+  continue: "Continue"
+  edit: "Edit"
+  delete: "Delete"
+  show: "Show"
+  actions: "Actions"
+  school: "Learning project in online school Thinknetica"
+  start: "Start"
+
+  nav:
+    back:
+      answers: "Back to answers"
+      tests: "Back to Tests"
+    menu:
+      title: "Admin Panel"
+      all_tests: "All tests"
+      my_tests: "My tests"
+      profile: "My profile"
+      back: "Back"
+      quit: "Logout"
+
+  helpers:
+    question:
+      new: "Create New %(title) question"
+      edit: "Edit"
+    score:
+      passed: "You have success passed the test. Your score is"
+      failed: "You have failed the test. Your score is"
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+    label:
+      test:
+        title: "Title"
+        level: "Label"
+        category_id: "Category"
+        author_id: "Author"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+      not_found: "Entry hasn't found"
+
+  tests:
+    index:
+      header: "All tests"
+      test_id: "Test ID"
+      title: "Test Title"
+      level: "Test level id"
+      level: "Test level"
+      category: "Category name"
+      create: "Create new Question"
+      questions_header: "List of questions in the test"
+      question_id: "id question"
+      question_body: "Question body"
+      alert: "You are not authorized to view this page"
+
+
+  test_passages:
+    index:
+      header: "My tests"
+      not_started: "You haven't started any test"
+    result:
+      header: "Test %{title} successfully done"
+      not_started: "You haven't started any test"
+    result:
+      header: "Test %{title} sucess passed"
+    show:
+      header: "Pass the %{title} test"
+
+
+  admin:
+    welcome: "Welcome Admin %{title}"
+    tests:
+      create:
+        sucess: "Test has successfully created"
+      new:
+        create: "Create tests"
+      index:
+        header: "All tests"
+        title: "Название теста"
+        num: "№ теста"
+        level: "Test level"
+        category: "Test category"
+        author: "Author"
+        questions_count: "Count questions in the test"
+        alert: "You are not authorized to view this page"
+        create: "Create new TEST"
+      show:
+        header: "Test: %{title}"
+        test_id: "Test ID"
+        title: "Test Title"
+        level: "Test level id"
+        level: "Test level"
+        category: "Category name"
+        create: "Create new Question"
+        questions_header: "List of questions in the test"
+        question_id: "id question"
+        question_body: "Question body"
+        alert: "You are not authorized to view this page"
+
+    answers:
+      new:
+        create: "Create new answer"
+      edit: "Edit answer"
+
+    questions:
+      create:
+        sucess: "Question created"
+      show:
+        create: "Create Answer"
+        show: "Question %{title}"
+        answers: "Answers"
+      index:
+        header: "Test questions"
+        create_question: "Create new Question"
+        question_id: "Question id"
+        question_body: "Question body"
+        alert: "You are not authorized to view this page"
+
+
+  test_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"

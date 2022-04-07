@@ -3,12 +3,12 @@
   <li>
       <%= answer.title%>
 
-        <%= link_to "Edit this answer", edit_answer_path(answer) %> |
-        <%= link_to "Back to answers", question_path(@question) %>
+        <%= link_to t('edit'), edit_answer_path(answer) %> |
+        <%= link_to t('nav.back.answers'), question_path(@question) %>
 
-        <%= button_to "Destroy this answer", answer,
+        <%= button_to t('delete'), answer,
                                              method: :delete,
                                              form: {
-                                               data: { confirm: "Are you sure?"}
+                                               data: { confirm: t('confirm')}
                                              }%>
 </li>

@@ -3,16 +3,12 @@ class TestPassagesController < ApplicationController
   before_action :set_test_pessage, only: %i[show update result]
 
   def index
-
-
   end
 
   def show
-
   end
 
   def result
-
   end
 
   def update

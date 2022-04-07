@@ -1,0 +1,12 @@
+<%= render 'shared/errors', resource: @answer %>
+<h1><%= t('.edit')%></h1>
+
+<%= render 'form' %>
+
+<br>
+<p></p>
+<div>
+
+  <p></p>
+  <%= link_to t('nav.back.answers'), admin_question_path(@answer.question) %>
+</div>

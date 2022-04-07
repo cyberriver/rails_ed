@@ -1,7 +1,7 @@
 
-<h1>Pass the <%= @test_passage.test.title%>  Test </h1>
+<h1><%= t('.header', title: @test_passage.test.title) %> </h1>
 <p>
-  <h3>Question #<%= @test_passage.current_question_position%> from <%=@test_passage.test.questions.count %> </h3>
+  <h3><%= t('.question_header', current:@test_passage.current_question_position, total: @test_passage.test.questions.count )%> </h3>
 </p>
 
 <b>

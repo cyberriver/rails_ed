@@ -1,11 +1,18 @@
 module QuestionsHelper
 
   def question_header(question)
-
+    html = ""
     if question.new_record?
-      "<h1>Create New #{question.test.title} Question</h1>".html_safe
+      html << "<h1>"
+      html << t('helpers.question.new', title:question.test.title)
+      html << "</h1>"
+      html.html_safe
     else
-        "<h1>Edit #{question.test.title} Question</h1>".html_safe
+      html << "<h1>"
+      html << t('helpers.question.edit', title:question.test.title)
+      html << "</h1>"
+      html.html_safe
+
     end
   end
 end

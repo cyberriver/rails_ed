@@ -1,0 +1,35 @@
+<h1><%= t('.header') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.question_id') %></th>
+      <th><%= t('.question_body') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <p>
+      <tr>
+       <%=t('.create_question')%>
+       <%= link_to t('create'), new_admin_test_question_path(@test) %>
+      </tr>
+
+    </p>
+    <% @test.questions.each do |q|%>
+    <tr>
+
+      <td><%=q.id %> </td>
+      <td><%=q.body %> </td>
+      <td><%= link_to t('show'), admin_question_path(q.id) %></td>
+      <td><%= link_to t('edit'), edit_admin_question_path(q.id) %></td>
+      <td><%= button_to t('delete'), admin_question_path(q.id),
+                                  method: :delete,
+                                  form: {
+                                     data: { confirm: t('confrim') }
+                                   }
+                                   %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>

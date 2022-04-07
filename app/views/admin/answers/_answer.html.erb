@@ -1,0 +1,17 @@
+
+      <%= answer.title%>
+      <p>
+        <%= link_to t('edit'), edit_admin_answer_path(answer) %>
+      </p>
+
+         <p>
+           <%= link_to t('nav.back,answers'), admin_question_path(@question) %>
+         </p>
+
+<p>
+  <%= button_to t('delete'), admin_question_path(@question),
+                                       method: :delete,
+                                       form: {
+                                         data: { confirm: t('confirm')}
+                                       }%>
+</p>

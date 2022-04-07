@@ -1,19 +1,19 @@
-<h1>All Tests</h1>
+<h1><%= t('.header') %></h1>
 <table>
   <thead>
     <tr>
-      <th>#test</th>
-      <th>test title</th>
-      <th>test level</th>
-      <th>test category</th>
-      <th>author_id</th>
-      <th>Questions count</th>
-      <th colspan="4">Actions</th>
+      <th><%=t('.num')%></th>
+      <th><%=t('.title')%></th>
+      <th><%=t('.level')%></th>
+      <th><%=t('.category')%></th>
+      <th><%=t('.author')%></th>
+      <th><%=t('.questions_count')%></th>
+      <th colspan="4"><%= t('actions')%></th>
     </tr>
   </thead>
   <tr>
-   Create new TEST
-   <%= link_to "Create", new_admin_test_path %>
+   <%=t('.create')%>
+   <%= link_to t('create'), new_admin_test_path %>
   </tr>
 
   <tbody>
@@ -27,13 +27,13 @@
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
       <ul>
-        <td><li><%= link_to "Show", admin_test_path(test.id) %></li></td>
-        <td><li><%= link_to "Edit", edit_admin_test_path(test.id) %></li></td>
+        <td><li><%= link_to t('show'), admin_test_path(test.id) %></li></td>
+        <td><li><%= link_to t('edit'), edit_admin_test_path(test.id) %></li></td>
 
-      <td><li><%= button_to "Delete", admin_test_path(test.id),
+      <td><li><%= button_to t('delete'), admin_test_path(test.id),
                                     method: :delete,
                                     form: {
-                                      data: { confirm: "Are you sure?"}
+                                      data: { confirm: t('confirm')}
                                     } %></li></td>
 
       </ul>

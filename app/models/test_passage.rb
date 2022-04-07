@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: :Question, optional: true
 
   before_validation :before_validation_set_question, on: [:create, :update]
+  TEST_SCORE_LIMIT = 0.85
 
 
 
@@ -22,6 +23,14 @@ class TestPassage < ApplicationRecord
     self.test.questions.order(id: :desc).where('id < ?',self.current_question_id).count+1
   end
 
+  def test_result_check
+    if self.test_result > TEST_SCORE_LIMIT
+      true
+    else
+      false
+    end
+  end
+
   def test_result
     self.correct_question.to_f / self.test.questions.count.to_f.round(2)
   end
@@ -34,7 +43,6 @@ class TestPassage < ApplicationRecord
     else
       set_first_question
     end
-    #save!
   end
 
   def set_first_question

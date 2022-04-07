@@ -5,6 +5,7 @@ ruby "2.7.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
+gem "byebug"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -26,9 +27,13 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+ {"lang"=>"en"}
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+
+#Localization
+gem "rails-i18n"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

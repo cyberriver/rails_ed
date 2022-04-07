@@ -1,5 +1,5 @@
 
-<h2>My Tests</h2>
+<h2><%= t('.header')%></h2>
 
 <table>
   <% if current_user.test_passages.present?%>
@@ -18,15 +18,13 @@
       <td><%= tp.id %></td>
       <td><%= tp.test.title %></td>
       <td><%= tp.created_at %></td>
-      <td><li><%= link_to "Continue", test_passage_path(tp)%></li></td>
+      <td><li><%= link_to t('continue'), test_passage_path(tp)%></li></td>
     </tr>
 
     <% end %>
 
   <% else %>
-    <p> You haven't started any test</p>
-
-
+    <p> <%= t('.not_started')%> </p>
 
   <% end %>
   </tbody>

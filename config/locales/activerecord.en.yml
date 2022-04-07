@@ -1,0 +1,47 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      test_passage: "Passed Tests"
+      question: "Question"
+      category: "Category"
+      answer: "Answer"
+      user: "User"
+      admin: "Admin"
+
+  attributes:
+    test:
+      title: "Title"
+      level: "Level"
+      category_id: "Category"
+      author_id: "Author"
+
+    test_passage:
+      user_id: "user id"
+      test_id: "test id"
+      current_question_id: "current question id"
+      correct_question: "correct question"
+
+    question:
+      body: "Question body"
+      test_id: "test id"
+
+    category:
+      title: "title"
+
+    answer:
+      title: "title"
+      correct: "is answer correct?"
+      question_id: "question id"
+
+    user:
+      first_name: "First Name"
+      last_name: "Last Name"
+      email: "Email"
+      encrypted_password: "Encrypted pass"
+
+
+  errors:
+    messages:
+      blank: "Can't be blank"
+      taken: "%{model} already busy. Pls change the parameters"
