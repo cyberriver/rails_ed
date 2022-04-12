@@ -1,8 +1,9 @@
+
 <nav class="navbar navbar-light bg-light">
   <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand' %>
   <span class="navbar-text">
     <% if user_signed_in? %>
-      < <%= t('admin.welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b>
+       <%= t('admin.welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b>
       <%= link_to "Eng", change_locale_path(:en) %> |
       <%= link_to "Rus", change_locale_path(:ru)%>
       <%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
@@ -10,11 +11,11 @@
       <ul>
           <li><%= link_to t('nav.menu.all_tests'), admin_tests_path  %></li>
           <li><%= link_to t('nav.menu.profile'), edit_user_registration_path %></li>
-          <li><%= link_to t('nav.menu.back'), :back %></li>          
+          <li><%= link_to t('nav.menu.back'), :back %></li>
       <ul>
 
     <% else %>
-     <%= link_to t('login'), new_session_path(resource_name) %> |
+     <%= link_to t('login'), new_session_path(resource_name) %> 
      <%= link_to t('signup'), new_registration_path(resource_name) %>
 
     <% end %>

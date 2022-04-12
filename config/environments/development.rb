@@ -18,6 +18,7 @@ Rails.application.configure do
   config.server_timing = true
   config.assets.check_precompiled_asset = false
 
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
@@ -71,6 +72,8 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  config.assets.precompile += %w( '.svg')
 
   # Compress CSS using a preprocessor.
   config.assets.css_compressor = :sass

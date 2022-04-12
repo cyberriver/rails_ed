@@ -35,6 +35,11 @@ gem "jbuilder"
 #Localization
 gem "rails-i18n"
 
+#UI
+gem "jquery-rails"
+gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap-icons-helper', '~> 1.0', '>= 1.0.1'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
