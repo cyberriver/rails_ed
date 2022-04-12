@@ -1,11 +1,11 @@
 <h2><%= t('.header', title: @test.title)%> </h2>
-<table>
+<table class="table">
   <thead>
-    <th> <%= t('.test_id')%> </th>
-    <th><%= t('.title')%> </th>
-    <th><%= t('.level_id')%> </th>
-    <th><%= t('.level')%> </th>
-    <th><%= t('.category')%> </th>
+    <th scope="col"> <%= t('.test_id')%> </th>
+    <th scope="col"><%= t('.title')%> </th>
+    <th scope="col"><%= t('.level_id')%> </th>
+    <th scope="col"><%= t('.level')%> </th>
+    <th scope="col"><%= t('.category')%> </th>
 
   </thead>
   <tbody>
@@ -18,19 +18,14 @@
 
   </tbody>
 </table>
-<p>
-  <tr>
-   <%= t('.create')%>
-   <%= link_to t('create'), new_admin_test_question_path(@test) %>
-  </tr>
 
-</p>
 <p>
-  <h3><%= t('.questions_header')%></h3>
-  <table>
+  <h3><%= t('.questions_header')%>
+    <%= link_to t('create'), new_admin_test_question_path(@test), class: "btn btn-primary" %></h3>
+  <table class = "table">
     <thead>
-      <th><%= t('.question_id')%></th>
-      <th><%= t('.question_body')%></th>
+      <th scope="col"><%= t('.question_id')%></th>
+      <th scope="col"><%= t('.question_body')%></th>
     </thead>
     <tbody>
 
@@ -41,7 +36,7 @@
         <td><%= link_to t('show'), admin_question_path(q.id) %></td>
         <td><%= link_to t('edit'), edit_admin_question_path(q.id) %></td>
         <td><%= button_to t('delete'), admin_question_path(q.id),
-                                    method: :delete,
+                                    method: :delete,class: "btn btn-danger bi bi-eraser",
                                     form: {
                                        data: { confirm: t('confrim') }
                                      }

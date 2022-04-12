@@ -1,0 +1,26 @@
+.nav-item a {
+    position: relative;
+}
+.nav-item a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 1px solid black;
+    transition: 0.4s;
+}
+
+.nav-item a:hover:after {
+    width: 100%;
+}
+ul.nav.navbar-navr {
+ margin: 0; /* Обнуляем значение отступов */
+ padding: 4px; /* Значение полей */
+}
+ul.nav.navbar-navr {
+ display: inline; /* Отображать как строчный элемент */
+ margin-right: 5px; /* Отступ слева */
+ border: 1px solid #000; /* Рамка вокруг текста */
+ padding: 3px; /* Поля вокруг текста */
+}
