@@ -3,25 +3,29 @@
     <div class="navbar-header">
       <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand bi bi-boxes' %>
     </div>
-    <ul class="nav navbar-nav" >
+    </div>
+    <div class="menu" >
       <% if user_signed_in? %>
-      <li><%= link_to t('nav.menu.all_tests'), admin_tests_path, class: "nav-item nav-link active" %></li>
-      <li><%= link_to t('nav.menu.profile'), edit_user_registration_path,class: "nav-item nav-link" %></li>
-      <li><%= link_to t('nav.menu.back'), :back, class: "nav-item nav-link" %></li>
-    </ul>
-  </div>
-  <div class=.container-fluid>
+    </div>
+      <%= link_to t('nav.menu.all_tests'), admin_tests_path %>
+    <div class="menu">
+      <%= link_to t('nav.menu.profile'), edit_user_registration_path %>
+    </div>
+    <div class="menu">
+      <%= link_to t('nav.menu.back'), :back %>
+    </div>
+
+  <div class="menu">
 
     <%= t('admin.welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b>
     <%= link_to "Eng", change_locale_path(:en) %> |
     <%= link_to "Rus", change_locale_path(:ru)%>
+  </div>
+  <div class=".container-fluid">
+
     <%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: "btn btn-primary bi bi-box-arrow-right" %>
 
   </div>
-
-
-
-
 
 
     <% else %>

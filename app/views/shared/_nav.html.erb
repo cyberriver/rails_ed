@@ -1,27 +1,42 @@
 
-
-<nav class="navbar fixed-top navbar-light bg-light">
-
-
-      <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand bi bi-boxes' %>
-
+<nav class="navbar navbar-light bg-light">
+  <div class=".container-fluid">
+    <div class="navbar-header">
       <% if user_signed_in? %>
+      <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand bi bi-boxes' %>
+        <% if current_user.admin? %>
+          <%= link_to '', admin_tests_path, class: 'bi bi-wrench-adjustable' %>
+        <% else %>
+    </div>
+    </div>
 
-      <%= link_to t('nav.menu.my_tests'), my_tests_path, class: "nav-item nav-link"  %>
-      <%= link_to t('nav.menu.profile'), edit_user_registration_path, class: "nav-item nav-link" %>
-      <%= link_to t('nav.menu.back'), :back, class: "nav-item nav-link" %>
+    <div >
+      <%= link_to t('nav.menu.all_tests'), tests_path %>
+    </div>
 
-      <%= t('welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b>
-      <%= link_to "Eng", change_locale_path(:en) %> |
-      <%= link_to "Rus", change_locale_path(:ru)%>
+    <div >
+        <%= link_to t('nav.menu.my_tests'), my_tests_path %>
+    </div>
 
-      <%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+    <div >
+        <%= link_to t('nav.menu.profile'), edit_user_registration_path %>
+    </div>
 
+    <div >
+        <%= link_to t('nav.menu.back'), :back %>
+    </div>
 
+        <%= t('welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b>
+        <%= link_to "Eng", change_locale_path(:en) %> |
+        <%= link_to "Rus", change_locale_path(:ru)%>
+
+    <div class=".container-fluid">
+        <%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: "btn btn-primary bi bi-box-arrow-right" %>
+        <% end %>
+    </div>
       <% else %>
-      <%= link_to t('login'), new_session_path(resource_name) %>
-      <%= link_to t('signup'), new_registration_path(resource_name) %>
-
+        <%= link_to t('login'), new_session_path(resource_name) %>
+        <%= link_to t('signup'), new_registration_path(resource_name) %>
 
       <% end %>
 
