@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light bg-light">
+  <div class=".container-fluid">
+    <div class="navbar-header">
+      <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand bi bi-boxes' %>
+    </div>
+    </div>
+    <div class="menu" >
+      <% if user_signed_in? %>
+    </div>
+      <%= link_to t('nav.menu.all_tests'), admin_tests_path %>
+    <div class="menu">
+      <%= link_to t('nav.menu.profile'), edit_user_registration_path %>
+    </div>
+    <div class="menu">
+      <%= link_to t('nav.menu.back'), :back %>
+    </div>
+
+  <div class="menu">
+
+    <%= t('admin.welcome', title: current_user.first_name)%> <b> <%= current_user.email %> </b>
+    <%= link_to "Eng", change_locale_path(:en) %> |
+    <%= link_to "Rus", change_locale_path(:ru)%>
+  </div>
+  <div class=".container-fluid">
+
+    <%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: "btn btn-primary bi bi-box-arrow-right" %>
+
+  </div>
+
+
+    <% else %>
+     <%= link_to t('login'), new_session_path(resource_name) %> |
+     <%= link_to t('signup'), new_registration_path(resource_name) %>
+
+
+    <% end %>
+
+    </nav>

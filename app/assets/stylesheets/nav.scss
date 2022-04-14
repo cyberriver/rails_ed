@@ -1,65 +1,12 @@
-.nav.user {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: right;
-  position: relative;
-  }
 
-.nav.nav-admin {
-  background-color: #F76A51;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: right;
-  position: relative;
-  }
+ul.nav {
 
-  .nav-admin.user {
-
-    floart: right;
-  }
-
-  .nav-admin.user-email {
-    text-decoration: underline;
-  }
-  .nav.nav-admin
-  a {
-    color: #ffffff
-  }
-
-
-  .button {
-  background-color: #1960F7; /* blue */
-  display: block;
-  margin-left: auto;
-  margin-right: 0;
-  padding: 15px 5px;
-
+ margin: 0; /* Обнуляем значение отступов */
+ padding: 4px; /* Значение полей */
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0E3FA9;
-}
-
-li {
-    float: left;
-    list-style-type: none;
-    color: #03B06C
-}
-
-li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-
-}
-
-li a:hover {
-    background-color: #03B06C;
+ul.nav {
+  display: inline !important;/* Отображать как строчный элемент */
+ margin-right: 5px; /* Отступ слева */
+ border: 1px solid #000; /* Рамка вокруг текста */
+ padding: 3px; /* Поля вокруг текста */
 }

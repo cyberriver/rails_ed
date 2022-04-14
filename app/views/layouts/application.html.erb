@@ -4,9 +4,15 @@
   </script>
 <![endif]-->
 <html>
+
   <head>
-    <title>TestGuru</title>
-    <%= flash_message!%>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= t('TestGuru')%></title>
+    <div class="container">
+        <%= flash_message!%>
+    </div>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,9 +22,13 @@
   </head>
 
   <body>
-    <%= render 'shared/navigation' %>
+    <%= render 'shared/nav' %>
 
     <%= yield %>
   </body>
-  <%= render 'shared/footer' %>
+  <div class="row justify-content-center mt-3">
+    <%= render 'shared/footer' %>    
+  </div>
+
+
 </html>

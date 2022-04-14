@@ -1,14 +1,14 @@
 <h1><%= t('.header')%></h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th><%=t('.num')%></th>
-      <th><%=t('.title')%></th>
-      <th><%=t('.level')%></th>
-      <th><%=t('.category')%></th>
-      <th><%=t('.author')%></th>
-      <th><%=t('.questions_count')%></th>
+      <th scope="col"><%=t('.num')%></th>
+      <th scope="col"><%=t('.title')%></th>
+      <th scope="col"><%=t('.level')%></th>
+      <th scope="col"><%=t('.category')%></th>
+      <th scope="col"><%=t('.author')%></th>
+      <th scope="col"><%=t('.questions_count')%></th>
     </tr>
   </thead>
 
@@ -23,7 +23,7 @@
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
 
-      <td> <li><%=button_to t('start'), start_test_path(test.id), method: :post %></li></td>
+      <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
 
     </tr>
     <% end %>

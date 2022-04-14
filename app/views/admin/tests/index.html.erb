@@ -1,44 +1,50 @@
-<h1><%= t('.header') %></h1>
-<table>
+
+<h2><%= t('.header') %><%= link_to t('create'), new_admin_test_path, class: "btn btn-primary bi bi-bag-plus" %></h2>
+
+
+<table class="table">
   <thead>
     <tr>
-      <th><%=t('.num')%></th>
-      <th><%=t('.title')%></th>
-      <th><%=t('.level')%></th>
-      <th><%=t('.category')%></th>
-      <th><%=t('.author')%></th>
-      <th><%=t('.questions_count')%></th>
-      <th colspan="4"><%= t('actions')%></th>
+      <th scope="col"><%=t('.num')%></th>
+      <th scope="col"><%=t('.title')%></th>
+      <th scope="col"><%=t('.level')%></th>
+      <th scope="col"><%=t('.category')%></th>
+      <th scope="col"><%=t('.author')%></th>
+      <th scope="col"><%=t('.questions_count')%></th>
+      <th colspan="4" scope="col"><%= t('actions')%></th>
     </tr>
   </thead>
-  <tr>
-   <%=t('.create')%>
-   <%= link_to t('create'), new_admin_test_path %>
-  </tr>
 
   <tbody>
     <% @test.each do |test|%>
     <tr>
-
       <td><%=test.id %> </td>
       <td><%=test.title %> </td>
       <td><%=level_title(test)%> </td>
       <td><%=test.category_id%> </td>
       <td><%=test.author_id %> </td>
       <td><%=test.questions.count %></td>
-      <ul>
-        <td><li><%= link_to t('show'), admin_test_path(test.id) %></li></td>
-        <td><li><%= link_to t('edit'), edit_admin_test_path(test.id) %></li></td>
 
-      <td><li><%= button_to t('delete'), admin_test_path(test.id),
-                                    method: :delete,
+        <td>
+
+
+          <%= link_to t('show'), admin_test_path(test.id),class: "btn btn-light bi bi-zoom-in" %></td>
+        <td>
+
+
+          <%= link_to t('edit'), edit_admin_test_path(test.id),class: "btn btn-info bi bi-brush" %></td>
+
+      <td>
+        <%= button_to t('delete'), admin_test_path(test.id),
+                                    method: :delete, class: "btn btn-danger bi bi-eraser",
                                     form: {
                                       data: { confirm: t('confirm')}
-                                    } %></li></td>
+                                    } %>
 
-      </ul>
+                                  </td>
+
+
     </tr>
     <% end %>
   </tbody>
-
 </table>
