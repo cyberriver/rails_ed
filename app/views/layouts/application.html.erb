@@ -7,13 +7,13 @@
 
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= t('TestGuru')%></title>
     <div class="container">
         <%= flash_message!%>
     </div>
 
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -27,7 +27,7 @@
     <%= yield %>
   </body>
   <div class="row justify-content-center mt-3">
-    <%= render 'shared/footer' %>    
+    <%= render 'shared/footer' %>
   </div>
 
 

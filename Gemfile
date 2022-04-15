@@ -32,6 +32,11 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
+#Networking
+gem 'faraday'
+gem "net-http"
+gem "octokit"
+
 #Localization
 gem "rails-i18n"
 

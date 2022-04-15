@@ -16,10 +16,11 @@ en:
   start: "Start"
   login: "Login"
   signup: "Signup"
+  edit: "Edit %{title}"
 
   nav:
     login:
-      email: "Пжлста введите email"      
+      email: "Пжлста введите email"
       remember_me: "Запомнить меня"
     back:
       answers: "Back to answers"
