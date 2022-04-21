@@ -15,7 +15,7 @@ class GistQuestionService
 
   def gist_params
     {
-    accept: 'application/vnd.github.v3+json',
+    accept: "application/vnd.github.v3+json",
     description: "A question abount #{test.title} from TestGuru",
     files: {"test-guru-question.txt":
            {content: gist_content}

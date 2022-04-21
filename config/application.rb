@@ -32,6 +32,7 @@ module TestGuru
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
+    config.autoload_paths << "#{Rails.root}/app/services"
 
 
   end
