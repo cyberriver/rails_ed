@@ -17,6 +17,9 @@ en:
   login: "Login"
   signup: "Signup"
   edit: "Edit %{title}"
+  success_gist_question: "Question successfully saved to gists"
+  failure_gist_question: "Cound't save to gist. Something went wrong"
+  gist_question: "Save question"
 
   nav:
     login:

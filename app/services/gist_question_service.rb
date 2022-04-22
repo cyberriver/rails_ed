@@ -2,7 +2,7 @@ class GistQuestionService
 
   def initialize(question, client:nil)
     @question=question
-    @test = @question.tests
+    @test = @question.test
     @client = client || GitHubClient.new
 
   end
@@ -16,7 +16,7 @@ class GistQuestionService
   def gist_params
     {
     accept: "application/vnd.github.v3+json",
-    description: "A question abount #{test.title} from TestGuru",
+    description: "A question abount #{@test.title} from TestGuru",
     files: {"test-guru-question.txt":
            {content: gist_content}
             },
@@ -27,7 +27,7 @@ class GistQuestionService
 
   def gist_content
     content = [@question.body]
-    content += @question.answers.pluck(:body)
+    content += @question.answers.pluck(:title)
     content.join("\n")
 
   end

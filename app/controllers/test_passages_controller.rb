@@ -1,5 +1,5 @@
 class TestPassagesController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: %i[update]
   before_action :set_test_pessage, only: %i[show update result gist]
 
   def index
@@ -25,10 +25,10 @@ class TestPassagesController < ApplicationController
     result = GistQuestionService.new(@test_passage.current_question).call
 
     flash_options = if result.success?
-      {notice: t('success')}
-    else
-      {alert: t('failure')}
-    end
+                         {notice: t('success_gist_question')}
+                    else
+                         {alert: t('failure')}
+                    end
 
     redirect_to test_passage_path(@test_passage), flash_options
   end
