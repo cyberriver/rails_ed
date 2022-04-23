@@ -8,20 +8,23 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    puts("gist params: #{gist_params}")
+    @client.http_client.create_gist(gist_params)
+
   end
 
   private
 
   def gist_params
     {
-    accept: "application/vnd.github.v3+json",
-    description: "A question abount #{@test.title} from TestGuru",
-    files: {"test-guru-question.txt":
-           {content: gist_content}
-            },
-    public: true
+      description: "A question about #{@test.title} from TestGuru",
+      public: true,
+      files: {"test-guru-question.txt":
+             {content: gist_content}
+              }
     }
+
+
 
   end
 
