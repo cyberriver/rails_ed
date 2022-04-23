@@ -22,9 +22,13 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
+    service = GistQuestionService.new(@test_passage.current_question)
+    res = service.call
 
-    flash_options = if result.success?
+    puts("CHECK SUCESS RESULT #{service.response.status}")
+
+
+    flash_options = if service.response.status.in?(200..299)
                         {notice: t('success_gist_question')}
                     else
                          {alert: t('failure_gist_question')}

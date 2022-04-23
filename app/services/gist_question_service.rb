@@ -1,15 +1,18 @@
 class GistQuestionService
+  attr_reader :response
 
   def initialize(question, client:nil)
     @question=question
     @test = @question.test
     @client = client || GitHubClient.new
+    @response = ''
 
   end
 
   def call
     puts("gist params: #{gist_params}")
     @client.http_client.create_gist(gist_params)
+    @response  = @client.http_client.last_response
 
   end
 
@@ -23,8 +26,6 @@ class GistQuestionService
              {content: gist_content}
               }
     }
-
-
 
   end
 

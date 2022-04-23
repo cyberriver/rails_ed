@@ -9,7 +9,7 @@ class GitHubClient
   attr_reader :create_gist, :http_client
 
   ROOT_ENDPOINT = 'https://api.github.com'
-  ACCESS_TOKEN = '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'
+  ACCESS_TOKEN = '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'
 
 
   def initialize
