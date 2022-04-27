@@ -22,20 +22,20 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    service = GistQuestionService.new(@test_passage.current_question)
-    res = service.call
+    conn = GistQuestionService.new(@test_passage.current_question)
+    conn.call
 
-    puts("CHECK SUCESS RESULT #{service.response.status}")
+    if conn.response.status.in?(200..299)
+        flash_options = {notice: t('success_gist_question', url: conn.response.data.url)}
+        gist_save(@test_passage.current_question, conn.response.data.url,@test_passage.user.email)
 
-
-    flash_options = if service.response.status.in?(200..299)
-                        {notice: t('success_gist_question')}
-                    else
-                         {alert: t('failure_gist_question')}
-                    end
+    else
+      flash_options = {alert: t('failure_gist_question')}
+    end  
 
     redirect_to test_passage_path(@test_passage), flash_options
   end
+
 
   private
 
@@ -43,5 +43,14 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
 
   end
+
+  def gist_save(question,url,email)
+    @gist = Gist.new(question: question,
+            gist_url: url,
+            email: email )
+    @gist.save
+
+  end
+
 
 end

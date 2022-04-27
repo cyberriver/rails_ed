@@ -9,21 +9,18 @@ class GitHubClient
   attr_reader :create_gist, :http_client
 
   ROOT_ENDPOINT = 'https://api.github.com'
-  ACCESS_TOKEN = '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'
+  ACCESS_TOKEN = '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'
 
 
   def initialize
-  #  @http_client = setup_http_client
+
      @http_client = Octokit::Client.new(:access_token => ACCESS_TOKEN)
   end
 
   def create_gist(params)
     @http_client.create_gist(options = params)
 
-  #  @http_client.post('gists') do |request|
-  #    request.headers['Authorization'] = "token #{ACCESS_TOKEN}"
-  #    request.body = params.to_json
-  #  end
+
   end
 
 

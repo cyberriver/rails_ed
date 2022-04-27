@@ -21,6 +21,9 @@ en:
   failure_gist_question: "Cound't save to gist. Something went wrong"
   gist_question: "Save question"
 
+  gist:
+    params: "A question about %{@title} from TestGuru"
+    
   nav:
     login:
       email: "Пжлста введите email"

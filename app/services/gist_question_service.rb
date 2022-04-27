@@ -10,17 +10,32 @@ class GistQuestionService
   end
 
   def call
-    puts("gist params: #{gist_params}")
+
     @client.http_client.create_gist(gist_params)
     @response  = @client.http_client.last_response
 
   end
 
+  def test_call
+    test_params =   {
+        description: "Test gist",
+        public: true,
+        files: {"test-gist.txt":
+               {content: "gist_content"}
+                }
+      }
+
+    @client.http_client.create_gist(test_params)
+    @response  = @client.http_client.last_response
+  end
+
+
+
   private
 
   def gist_params
     {
-      description: "A question about #{@test.title} from TestGuru",
+      description: I18n.t('gist.params', title: @test.title),
       public: true,
       files: {"test-guru-question.txt":
              {content: gist_content}

@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :author_tests, class_name: :Test, foreign_key: :author_id
+  has_many :gists_email, class_name: :Gist, foreign_key: :email
 
   validates :first_name, presence: true
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
