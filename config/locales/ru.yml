@@ -23,6 +23,10 @@ ru:
 
   gist:
     params: "Вопрос о %{title} из сервиса TestGuru"
+    show:
+      question: "Вопрос пользователя"
+      gist_url: "Ссылка на гист"
+      email: "Email пользователя"
 
 
   nav:
@@ -39,6 +43,7 @@ ru:
       profile: "Мой профиль"
       back: "Назад"
       quit: "Выйти"
+      all_gists: "Входящие обращения"
 
   helpers:
     score:

@@ -29,8 +29,6 @@ class GistQuestionService
     @response  = @client.http_client.last_response
   end
 
-
-
   private
 
   def gist_params
