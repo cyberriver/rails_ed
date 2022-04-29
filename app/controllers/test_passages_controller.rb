@@ -28,7 +28,7 @@ class TestPassagesController < ApplicationController
     if conn.response.status.in?(200..299)
         flash_options = {notice: t('success_gist_question', url: conn.response.data.url)}
         gist_save(@test_passage.current_question,
-                  conn.response.data.url,
+                  conn.response.data.html_url,
                   @test_passage.user.email)
 
     else

@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th scope="col"><%=t('question')%></th>
-      <th scope="col"><%=t('.gist_url')%></th>
+
       <th scope="col"><%=t('.email')%></th>
     </tr>
   </thead>
@@ -11,8 +11,8 @@
   <tbody>
     <% @gists.each do |gist| %>
     <tr>
-      <td><%= gist.question.body %></td>
-      <td><%= gist.gist_url %></td>
+      <td><%= link_to "#{gist.question.body}",gist.gist_url %></td>
+      
       <td><%= gist.email %></td>
 
     </tr>
