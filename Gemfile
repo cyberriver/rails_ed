@@ -35,6 +35,9 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
+# ENV variables
+gem 'dotenv-rails', groups: [:development, :test]
+
 #Networking
 gem 'faraday'
 gem "net-http"
