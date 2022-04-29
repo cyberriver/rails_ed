@@ -16,14 +16,13 @@ ru:
   start: "Старт"
   login: "Войти"
   signup: "Зарегистрироваться"
-  edit: "Редактировать %{title}"
   success_gist_question: "Вопрос успешно сохранен в гист, %{url}"
   failure_gist_question: "Не удалось сохранить вопрос в гист"
   gist_question: "Сохранить вопрос"
 
   gist:
     params: "Вопрос о %{title} из сервиса TestGuru"
-    show:
+    index:
       question: "Вопрос пользователя"
       gist_url: "Ссылка на гист"
       email: "Email пользователя"
