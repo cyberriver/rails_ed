@@ -42,6 +42,7 @@ en:
       back: "Back"
       quit: "Logout"
       all_gists: "Incomming requests"
+      all_users: "All users"
 
   helpers:
     question:

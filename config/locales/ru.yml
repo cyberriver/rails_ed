@@ -43,6 +43,7 @@ ru:
       back: "Назад"
       quit: "Выйти"
       all_gists: "Входящие обращения"
+      all_users: "Все пользователи"
 
   helpers:
     score:
@@ -97,6 +98,14 @@ ru:
 
   admin:
     welcome: "Добро пожаловать Админ %{title}"
+    users:
+      index:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Email"
+        type: "Тип"
+        last_sign_in_at: "Последний визит"
+        sign_in_count: "Количество входов"
     tests:
       create:
         sucess: "Тест успешно создан"

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index]
+    resources :users, only: %i[index]
   end
 
 end
