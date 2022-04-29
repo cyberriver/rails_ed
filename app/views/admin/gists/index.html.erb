@@ -12,7 +12,7 @@
     <% @gists.each do |gist| %>
     <tr>
       <td><%= link_to "#{gist.question.body}",gist.gist_url %></td>
-      
+      <td><%= gist.gist_url %></td>
       <td><%= gist.email %></td>
 
     </tr>
