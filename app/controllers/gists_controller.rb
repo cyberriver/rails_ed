@@ -2,13 +2,13 @@ class GistsController < ApplicationController
   before_action :set_test_pessage, only: %i[create index]
 
   def create
-    conn = GistQuestionService.new(@test_passage.current_question)
-    conn.call
+    client= GistQuestionService.new(@test_passage.current_question)
+    result = client.call
 
-    if conn.success?
-      flash_options = {notice: t('success_gist_question', url: conn.response.data.url)}
+    if client.success?
+      flash_options = {notice: t('success_gist_question', url: result.data.url)}
       gist_save(@test_passage.current_question,
-                      conn.response.data.html_url,
+                      result.data.html_url,
                       @test_passage.user.id)
     else
       flash_options = {alert: t('failure_gist_question')}

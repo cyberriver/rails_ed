@@ -19,11 +19,8 @@ class GistQuestionService
 
   def success?
 
-    if @client.last_response.status.in?(200..299)
-      true
-    else
-      false
-    end
+    @client.last_response.status.in?(200..299)
+
   end
 
 

@@ -25,8 +25,6 @@ Rails.application.routes.draw do
 
     member do
       get :result
-    # post :gist
-      #get :gist
     end
     resources :gists, only: %i[create index]
   end
