@@ -21,23 +21,6 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def gist
-    conn = GistQuestionService.new(@test_passage.current_question)
-    conn.call
-
-    if conn.response.status.in?(200..299)
-        flash_options = {notice: t('success_gist_question', url: conn.response.data.url)}
-        gist_save(@test_passage.current_question,
-                  conn.response.data.html_url,
-                  @test_passage.user.email)
-
-    else
-      flash_options = {alert: t('failure_gist_question')}
-    end
-
-    redirect_to test_passage_path(@test_passage), flash_options
-  end
-
 
   private
 
@@ -46,13 +29,6 @@ class TestPassagesController < ApplicationController
 
   end
 
-  def gist_save(question,url,email)
-    @gist = question.gists.new(
-            gist_url: url,
-            email: email )
-    @gist.save
-
-  end
 
 
 end

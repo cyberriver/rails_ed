@@ -1,20 +1,34 @@
 class GistQuestionService
   attr_reader :response
 
+  ACCESS_TOKEN = ENV['GIT_HUB_CLIENT']
+
   def initialize(question, client:nil)
     @question=question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new( access_token: ACCESS_TOKEN)
     @response = ''
 
   end
 
   def call
 
-    @client.http_client.create_gist(gist_params)
-    @response  = @client.http_client.last_response
-
+    @client.create_gist(gist_params)
+    @response  = @client.last_response
   end
+
+  def success?
+
+    if @client.last_response.status.in?(200..299)
+      true
+    else
+      false
+    end
+  end
+
+
+
+
 
   def test_call
     test_params =   {
@@ -25,8 +39,8 @@ class GistQuestionService
                 }
       }
 
-    @client.http_client.create_gist(test_params)
-    @response  = @client.http_client.last_response
+    @client.create_gist(test_params)
+    @response  = @client.last_response
   end
 
   private
