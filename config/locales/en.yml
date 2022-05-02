@@ -8,7 +8,6 @@ en:
   submit: "Submit"
   create: "Create"
   continue: "Continue"
-  edit: "Edit"
   delete: "Delete"
   show: "Show"
   actions: "Actions"
@@ -16,11 +15,22 @@ en:
   start: "Start"
   login: "Login"
   signup: "Signup"
+  edit: "Edit "
+  success_gist_question: "Question successfully saved to gists"
+  failure_gist_question: "Cound't save to gist. Something went wrong"
+  gist_question: "Save question"
+
+  gist:
+    params: "A question about %{@title} from TestGuru"
+    index:
+      question: "Request from user"
+      gist_url: "Link to gist"
+      email: "User's email"
 
   nav:
     login:
-      email: "Пжлста введите email"      
-      remember_me: "Запомнить меня"
+      email: "Pls enter email"
+      remember_me: "Remember me"
     back:
       answers: "Back to answers"
       tests: "Back to Tests"
@@ -31,6 +41,8 @@ en:
       profile: "My profile"
       back: "Back"
       quit: "Logout"
+      all_gists: "Incomming requests"
+      all_users: "All users"
 
   helpers:
     question:

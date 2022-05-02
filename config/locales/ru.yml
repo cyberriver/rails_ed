@@ -16,6 +16,16 @@ ru:
   start: "Старт"
   login: "Войти"
   signup: "Зарегистрироваться"
+  success_gist_question: "Вопрос успешно сохранен в гист, %{url}"
+  failure_gist_question: "Не удалось сохранить вопрос в гист"
+  gist_question: "Сохранить вопрос"
+
+  gist:
+    params: "Вопрос о %{title} из сервиса TestGuru"
+    index:
+      question: "Вопрос пользователя"
+      gist_url: "Ссылка на гист"
+      email: "Email пользователя"
 
 
   nav:
@@ -32,6 +42,8 @@ ru:
       profile: "Мой профиль"
       back: "Назад"
       quit: "Выйти"
+      all_gists: "Входящие обращения"
+      all_users: "Все пользователи"
 
   helpers:
     score:
@@ -86,6 +98,14 @@ ru:
 
   admin:
     welcome: "Добро пожаловать Админ %{title}"
+    users:
+      index:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Email"
+        type: "Тип"
+        last_sign_in_at: "Последний визит"
+        sign_in_count: "Количество входов"
     tests:
       create:
         sucess: "Тест успешно создан"

@@ -1,6 +1,6 @@
 class TestPassagesController < ApplicationController
-
-  before_action :set_test_pessage, only: %i[show update result]
+  skip_before_action :verify_authenticity_token, only: %i[update]
+  before_action :set_test_pessage, only: %i[show update result gist]
 
   def index
   end
@@ -21,11 +21,14 @@ class TestPassagesController < ApplicationController
     end
   end
 
+
   private
 
   def set_test_pessage
     @test_passage = TestPassage.find(params[:id])
 
   end
+
+
 
 end
