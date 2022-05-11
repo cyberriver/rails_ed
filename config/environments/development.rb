@@ -73,12 +73,12 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  config.assets.precompile += %w( '.svg')
+  #config.assets.precompile += %w( '.svg')
 
   # Compress CSS using a preprocessor.
-  config.assets.css_compressor = :sass
+  #config.assets.css_compressor = :sass
   #config.assets.js_compressor = Uglifier.new(:harmony => true)
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  #config.assets.compile = true
 
 end

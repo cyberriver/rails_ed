@@ -1,23 +1,23 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light ">
   <div class=".container-fluid">
-    <div class="navbar-header">
+    <div class="navbar-header menu-hover">
       <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand bi bi-boxes' %>
     </div>
-    </div>
-    <div class="menu" >
+    </div>    
+    <div class="menu menu-hover" >
       <% if user_signed_in? %>
-    </div>
       <%= link_to t('nav.menu.all_tests'), admin_tests_path %>
-    <div class="menu">
+    </div>
+    <div class="menu menu-hover">
       <%= link_to t('nav.menu.profile'), edit_user_registration_path %>
     </div>
-    <div class="menu">
+    <div class="menu menu-hover">
       <%= link_to t('nav.menu.all_gists'), admin_gists_path %>
     </div>
-    <div class="menu">
+    <div class="menu menu-hover">
       <%= link_to t('nav.menu.all_users'), admin_users_path %>
     </div>
-    <div class="menu">
+    <div class="menu menu-hover">
       <%= link_to t('nav.menu.back'), :back %>
     </div>
 
