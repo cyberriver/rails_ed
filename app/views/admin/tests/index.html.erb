@@ -6,7 +6,11 @@
   <thead>
     <tr>
       <th scope="col"><%=t('.num')%></th>
-      <th scope="col"><%=t('.title')%></th>
+      <th class = "sort-by-title pointer" scope="col">
+        <%=t('.title')%>
+        <i class="bi bi-arrow-bar-up " ></i>
+        <i class="bi bi-arrow-bar-down hide" ></i>
+      </th>
       <th scope="col"><%=t('.level')%></th>
       <th scope="col"><%=t('.category')%></th>
       <th scope="col"><%=t('.author')%></th>
@@ -35,11 +39,10 @@
           <%= link_to t('edit'), edit_admin_test_path(test.id),class: "btn btn-info bi bi-brush" %></td>
 
       <td>
-        <%= button_to t('delete'), admin_test_path(test.id),
-                                    method: :delete, class: "btn btn-danger bi bi-eraser",
-                                    form: {
-                                      data: { confirm: t('confirm')}
-                                    } %>
+        <%= link_to t('delete'), admin_test_path(test.id),
+                                   class: "btn btn-danger bi bi-eraser",
+                                  data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}
+                                     %>
 
                                   </td>
 

@@ -1,3 +1,6 @@
 @import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/fonts/bootstrap-icons';
-@import 'custom'
+@import 'bootstrap/scss/alert';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+//utilities
+@import "custom"

@@ -1,17 +1,18 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "3.0.3"
 gem "spring", group: :development
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.0"
+gem "rails", "7.0.2.2"
 gem "byebug"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem "propshaft", "~> 0.6"
 gem 'sassc-rails'
-
+gem "jsbundling-rails", "~> 1.0"
+gem "cssbundling-rails", "~> 1.0"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
@@ -23,7 +24,7 @@ gem "puma", "~> 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails","~> 1.0"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -33,7 +34,7 @@ gem "jbuilder"
  {"lang"=>"en"}
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # ENV variables
 gem 'dotenv-rails', groups: [:development, :test]
@@ -44,7 +45,7 @@ gem "net-http"
 gem "octokit"
 
 #Localization
-gem "rails-i18n"
+gem "rails-i18n", "~> 7"
 
 #UI
 gem "jquery-rails"
@@ -65,10 +66,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-gem "sassc-rails"
-gem "cssbundling-rails"
-gem "jsbundling-rails"
-gem "uglifier"
+
+#gem "uglifier"
 
 
 
