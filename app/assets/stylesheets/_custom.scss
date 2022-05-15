@@ -8,10 +8,37 @@
 
 .menu-hover:hover{
   background-color: gray;
-  color: white;
+  color: black;
 }
 
 a:link {
   outline: none;
   text-decoration: none;
+}
+
+/* Это стили для не валидных полей */
+input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* Это стили для кастомных сообщений об ошибке */
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
 }
