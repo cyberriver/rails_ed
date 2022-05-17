@@ -6,12 +6,31 @@
   display: none;
 }
 
-.menu-hover:hover{
-  background-color: gray;
+.hover:hover{
+  background-color: #0d6efd;
   color: white;
 }
 
 a:link {
   outline: none;
   text-decoration: none;
+
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+
+}
+
+/* Это стили для не валидных полей */
+.invalid{
+  color: red;
+
+}
+
+.valid{
+  color: green;
+
 }

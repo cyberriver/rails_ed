@@ -6,7 +6,4 @@ import * as bootstrap from "bootstrap"
 
 
 import "./scripts/sorting"
-import "./scripts/confirm"
-
-
-Rails.start()
+import "./scripts/check_pass"

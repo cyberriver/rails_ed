@@ -1,16 +1,18 @@
 
-<h2><%= t('.header') %><%= link_to t('create'), new_admin_test_path, class: "btn btn-primary bi bi-bag-plus" %></h2>
+<h2><%= t('.header') %><%= link_to t('create'), new_admin_test_path,
+  class: "btn btn-primary bi bi-bag-plus" %></h2>
 
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="col"><%=t('.num')%></th>
+
       <th class = "sort-by-title pointer" scope="col">
         <%=t('.title')%>
         <i class="bi bi-arrow-bar-up " ></i>
         <i class="bi bi-arrow-bar-down hide" ></i>
       </th>
+      <th scope="col"><%=t('.num')%></th>
       <th scope="col"><%=t('.level')%></th>
       <th scope="col"><%=t('.category')%></th>
       <th scope="col"><%=t('.author')%></th>
@@ -21,9 +23,9 @@
 
   <tbody>
     <% @test.each do |test|%>
-    <tr>
-      <td><%=test.id %> </td>
+    <tr>      
       <td><%=test.title %> </td>
+      <td><%=test.id %> </td>
       <td><%=level_title(test)%> </td>
       <td><%=test.category_id%> </td>
       <td><%=test.author_id %> </td>

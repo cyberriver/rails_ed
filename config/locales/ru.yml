@@ -20,6 +20,9 @@ ru:
   failure_gist_question: "Не удалось сохранить вопрос в гист"
   gist_question: "Сохранить вопрос"
 
+  devise:
+    signup: "Регистрация нового пользователя"
+
   gist:
     params: "Вопрос о %{title} из сервиса TestGuru"
     index:

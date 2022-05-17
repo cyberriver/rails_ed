@@ -1,23 +1,23 @@
 <nav class="navbar navbar-light bg-light ">
   <div class=".container-fluid">
-    <div class="navbar-header menu-hover">
+    <div class="navbar-brand menu-hover">
       <%= link_to t('TestGuru'), tests_path, class: 'navbar-brand bi bi-boxes' %>
     </div>
-    </div>    
-    <div class="menu menu-hover" >
+    </div>
+    <div class="nav-link hover" >
       <% if user_signed_in? %>
       <%= link_to t('nav.menu.all_tests'), admin_tests_path %>
     </div>
-    <div class="menu menu-hover">
+    <div class="nav-link hover">
       <%= link_to t('nav.menu.profile'), edit_user_registration_path %>
     </div>
-    <div class="menu menu-hover">
+    <div class="nav-link  hover">
       <%= link_to t('nav.menu.all_gists'), admin_gists_path %>
     </div>
-    <div class="menu menu-hover">
+    <div class="nav-link hover">
       <%= link_to t('nav.menu.all_users'), admin_users_path %>
     </div>
-    <div class="menu menu-hover">
+    <div class="nav-link hover">
       <%= link_to t('nav.menu.back'), :back %>
     </div>
 
@@ -29,7 +29,7 @@
   </div>
   <div class=".container-fluid">
 
-    <%= button_to t('nav.menu.quit'), destroy_user_session_path, method: :delete, class: "btn btn-primary bi bi-box-arrow-right" %>
+    <%= link_to t('nav.menu.quit'), destroy_user_session_path, data: { turbo_method: "delete"}, class: "btn btn-primary bi bi-box-arrow-right" %>
 
   </div>
 

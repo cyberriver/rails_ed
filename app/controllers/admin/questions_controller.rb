@@ -22,7 +22,7 @@ class Admin::QuestionsController < Admin::BaseController
     if @question.save
        redirect_to admin_test_questions_path(@question.test_id)
     else
-       render :edit
+       render :edit, status: :unprocessable_entity
     end
 
   end
@@ -32,14 +32,14 @@ class Admin::QuestionsController < Admin::BaseController
     if @question.save
        redirect_to admin_test_questions_path(@question.test_id), notice: t('.sucess')
     else
-       render :new
+       render :new, status: :unprocessable_entity
     end
 
   end
 
   def destroy
     @question.destroy
-    redirect_to admin_test_questions_path(@question.test_id)
+    redirect_to admin_test_questions_path(@question.test_id), status:303
   end
 
 

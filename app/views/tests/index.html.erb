@@ -3,8 +3,13 @@
 <table class="table">
   <thead>
     <tr>
+
+      <th class = "sort-by-title pointer" scope="col">
+        <%=t('.title')%>        
+        <i class="bi bi-arrow-bar-up " ></i>
+        <i class="bi bi-arrow-bar-down hide" ></i>
+      </th>
       <th scope="col"><%=t('.num')%></th>
-      <th scope="col"><%=t('.title')%></th>
       <th scope="col"><%=t('.level')%></th>
       <th scope="col"><%=t('.category')%></th>
       <th scope="col"><%=t('.author')%></th>
@@ -16,8 +21,8 @@
     <% @test.each do |test|%>
     <tr>
 
-      <td><%=test.id %> </td>
       <td><%=test.title %> </td>
+      <td><%=test.id %> </td>
       <td><%=level_title(test)%> </td>
       <td><%=test.category_id%> </td>
       <td><%=test.author_id %> </td>
