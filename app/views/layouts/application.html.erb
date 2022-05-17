@@ -20,13 +20,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <%= render 'shared/nav' %>
 
     <%= yield %>
   </body>
 
-  <div class="col-md-4 mx-auto">
+  <div class="col-md-6 mx-auto mt-auto">
     <p></p>
     <%= render 'shared/footer' %>
   </div>
