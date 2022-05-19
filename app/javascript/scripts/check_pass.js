@@ -26,3 +26,4 @@ function passwordCheck(){
       console.log('пароли не  совпадают')
       break
   }
+}
