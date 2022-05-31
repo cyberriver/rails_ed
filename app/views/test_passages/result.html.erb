@@ -1,6 +1,16 @@
+<div class="container" >
+  <div class="card mx-auto" style = "border:none">
+    <div class="card body" style = "border:none">
+      <h3 class="card-title"><%= t('.header', title: @test_passage.test.title) %> </h3>
+        <h3 class="card-text"><%= show_result(@test_passage) %></h3>
+        <p></p>
+    </div>
 
-<h1><%= t('.header', title: @test_passage.test.title) %> </h1>
-<p>
-  <h2><%= show_result(@test_passage) %></h2>
-</p>
-<p><%= link_to t('nav.back.tests'), tests_path %></p>
+    <div class="container" style = "border:none">
+      <p>
+        <%= link_to t('nav.back.tests'), tests_path, class: "btn btn-primary" %>
+      </p>
+
+    </div>
+  </div>
+</div>

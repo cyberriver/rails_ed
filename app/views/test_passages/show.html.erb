@@ -3,7 +3,7 @@
 
 
 <div class="container">
-  <div class="card mx-auto">
+  <div class="card mx-auto" style = "border:none">
     <h1><%= t('.header', title: @test_passage.test.title) %> </h1>
     <p>
       <h3><%= t('.question_header',
@@ -26,9 +26,9 @@
     </div>
   </div>
 
-  <div class="card  mx-auto">
+  <div class="card  mx-auto" style = "border:none">
     <%= @test_passage.current_question.body%>
-    <div class="card-body">
+    <div class="card-body" style = "border:none">
       <%= form_with url: test_passage_path(@test_passage),
                          local:true,
                          data: {turbo: false},
