@@ -1,4 +1,4 @@
-document.addEventListener('turbo:load', function () {
+document.addEventListener('turbo:load', function() {
   var control = document.getElementById('progress-bar')
 
   if (control) {
@@ -8,5 +8,5 @@ document.addEventListener('turbo:load', function () {
 
 function showCurrentProgress(control) {
    var progress = control.dataset.progress
-   control.style.width = progress + '%'
+   control.style ='width:'+ progress + '%'
 }

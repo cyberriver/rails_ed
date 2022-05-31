@@ -8,7 +8,9 @@
       <th>Test Passage ID</th>
       <th>Test Name</th>
       <th>Started at</th>
+      <th>% progress done</th>
       <th>Action</th>
+
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,7 @@
       <td><%= tp.id %></td>
       <td><%= tp.test.title %></td>
       <td><%= tp.created_at %></td>
+      <th><%= tp.current_progress%></th>
       <td><li><%= link_to t('continue'), test_passage_path(tp)%></li></td>
     </tr>
 

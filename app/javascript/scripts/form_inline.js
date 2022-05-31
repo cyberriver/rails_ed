@@ -16,8 +16,8 @@ document.addEventListener('turbo:load', function(){
 })
 
 
-function formInLineLinkHandler(evt) {
-  evt.preventDefault()
+function formInLineLinkHandler(event) {
+  event.preventDefault()
 
   var testId = this.dataset.testId
   formInLinekHandler(testId)

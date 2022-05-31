@@ -1,29 +1,60 @@
 
-<h1><%= t('.header', title: @test_passage.test.title) %> </h1>
-<p>
-  <h3><%= t('.question_header', current:@test_passage.current_question_position, total: @test_passage.test.questions.count )%> </h3>
-</p>
-
-<b>
-  <%= @test_passage.current_question.body%>
-</b>
 
 
 
+<div class="container">
+  <div class="card mx-auto">
+    <h1><%= t('.header', title: @test_passage.test.title) %> </h1>
+    <p>
+      <h3><%= t('.question_header',
+           current:@test_passage.current_question_position,
+           total: @test_passage.test.questions.count )%>
+      </h3>
+    </p>
 
-<%= form_with url: test_passage_path(@test_passage), local:true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :title, include_hidden:
-  false do |b| %>
-  <p>
-    <%= b.check_box id: "answer_ids_#{b.object.id}"%>
-    <%= b.label%>
-  </p>
-  <% end%>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated"
+           role="progressbar"
+           id = "progress-bar"
+           aria-valuenow="75"
+           aria-valuemin="0"
+           aria-valuemax="100"
+           style="width: <%  @test_passage.current_progress%>%"
+           data-progress="<%= @test_passage.current_progress %>">
 
-  <p>
-    <%= form.submit 'Next' %>
-  </p>
-<% end %>
-<p>
-  <%= button_to t('gist_question'), test_passage_gists_path(@test_passage), method: :post,class: "btn btn-warning bi bi-chat-left-heart" %>
-</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card  mx-auto">
+    <%= @test_passage.current_question.body%>
+    <div class="card-body">
+      <%= form_with url: test_passage_path(@test_passage),
+                         local:true,
+                         data: {turbo: false},
+                         method: :put do |form| %>
+
+        <%= form.collection_check_boxes :answer_ids,
+                          @test_passage.current_question.answers,
+                          :id,
+                          :title,
+                          include_hidden: false do |b| %>
+        <p>
+          <%= b.check_box id: "answer_ids_#{b.object.id}"%>
+          <%= b.label%>
+        </p>
+        <% end%>
+
+        <p>
+          <%= form.submit 'Next' %>
+        </p>
+      <% end %>
+      <p>
+        <%= link_to t('gist_question'), test_passage_gists_path(@test_passage),
+                                        data:{turbo_method: "post"},
+                                        class: "btn btn-warning bi bi-chat-left-heart" %>
+      </p>
+    </div>
+
+  </div>
+</div>

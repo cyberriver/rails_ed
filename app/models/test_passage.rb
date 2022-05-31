@@ -23,6 +23,10 @@ class TestPassage < ApplicationRecord
     self.test.questions.order(id: :desc).where('id < ?',self.current_question_id).count+1
   end
 
+  def current_progress
+    (current_question_position.to_f / test.questions.count) * 100.round(1)
+  end
+
   def test_result_check
     if self.test_result > TEST_SCORE_LIMIT
       true
