@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
- root to: 'tests#index'
+ root to: redirect("/login")
 
  devise_for :users,:tests, path: :gurus, path_names: { sign_in: :login, sign_out: :logout}
 

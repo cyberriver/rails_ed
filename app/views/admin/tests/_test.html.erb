@@ -1,10 +1,10 @@
 
 <tr >
   <td class = "align-middle">
-    <%=content_tag :span,
+    <%=content_tag( :span,
                     test.title,
                     class: 'test-title',
-                    data: { test_id: test.id } %>
+                    data: { test_id: test.id }) %>
     <%= render 'form_inline', test: test == @test ? @test: test %>
   </td>
   <td class = "align-middle"><%=test.id %> </td>

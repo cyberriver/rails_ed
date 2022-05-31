@@ -29,8 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-
-  #  byebug
+  
     if session[:lang].present?
       locale = session[:lang].to_sym
       I18n.locale = I18n.locale_available?(locale) ? locale : I18n.default_locale

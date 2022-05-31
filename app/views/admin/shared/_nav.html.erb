@@ -29,7 +29,10 @@
   </div>
   <div class=".container-fluid">
 
-    <%= link_to t('nav.menu.quit'), destroy_user_session_path, data: { turbo_method: "delete"}, class: "btn btn-primary bi bi-box-arrow-right" %>
+    <%= link_to t('nav.menu.quit'),
+                  destroy_user_session_path,
+                  data: { turbo_method: "delete"},
+                  class: "btn btn-primary bi bi-box-arrow-right" %>
 
   </div>
 
