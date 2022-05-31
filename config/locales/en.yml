@@ -85,6 +85,8 @@ en:
       question_id: "id question"
       question_body: "Question body"
       alert: "You are not authorized to view this page"
+    update_inline:
+      sucess: "Test successfully updated"
 
 
   test_passages:

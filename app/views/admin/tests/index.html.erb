@@ -22,34 +22,9 @@
   </thead>
 
   <tbody>
-    <% @test.each do |test|%>
-    <tr>      
-      <td><%=test.title %> </td>
-      <td><%=test.id %> </td>
-      <td><%=level_title(test)%> </td>
-      <td><%=test.category_id%> </td>
-      <td><%=test.author_id %> </td>
-      <td><%=test.questions.count %></td>
 
-        <td>
+    <%= render @tests%>
+    <%#=  byebug %>
 
-
-          <%= link_to t('show'), admin_test_path(test.id),class: "btn btn-light bi bi-zoom-in" %></td>
-        <td>
-
-
-          <%= link_to t('edit'), edit_admin_test_path(test.id),class: "btn btn-info bi bi-brush" %></td>
-
-      <td>
-        <%= link_to t('delete'), admin_test_path(test.id),
-                                   class: "btn btn-danger bi bi-eraser",
-                                  data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}
-                                     %>
-
-                                  </td>
-
-
-    </tr>
-    <% end %>
   </tbody>
 </table>

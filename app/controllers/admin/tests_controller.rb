@@ -1,9 +1,9 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_test, only: %i[show edit update update_inline destroy start]
+  before_action :set_tests, only: %i[index update_inline]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    @test = Test.all
 
   end
 
@@ -22,7 +22,7 @@ class Admin::TestsController < Admin::BaseController
   def update
     @test.update(test_params)
     if @test.save
-       redirect_to admin_tests_path
+       redirect_to admin_tests_path, notice: t('.sucess')
     else
        render :edit, status: :unprocessable_entity
     end
@@ -38,10 +38,23 @@ class Admin::TestsController < Admin::BaseController
     end
   end
 
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path, notice: t('.sucess')
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   def destroy
 
     @test.destroy
-    redirect_to admin_tests_path, status:303
+
+
+    respond_to do |format|
+  format.html { redirect_to admin_tests_path, status:303, notice: "Quote was successfully destroyed." }
+  format.turbo_stream { flash.now[:notice] = "Quote was successfully destroyed." }
+end
   end
 
   private
@@ -52,6 +65,10 @@ class Admin::TestsController < Admin::BaseController
 
   def set_test
     @test = Test.find(params[:id])
+  end
+
+  def set_tests
+    @tests = Test.all
   end
 
   def log_execute_time

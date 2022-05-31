@@ -9,11 +9,6 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><%= t('TestGuru')%></title>
-    <div class="container">
-        <%= flash_message!%>
-    </div>
-
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -22,6 +17,10 @@
 
   <body class="d-flex flex-column min-vh-100">
     <%= render 'shared/nav' %>
+    <main class ="container mt-3">
+              <%= flash_message!%>
+
+    </main>
 
     <%= yield %>
   </body>

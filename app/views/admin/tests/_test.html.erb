@@ -1,0 +1,32 @@
+
+<tr >
+  <td class = "align-middle">
+    <%=content_tag :span,
+                    test.title,
+                    class: 'test-title',
+                    data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test ? @test: test %>
+  </td>
+  <td class = "align-middle"><%=test.id %> </td>
+  <td class = "align-middle"><%=level_title(test)%> </td>
+  <td class = "align-middle"><%=test.category_id%> </td>
+  <td class = "align-middle"><%=test.author_id %> </td>
+  <td class = "align-middle"><%=test.questions.count %></td>
+
+    <td class = "align-middle">
+      <%= link_to t('show'),
+                     admin_test_path(test.id),
+                     class: "btn btn-light bi bi-zoom-in" %></td>
+    <td class = "align-middle">
+      <%= link_to t('edit'),
+                     edit_admin_test_path(test),
+                     class: "form-inline-link",
+                     data: { test_id: test.id } %>
+    </td>
+  <td class = "align-middle">
+    <%= link_to t('delete'), admin_test_path(test.id),
+                               class: "btn btn-danger bi bi-eraser",
+                              data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}
+                                 %>
+  </td>
+</tr>
