@@ -1,7 +1,6 @@
 
-
-document.addEventListener('turbo:load', ()=>{
-  var controls = document.querySelectorAll('.form-inline-link')
+document.addEventListener('turbo:load', function(){
+  let controls = document.querySelectorAll('.form-inline-link')
 
   if (controls.length){
     for (var i = 0; i < controls.length; i++) {
@@ -17,8 +16,8 @@ document.addEventListener('turbo:load', ()=>{
 })
 
 
-function formInLineLinkHandler(event) {
-  event.preventDefault()
+function formInLineLinkHandler(evt) {
+  evt.preventDefault()
 
   var testId = this.dataset.testId
   formInLinekHandler(testId)
@@ -26,10 +25,9 @@ function formInLineLinkHandler(event) {
 
 function formInLinekHandler(testId) {
   var link = document.querySelector('.form-inline-link[data-test-id="' + testId +'"]')
-  var testTitle = document.querySelector('.test_title[data-test-id="' + testId +'"]')
+  var testTitle = document.querySelector('.test-title[data-test-id="' + testId +'"]')
   var formInline = document.querySelector('.form-inline[data-test-id="' + testId +'"]')
 
-  if (!formInline) {return}
 
   if (formInline.classList.contains('hide')) {
     testTitle.classList.add('hide')

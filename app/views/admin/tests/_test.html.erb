@@ -20,8 +20,8 @@
     <td class = "align-middle">
       <%= link_to t('edit'),
                      edit_admin_test_path(test),
-                     data: { test_id: test.id },
-                     class: "form-inline-link" %>
+                     class: "form-inline-link",
+                     data: { test_id: test.id } %>
     </td>
   <td class = "align-middle">
     <%= link_to t('delete'), admin_test_path(test.id),
