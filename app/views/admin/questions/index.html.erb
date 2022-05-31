@@ -22,10 +22,10 @@
       <td><%=q.body %> </td>
       <td><%= link_to t('show'), admin_question_path(q.id) %></td>
       <td><%= link_to t('edit'), edit_admin_question_path(q.id) %></td>
-      <td><%= button_to t('delete'), admin_question_path(q.id),
+      <td><%= lin_to t('delete'), admin_question_path(q.id),
                                   method: :delete,
                                   form: {
-                                     data: { confirm: t('confrim') }
+                                     data: {  turbo_method: "delete", turbo_confirm: "Are you sure?"}
                                    }
                                    %></td>
 

@@ -4,7 +4,6 @@ class Admin::TestsController < Admin::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    @test = Test.all
 
   end
 
@@ -23,7 +22,7 @@ class Admin::TestsController < Admin::BaseController
   def update
     @test.update(test_params)
     if @test.save
-       redirect_to admin_tests_path
+       redirect_to admin_tests_path, notice: t('.sucess')
     else
        render :edit, status: :unprocessable_entity
     end
@@ -41,16 +40,21 @@ class Admin::TestsController < Admin::BaseController
 
   def update_inline
     if @test.update(test_params)
-      redirect_to admin_tests_path
+      redirect_to admin_tests_path, notice: t('.sucess')
     else
-      render :index
+      render :index, status: :unprocessable_entity
     end
   end
 
   def destroy
 
     @test.destroy
-    redirect_to admin_tests_path, status:303
+
+
+    respond_to do |format|
+  format.html { redirect_to admin_tests_path, status:303, notice: "Quote was successfully destroyed." }
+  format.turbo_stream { flash.now[:notice] = "Quote was successfully destroyed." }
+end
   end
 
   private
