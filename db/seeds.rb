@@ -9,7 +9,6 @@
 ActiveRecord::Base.connection.disable_referential_integrity do
   begin
     category = Category.find_or_create_by(title: 'Junior Web development tests')
-
     user = User.new(
       first_name: 'John',
       last_name:  'Doe',

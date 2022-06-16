@@ -32,7 +32,7 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
- {"lang"=>"en"}
+
 
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
@@ -41,9 +41,10 @@ gem "redis", "~> 4.0"
 gem 'dotenv-rails', groups: [:development, :test]
 
 #Networking
-gem 'faraday'
+#gem 'faraday'
 gem "net-http"
 gem "octokit"
+gem 'faraday-retry'
 
 #Localization
 gem "rails-i18n", "~> 7"

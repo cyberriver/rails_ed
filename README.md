@@ -80,6 +80,12 @@ application is used bootstrap 5.0 so you need install it and install compiler Es
 
 * Configuration
 
+Security credentials stored at master.key
+to edit it pls run:
+
+EDITOR="atom --wait" rails credentials:edit --environment=development
+
+
 * Database creation
 
 * Database initialization
