@@ -1,4 +1,4 @@
-
+<%= render 'admin/shared/errors', resource: @test %>
 <%= form_with model: [:admin, @test], data:{turbo:false} do |f| %>
   <%= f.label :title%><br />
   <%= f.text_field :title %><br />
@@ -9,5 +9,5 @@
   <%= f.label :author_id %><br />
   <%= f.text_field :author_id, value: session[:user_id], readonly: true%><br />
   <%= f.submit %>
-  <%= render 'shared/errors', resource: @test %>
+
 <% end %>

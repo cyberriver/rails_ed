@@ -69,7 +69,7 @@ en:
     errors:
       header:
         one: "%{count} error detected"
-        other: "%{count} errors detected"
+        many: "%{count} errors detected"
       not_found: "Entry hasn't found"
 
   tests:

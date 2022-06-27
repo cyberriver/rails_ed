@@ -66,14 +66,7 @@ ru:
       new: "Создать новый вопрос для %{title}"
       edit: "Редактирвать вопрос для %{title}"
 
-  shared:
-    errors:
-      header:
-        few: "Обнаружено %{count} ошибки"
-        many: "Обнаружено %{count} ошибок"
-        one: "Обнаружена %{count} ошибка"
-        other: "Обнаружено %{count} ошибки"
-      not_found: "Запись не найдена"
+
 
 
   tests:
@@ -154,8 +147,6 @@ ru:
         show: "Вопрос %{title} "
         answers: "Ответы"
 
-
-
       index:
         header: "Вопросы теста"
         create_question: "Создать новый вопрос"
@@ -163,14 +154,12 @@ ru:
         question_body: "Тело вопроса"
         alert: "Вы не авторизованы, чтобы просматривать эту страницу"
 
-
-
     shared:
       errors:
         header:
-          few: "%{count} ошибки"
-          many: "%{count} ошибок"
           one: "%{count} ошибка"
+          few: "%{count} ошибки"
+          many: "%{count} ошибок"          
           other: "%{count} ошибки"
 
     test_mailer:

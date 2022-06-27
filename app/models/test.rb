@@ -5,8 +5,7 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
   has_many :questions
 
-  validates :title, presence: true,
-    uniqueness: {scope: :level}
+  validates :title, presence: true, uniqueness: {scope: :level}
   validates :level, presence: true, numericality: {only_interger: true, greater_than: 0}
 
 
