@@ -1,8 +1,7 @@
-<%= render 'shared/errors', resource: @answer %>
-<h1><%= t('.create')%></h1>
-<%= render 'form' %>
-<br>
 
-<p>
-    <%= link_to t('nav.back.answers'), admin_question_path(@question) %>
-</p>
+<h3><%= t('.create')%></h3>
+<%= render 'form' %>
+
+
+
+    <%= link_to t('nav.back.answers'), admin_question_path(@question), class: "btn btn-info" %>

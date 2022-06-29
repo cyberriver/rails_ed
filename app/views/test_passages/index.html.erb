@@ -5,11 +5,11 @@
   <% if current_user.test_passages.present?%>
   <thead>
     <tr>
-      <th scope="col">Test Passage ID</th>
-      <th scope="col">Test Name</th>
-      <th scope="col">Started at</th>
-      <th scope="col">% progress done</th>
-      <th scope="col">Action</th>
+      <th scope="col"><%= t('.id')%></th>
+      <th scope="col"><%= t('.test_title')%></th>
+      <th scope="col"><%=t('.started')%></th>
+      <th scope="col"><%= t('.progress')%></th>
+      <th scope="col"><%=t('.action')%></th>
 
     </tr>
   </thead>

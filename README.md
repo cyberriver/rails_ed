@@ -1,6 +1,7 @@
 # README
 
 #LMS system is being designed for ligth and fast configration and passing the tests.
+
 #Systems based on Rails 7 for Ubuntu 20.04 as a serverside
 
 #Installation process for Ubuntu 20.04
@@ -39,8 +40,6 @@ Please visit https://rvm.io/integration/gnome-terminal/ for an example.
 
   rvm use 3.0.3
 
-* install Database SQLite3 from SQLite3.org (usually it already installed on Unix like system)
-
 * install Node.js (v16 and higher) and node modules
   go to nodejs.org and install Node
 
@@ -73,26 +72,55 @@ After installing yarn pls don't forget to install yarn plugin by running script
   yarn upgrade
 
 * Ruby Gems
-don't forget to run bundle upgrade
+1. Bundle update
 
-* Installing bootstrap
+* Installing bootstrap CSS
 application is used bootstrap 5.0 so you need install it and install compiler Esbuilder to compile assets
 
-* Configuration
+1. npm install bootstrap@3
+2. add bootstrap gem to Gemfile
+3. gem install esbuilder
 
-Security credentials stored at master.key
-to edit it pls run:
+
+* DB Configuration
+to configure postgress - install postgress and create the proper role
+1. sudo apt update
+2. sudo apt install postgresql postgresql-contrib
+#pls make sure that postgress has been started
+3. sudo systemctl start postgresql.service
+# create the role within postgress for your user
+4. sudo -i -u postgres
+# if you created without password, run psql console and change the password
+5. sudo -u postgres psql
+6. \password USERNAME
+
+* Configure the security credentials pls run:
 
 EDITOR="atom --wait" rails credentials:edit --environment=development
-
+#put your credentials in opened credentials file which will be automatically encrypted after save operation
+database:
+  username: YOURUSERNAME_ROLE
+  password: MODIFIEDPASSWORD_IN_PSSQL
 
 * Database creation
 
+after configuration run:
+1. bin/rails db:setup
+# to run seeds data
+2. bin/rails db:migrate
+
+* Mailer Configuration
+set proper mailer credentials in rails config
+
 * Database initialization
+
+#Add new admin user:
+1. Create user via User registration
+2. Set manually in IRB console Admin type for it.
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+
 
 * Deployment instructions
 

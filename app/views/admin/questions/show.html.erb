@@ -1,14 +1,13 @@
 
-<h1><%=t('.show', title: @question.body) %></h1>
-
+<h3><%=t('.show', title: @question.body) %></h3>
+<div class="container-md align-items-center" >
 <p>
-  <h2><%= t('.answers')%></h2>
-  <p><%= link_to t('.create'), new_admin_question_answer_path(@question) %></p>
-<ol>
+  <h3><%= t('.answers')%></h3>
+  <p><%= link_to t('.create'), new_admin_question_answer_path(@question),class: "btn btn-primary" %></p>
+
+<ol class="list-group list-group-numbered">
 
   <%=render @question.answers %>
 </ol>
-
-</p>
-
-<p><%= link_to t('nav.back.tests'), admin_tests_path %></p>
+  <%= link_to t('nav.back.tests'), admin_tests_path, class: "btn btn-info" %>
+</div>

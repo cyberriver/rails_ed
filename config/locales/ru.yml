@@ -20,6 +20,9 @@ ru:
   failure_gist_question: "Не удалось сохранить вопрос в гист"
   gist_question: "Сохранить вопрос"
 
+  help:
+    question: "Вам необходимо создать вопрос для теста. После создания вопроса необходимо будет добавить для него ответы."
+
   devise:
     signup: "Регистрация нового пользователя"
 
@@ -84,6 +87,11 @@ ru:
 
   test_passages:
     index:
+      id: "Номер попытки сдачи теста"
+      test_title: "Название теста"
+      started: "Дата начала прохождения"
+      progress: "Прогресс выполнения"
+      action: "Доступные действия"
       header: "Мои тесты"
       not_started: "Вы не начали ни один тест"
     result:
@@ -154,13 +162,14 @@ ru:
         question_body: "Тело вопроса"
         alert: "Вы не авторизованы, чтобы просматривать эту страницу"
 
-    shared:
-      errors:
-        header:
-          one: "%{count} ошибка"
-          few: "%{count} ошибки"
-          many: "%{count} ошибок"          
-          other: "%{count} ошибки"
+  shared:
+    errors:
+      not_found: "Запись не найдена"
+      header:
+        one: "%{count} ошибка"
+        few: "%{count} ошибки"
+        many: "%{count} ошибок"
+        other: "%{count} ошибки"
 
     test_mailer:
       completed_test:

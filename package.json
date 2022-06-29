@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "This README would normally document whatever steps are necessary to get the application up and running. * Project Entity list * Answer (title, correct, question_id) * Categories (title) * Questions (body, test_id) * Tests(title,level, category_id, author_id) * User(name, email) * Usertests (test_id,user_id)",
   "main": "webpack.config.js",
-  "private": "true",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -25,6 +24,7 @@
   },
   "homepage": "https://github.com/cyberriver/rails_ed",
   "dependencies": {
+    "@hotwired/turbo": "^7.1.0",
     "@hotwired/turbo-rails": "^7.1.1",
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.1.3",
@@ -35,5 +35,6 @@
   },
   "browerlist": [
     "defaults"
-  ]
+  ],
+  "packageManager": "yarn@3.2.1"
 }

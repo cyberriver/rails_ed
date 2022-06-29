@@ -20,6 +20,10 @@ en:
   failure_gist_question: "Cound't save to gist. Something went wrong"
   gist_question: "Save question"
 
+  help:
+    question: "Pls add new question. After question creation you need to add answers to it"
+
+
   devise:
     signup: "Registration new user"
 
@@ -49,7 +53,7 @@ en:
 
   helpers:
     question:
-      new: "Create New %(title) question"
+      new: "Create New %{title} question"
       edit: "Edit"
     score:
       passed: "You have success passed the test. Your score is"

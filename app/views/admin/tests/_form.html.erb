@@ -1,13 +1,19 @@
-<%= render 'admin/shared/errors', resource: @test %>
-<%= form_with model: [:admin, @test], data:{turbo:false} do |f| %>
-  <%= f.label :title%><br />
-  <%= f.text_field :title %><br />
-  <%= f.label :level %><br />
-  <%= f.text_field :level %><br />
-  <%= f.label :category_id %><br />
-  <%= f.text_field :category_id %><br />
-  <%= f.label :author_id %><br />
-  <%= f.text_field :author_id, value: session[:user_id], readonly: true%><br />
-  <%= f.submit %>
 
-<% end %>
+<div class="card border-0 w-50 align-items-center"">
+  <div class="card-body">
+    <%= render 'admin/shared/errors', resource: @test %>
+    <%= form_with model: [:admin, @test], data:{turbo:true} do |f| %>
+      <%= f.label :title%><br />
+      <%= f.text_field :title %><br />
+      <%= f.label :level %><br />
+      <%= f.text_field :level %><br />
+      <%= f.label :category_id %><br />
+      <%= f.text_field :category_id %><br />
+      <%= f.label :author_id %><br />
+      <%= f.text_field :author_id, value: session[:user_id], readonly: true%><br />
+      <%= f.submit t('submit'), class: "btn btn-primary" %>
+
+    <% end %>
+
+  </div>
+</div>

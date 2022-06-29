@@ -1,10 +1,25 @@
 
-<%= render 'shared/errors', resource: @question %>
+<%= render 'admin/shared/errors',resource: @question %>
 <%= question_header(@question) %>
-<%= form_with model: [:admin,@test, @question], local: true do |f| %>
-  <%= f.label :body %><br />
-  <%= f.text_field :body %><br />
-  <%= f.label :test_id %><br />
-  <%= f.text_field :test_id, readonly: true  %><br />
-  <%= f.submit t('submit') %>
+
+<div class="card border-0 w-50">
+  <div class="card-body">
+    <%= form_with model: [:admin,@test, @question], class: "card-title", data:{turbo:true} do |f| %>
+    <%= f.label :body, class: "form-label" %><br />
+    <%= f.text_field :body %><br />
+    <%= f.label :test_id, class: "form-label" %><br />
+    <%= f.text_field :test_id, readonly: true %><br />
+    <%= f.label :test_title, class: "form-label" %><br />
+    <%= f.text_field :test_title, readonly: true %><br />
+
+    <div id="questionHelpBlock" class="form-text">
+      <%= t('help.question')%>
+    </div>
+
+    <%= f.submit t('submit'), class: "btn btn-primary" %>
+  </div>
+
+</div>
+
+
 <% end %>
