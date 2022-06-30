@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
+  rescue_from ActionController::InvalidAuthenticityToken do
+    redirect_to root, notice: 'Token expired/invalid'
+  end
+
 
   def after_sign_in_path_for(current_user)
      current_user.admin? ? admin_tests_path : tests_path
@@ -29,13 +33,15 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-  
+
     if session[:lang].present?
       locale = session[:lang].to_sym
       I18n.locale = I18n.locale_available?(locale) ? locale : I18n.default_locale
     end
 
   end
+
+  
 
 
 end

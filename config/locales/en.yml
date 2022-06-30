@@ -75,6 +75,7 @@ en:
         one: "%{count} error detected"
         many: "%{count} errors detected"
       not_found: "Entry hasn't found"
+      has_connected_data: "Could delete entry, it has connected foreign data. "
 
   tests:
     index:

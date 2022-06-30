@@ -5,6 +5,8 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
   has_many :questions
 
+  before_destroy :check_for_active_testpassage?
+
   validates :title, presence: true, uniqueness: {scope: :level}
   validates :level, presence: true, numericality: {only_interger: true, greater_than: 0}
 
@@ -22,6 +24,14 @@ class Test < ApplicationRecord
     self.show_tests_by_category(category_name)
     .order(title: :desc)
     .pluck(:title)
+  end
+
+  private
+
+  def check_for_active_testpassage?
+    if self.test_passages.where.not(current_question:nil).count
+      errors.add(:test_has_active_testpassage, "Test has active test_passages. You can delete it")
+    end
 
   end
 

@@ -165,6 +165,7 @@ ru:
   shared:
     errors:
       not_found: "Запись не найдена"
+      has_connected_data: "Нельзя удалить, нарушается целостность данных, у записи есть связанные данные"
       header:
         one: "%{count} ошибка"
         few: "%{count} ошибки"

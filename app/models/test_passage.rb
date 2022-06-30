@@ -3,7 +3,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: :Question, optional: true
   before_validation :before_validation_set_question, on: [:create, :update]
-  TEST_SCORE_LIMIT = 0.85
+  TEST_SCORE_LIMIT = 0.85  #parameter for success score result
 
 
   def completed?
@@ -22,7 +22,11 @@ class TestPassage < ApplicationRecord
   end
 
   def current_progress
-    (current_question_position.to_f / test.questions.count) * 100.round(1)
+    unless self.completed?
+      (current_question_position.to_f / test.questions.count) * 100.round(1)
+    else
+      100
+    end
   end
 
   def test_result_check

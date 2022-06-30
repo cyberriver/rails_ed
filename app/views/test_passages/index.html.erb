@@ -38,7 +38,10 @@
 
 
       </th>
-      <td><%= link_to t('continue'), test_passage_path(tp), class: "btn btn-light" %></td>
+      <td>
+        <% unless tp.completed? %>
+          <%= link_to t('continue'), test_passage_path(tp), class: "btn btn-light" %></td>
+        <% end %>
     </tr>
 
     <% end %>
