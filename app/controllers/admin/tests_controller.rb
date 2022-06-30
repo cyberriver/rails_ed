@@ -50,12 +50,8 @@ class Admin::TestsController < Admin::BaseController
   def destroy
 
     @test.destroy
+    redirect_to admin_tests_path, status:303
 
-
-    respond_to do |format|
-  format.html { redirect_to admin_tests_path, status:303, notice: "Quote was successfully destroyed." }
-  format.turbo_stream { flash.now[:notice] = "Quote was successfully destroyed." }
-end
   end
 
   private

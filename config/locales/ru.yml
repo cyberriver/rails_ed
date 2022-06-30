@@ -25,6 +25,9 @@ ru:
 
   devise:
     signup: "Регистрация нового пользователя"
+    forgot_password: "Забыли свой пароль?"
+    recive_confirmation: "Не получили инструкции с подтверждением регистрации?"
+    unlock_instructions: "Не получили инструкции по разблокировке?"
 
   gist:
     params: "Вопрос о %{title} из сервиса TestGuru"
@@ -41,6 +44,7 @@ ru:
     back:
       answers: "Назад к ответам"
       tests: "Назад к тестам"
+      questions: "Назад к вопросам"
     menu:
       title: "Панель Администратора"
       all_tests: "Все тесты"
@@ -68,8 +72,8 @@ ru:
     question:
       new: "Создать новый вопрос для %{title}"
       edit: "Редактирвать вопрос для %{title}"
-
-
+    session:
+      email: "Емейл"
 
 
   tests:

@@ -26,6 +26,9 @@ en:
 
   devise:
     signup: "Registration new user"
+    forgot_password: "Forgot your password?"
+    recive_confirmation: "Didn't receive confirmation instructions?"
+    unlock_instructions:  "Didn't receive unlock instructions?"
 
   gist:
     params: "A question about %{@title} from TestGuru"
@@ -41,6 +44,7 @@ en:
     back:
       answers: "Back to answers"
       tests: "Back to Tests"
+      questions: "Back to questions"
     menu:
       title: "Admin Panel"
       all_tests: "All tests"

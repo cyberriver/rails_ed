@@ -1,7 +1,6 @@
 
 <h3><%= t('.create')%></h3>
-<%= render 'form' %>
-
-
-
-    <%= link_to t('nav.back.answers'), admin_question_path(@question), class: "btn btn-info" %>
+<div class="container md-auto">
+  <%= render 'form' %>
+  <%= link_to t('nav.back.answers'), admin_question_path(@question), class: "btn btn-info" %>
+</div>

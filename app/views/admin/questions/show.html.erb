@@ -9,5 +9,5 @@
 
   <%=render @question.answers %>
 </ol>
-  <%= link_to t('nav.back.tests'), admin_tests_path, class: "btn btn-info" %>
+  <%= link_to t('nav.back.questions'), admin_test_path(@question.test), class: "btn btn-info" %>
 </div>
