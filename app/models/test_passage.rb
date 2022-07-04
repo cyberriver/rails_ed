@@ -22,10 +22,10 @@ class TestPassage < ApplicationRecord
   end
 
   def current_progress
-    unless self.completed?
-      (current_question_position.to_f / test.questions.count) * 100.round(1)
-    else
+    if self.completed?
       100
+    else
+      (current_question_position.to_f / test.questions.count) * 100.round(1)
     end
   end
 
