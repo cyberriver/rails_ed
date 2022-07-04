@@ -80,6 +80,7 @@ en:
         many: "%{count} errors detected"
       not_found: "Entry hasn't found"
       has_connected_data: "Could delete entry, it has connected foreign data. "
+      no_questions: "Test has no questions, pls ask Administrator"
 
   tests:
     index:

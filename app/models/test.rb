@@ -26,13 +26,20 @@ class Test < ApplicationRecord
     .pluck(:title)
   end
 
+  def has_questions?
+    if self.questions.count > 0
+      true
+    else
+      false
+    end
+  end
+
   private
 
   def check_for_active_testpassage?
     if self.test_passages.where.not(current_question:nil).count
       errors.add(:test_has_active_testpassage, "Test has active test_passages. You can delete it")
     end
-
-  end
+  end  
 
 end

@@ -2,7 +2,7 @@ class Admin::TestsController < Admin::BaseController
   before_action :set_test, only: %i[show edit update update_inline destroy start]
   before_action :set_tests, only: %i[index update_inline destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-#  rescue_from ActiveRecord::InvalidForeignKey, with: :rescue_with_test_has_other_data
+
 
   def index
 
