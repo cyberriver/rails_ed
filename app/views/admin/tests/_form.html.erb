@@ -8,9 +8,11 @@
       <%= f.label :level %><br />
       <%= f.text_field :level %><br />
       <%= f.label :category_id %><br />
-      <%= f.text_field :category_id %><br />
-      <%= f.label :author_id %><br />
-      <%= f.text_field :author_id, value: session[:user_id], readonly: true%><br />
+
+      <%= f.select(:category_id, Category.all.collect {|cat| [cat.title,cat.id]},{include_blank: false}, {class:"form-select"}) %><br />
+
+
+      <%= f.hidden_field :author_id, value: session[:user_id], readonly: true%><br />
       <%= f.submit t('submit'), class: "btn btn-primary" %>
 
     <% end %>

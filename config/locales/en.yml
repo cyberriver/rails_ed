@@ -10,6 +10,8 @@ en:
   continue: "Continue"
   delete: "Delete"
   show: "Show"
+  ready: "Activate"
+  turn_off: "Turnoff"
   actions: "Actions"
   school: "Learning project in online school Thinknetica"
   start: "Start"
@@ -129,6 +131,7 @@ en:
         questions_count: "Count questions in the test"
         alert: "You are not authorized to view this page"
         create: "Create new TEST"
+        ready: "Ready for start"
       show:
         header: "Test: %{title}"
         test_id: "Test ID"

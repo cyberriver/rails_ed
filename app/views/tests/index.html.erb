@@ -19,18 +19,18 @@
 
   <tbody>
     <% @tests.each do |test|%>
-    <tr>
+      <% if test.ready%>
+      <tr>
+        <td><%=test.title %> </td>
+        <td><%=test.id %> </td>
+        <td><%=level_title(test)%> </td>
+        <td><%=test.category_id%> </td>
+        <td><%=test.author_id %> </td>
+        <td><%=test.questions.count %></td>
+        <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
 
-      <td><%=test.title %> </td>
-      <td><%=test.id %> </td>
-      <td><%=level_title(test)%> </td>
-      <td><%=test.category_id%> </td>
-      <td><%=test.author_id %> </td>
-      <td><%=test.questions.count %></td>
-
-      <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
-
-    </tr>
+      </tr>
+      <% end %>
     <% end %>
   </tbody>
 

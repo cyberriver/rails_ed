@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: %i[show edit update update_inline destroy start]
+  before_action :set_test, only: %i[show edit update update_inline destroy start ready]
   before_action :set_tests, only: %i[index update_inline destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -52,6 +52,15 @@ class Admin::TestsController < Admin::BaseController
     @test.destroy
     redirect_to admin_tests_path, status:303
 
+  end
+
+  def ready
+    if @test.update(ready: params[:ready])
+      redirect_to admin_tests_path, notice: "Тест активирован"
+    else
+      render :index, status: :unprocessable_entity
+
+    end
   end
 
   private

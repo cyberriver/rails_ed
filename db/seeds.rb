@@ -20,7 +20,7 @@ ActiveRecord::Base.connection.disable_referential_integrity do
     user.skip_confirmation!
     user.save!
 
-    test = Test.find_or_create_by(title: 'Rails tests seed', level:1, category_id: category.id, author_id: user.id)
+    test = Test.find_or_create_by(title: 'Rails tests seed', level:1, category_id: category.id, author_id: user.id,ready:true)
     question = Question.find_or_create_by(body: 'Pls choose seed Correct Answer?',test_id: test.id)
     answer_correct = Answer.find_or_create_by(title: 'Correct seed Answer 1', correct: true, question_id: question.id)
     answer_incorrect = Answer.find_or_create_by(title: 'Incorrect seed Answer 2', correct: false, question_id: question.id)
