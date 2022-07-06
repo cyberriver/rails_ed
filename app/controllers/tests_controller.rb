@@ -24,7 +24,7 @@ class TestsController < ApplicationController
   end
 
   def find_tests
-    @tests = Test.all
+    @tests = Test.all.where(ready:true)
   end
 
   def log_execute_time

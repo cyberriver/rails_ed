@@ -19,7 +19,6 @@
 
   <tbody>
     <% @tests.each do |test|%>
-      <% if test.ready%>
       <tr>
         <td><%=test.title %> </td>
         <td><%=test.id %> </td>
@@ -30,7 +29,7 @@
         <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
 
       </tr>
-      <% end %>
+
     <% end %>
   </tbody>
 
