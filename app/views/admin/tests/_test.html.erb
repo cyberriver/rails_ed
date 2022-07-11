@@ -1,10 +1,10 @@
 
 <tr >
   <td class = "align-middle">
-    <%=content_tag :span,
+    <%=content_tag( :span,
                     test.title,
                     class: 'test-title',
-                    data: { test_id: test.id } %>
+                    data: { test_id: test.id }) %>
     <%= render 'form_inline', test: test == @test ? @test: test %>
   </td>
   <td class = "align-middle"><%=test.id %> </td>
@@ -12,6 +12,19 @@
   <td class = "align-middle"><%=test.category_id%> </td>
   <td class = "align-middle"><%=test.author_id %> </td>
   <td class = "align-middle"><%=test.questions.count %></td>
+  <td class = "align-middle"><%=test.ready %></td>
+
+  <td class = "align-middle">
+    <% if test.ready%>
+    <%= button_to t('turn_off'),
+                   ready_admin_test_path(test.id,ready:false),
+                   class: "btn btn-warning bi bi-patch-check" %>
+
+    <% else %>
+    <%= button_to t('ready'),
+                   ready_admin_test_path(test.id,ready:true),
+                   class: "btn btn-success bi bi-patch-check" %></td>
+    <% end%>
 
     <td class = "align-middle">
       <%= link_to t('show'),
@@ -26,7 +39,8 @@
   <td class = "align-middle">
     <%= link_to t('delete'), admin_test_path(test.id),
                                class: "btn btn-danger bi bi-eraser",
-                              data: { turbo_method: "delete", turbo_confirm: "Are you sure?"}
+                              data: { turbo_method: "delete", turbo_confirm: t('confirm')}
                                  %>
+
   </td>
 </tr>

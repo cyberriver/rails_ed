@@ -35,13 +35,15 @@
         <td><%= q.body %></td>
         <td><%= link_to t('show'), admin_question_path(q.id) %></td>
         <td><%= link_to t('edit'), edit_admin_question_path(q.id) %></td>
-        <td><%= button_to t('delete'), admin_question_path(q.id),
-                                    method: :delete,class: "btn btn-danger bi bi-eraser",
+        <td>
+          <%= button_to t('delete'), admin_question_path(q.id),
+                                    method: :delete, class: "btn btn-danger bi bi-eraser",
                                     form: {
-                                       data: { confirm: t('confrim') }
+                                       data: {
+                                         turbo_method: "delete",
+                                         turbo_confirm: t('confirm') }
                                      }
                                      %></td>
-
       </tr>
 
       <% end %>
@@ -49,4 +51,4 @@
   </table>
 </p>
 
-<p><%= link_to t('nav.back.tests'), admin_tests_path %></p>
+<p><%= link_to t('nav.back.tests'), admin_tests_path, class: "btn btn-info" %></p>

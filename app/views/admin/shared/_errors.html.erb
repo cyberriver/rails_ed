@@ -1,8 +1,17 @@
+
 <% if resource.present? && resource.errors.any? %>
-<%= content_tag :div, class: 'resource-errors',
-                      data: {resource_id: resource.id} do %>
-<div class="error_msg" style="color: red">
-  <h3> <%= t('.header', count: resource.errors.count) %></h3>
-    <% set_err_flash(resource) %>
-<% end %>
+
+
+<div class="alert alert-info d-flex align-items-center" >
+  <h4 class="alert-heading"> <%= t('admin.shared.errors.header', count: resource.errors.count) %></h4>
+
+<ul>
+  <% resource.errors.full_messages.each do |msg| %>
+    <li><%= msg%></li>
+  <% end %>
+
+</ul>
+
 </div>
+
+<% end %>

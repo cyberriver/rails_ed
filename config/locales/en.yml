@@ -10,6 +10,8 @@ en:
   continue: "Continue"
   delete: "Delete"
   show: "Show"
+  ready: "Activate"
+  turn_off: "Turnoff"
   actions: "Actions"
   school: "Learning project in online school Thinknetica"
   start: "Start"
@@ -20,8 +22,15 @@ en:
   failure_gist_question: "Cound't save to gist. Something went wrong"
   gist_question: "Save question"
 
+  help:
+    question: "Pls add new question. After question creation you need to add answers to it"
+
+
   devise:
     signup: "Registration new user"
+    forgot_password: "Forgot your password?"
+    recive_confirmation: "Didn't receive confirmation instructions?"
+    unlock_instructions:  "Didn't receive unlock instructions?"
 
   gist:
     params: "A question about %{@title} from TestGuru"
@@ -37,6 +46,7 @@ en:
     back:
       answers: "Back to answers"
       tests: "Back to Tests"
+      questions: "Back to questions"
     menu:
       title: "Admin Panel"
       all_tests: "All tests"
@@ -49,7 +59,7 @@ en:
 
   helpers:
     question:
-      new: "Create New %(title) question"
+      new: "Create New %{title} question"
       edit: "Edit"
     score:
       passed: "You have success passed the test. Your score is"
@@ -69,8 +79,10 @@ en:
     errors:
       header:
         one: "%{count} error detected"
-        other: "%{count} errors detected"
+        many: "%{count} errors detected"
       not_found: "Entry hasn't found"
+      has_connected_data: "Could delete entry, it has connected foreign data. "
+      no_questions: "Test has no questions, pls ask Administrator"
 
   tests:
     index:
@@ -119,6 +131,7 @@ en:
         questions_count: "Count questions in the test"
         alert: "You are not authorized to view this page"
         create: "Create new TEST"
+        ready: "Ready for start"
       show:
         header: "Test: %{title}"
         test_id: "Test ID"

@@ -1,6 +1,6 @@
 class Version
   def self.current_version
-  return   '0.14.0'
+  return   '0.17.0'
   end
 
 end

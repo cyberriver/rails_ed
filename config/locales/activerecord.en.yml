@@ -26,8 +26,6 @@ en:
       body: "Question body"
       test_id: "test id"
 
-    category:
-      title: "title"
 
     answer:
       title: "title"
@@ -45,3 +43,5 @@ en:
     messages:
       blank: "Can't be blank"
       taken: "%{model} already busy. Pls change the parameters"
+      only_interger: "should be only integer"
+      greater_than: "should be greater than 0"

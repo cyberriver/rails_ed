@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
-
+      post :ready, on: :member
       resources :questions, shallow: true, expect: :index do
         resources :answers, shallow: true, expect: :index
       end

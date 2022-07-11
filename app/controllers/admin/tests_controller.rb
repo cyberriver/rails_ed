@@ -1,7 +1,8 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: %i[show edit update update_inline destroy start]
-  before_action :set_tests, only: %i[index update_inline]
+  before_action :set_test, only: %i[show edit update update_inline destroy start ready]
+  before_action :set_tests, only: %i[index update_inline destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+
 
   def index
 
@@ -49,12 +50,17 @@ class Admin::TestsController < Admin::BaseController
   def destroy
 
     @test.destroy
+    redirect_to admin_tests_path, status:303
 
+  end
 
-    respond_to do |format|
-  format.html { redirect_to admin_tests_path, status:303, notice: "Quote was successfully destroyed." }
-  format.turbo_stream { flash.now[:notice] = "Quote was successfully destroyed." }
-end
+  def ready
+    if @test.update(ready: params[:ready])
+      redirect_to admin_tests_path, notice: "Тест активирован"
+    else
+      render :index, status: :unprocessable_entity
+
+    end
   end
 
   private
@@ -79,6 +85,10 @@ end
   end
 
   def rescue_with_test_not_found
-    render plain: t('shared.errors.not_found')
+    redirect_to admin_tests_path, alert: t('shared.errors.not_found')
+  end
+
+  def rescue_with_test_has_other_data
+    redirect_to admin_tests_path, status: :unprocessable_entity, alert: t('shared.errors.has_connected_data')
   end
 end

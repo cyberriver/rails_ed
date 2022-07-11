@@ -1,15 +1,15 @@
 
 <h2><%= t('.header')%></h2>
 
-<table>
+<table class="table">
   <% if current_user.test_passages.present?%>
   <thead>
     <tr>
-      <th>Test Passage ID</th>
-      <th>Test Name</th>
-      <th>Started at</th>
-      <th>% progress done</th>
-      <th>Action</th>
+      <th scope="col"><%= t('.id')%></th>
+      <th scope="col"><%= t('.test_title')%></th>
+      <th scope="col"><%=t('.started')%></th>
+      <th scope="col"><%= t('.progress')%></th>
+      <th scope="col"><%=t('.action')%></th>
 
     </tr>
   </thead>
@@ -20,8 +20,28 @@
       <td><%= tp.id %></td>
       <td><%= tp.test.title %></td>
       <td><%= tp.created_at %></td>
-      <th><%= tp.current_progress%></th>
-      <td><li><%= link_to t('continue'), test_passage_path(tp)%></li></td>
+      <th>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                 role="progressbar"
+                 id = "progress-bar"
+                 aria-valuenow="75"
+                 aria-valuemin="0"
+                 aria-valuemax="100"
+                 style="width: <%  tp.current_progress%>%"
+                 data-progress="<%= tp.current_progress %>">
+                 <%= tp.current_progress.ceil %>
+
+            </div>
+          </div>
+
+
+      </th>
+      <td>
+        <% unless tp.completed? %>
+          <%= link_to t('continue'), test_passage_path(tp), class: "btn btn-light" %></td>
+        <% end %>
     </tr>
 
     <% end %>

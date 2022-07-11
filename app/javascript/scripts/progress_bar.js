@@ -1,8 +1,12 @@
 document.addEventListener('turbo:load', function() {
-  var control = document.getElementById('progress-bar')
+  var controls = document.querySelectorAll('.progress-bar')
 
-  if (control) {
-    showCurrentProgress(control);
+  if (controls) {
+    for (var i=0;i<controls.length;i++){
+      control = controls[i]
+      showCurrentProgress(control);
+    }
+
   }
 })
 

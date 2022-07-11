@@ -1,8 +1,27 @@
 <footer>
-  <h6> <%= Time.zone.now %> </h6>
-  <h6> <%= t('author')%> <%=  Rails.configuration.author_app %> </h6>
-  <h6><%= github_url %></h6>
-  <h6><%= link_to t('school'), "http://thinknetica.com/", :target => "_blank" %></h6>
-  <h6> <%=t('year')%> <%= footer_year_data %></h6>
+  <div class="row align-items-end">
+    <div class="col-md-auto">
+      <%= Time.zone.now %>
+    </div>
+    <div class="col">
+      <%= t('author')%>
+    </div>
+    <div class="col">
+      <%=  Rails.configuration.author_app %>
+    </div>
+    <div class="col">
+      <%= github_url %>
+    </div>
+    <div class="col-md-auto">
+      <%= link_to t('school'), "http://thinknetica.com/", :target => "_blank" %>
+    </div>
+    <div class="col-md-auto">
+      <%=t('year')%>
+    </div>
+    <div class="col">
+      <%= footer_year_data %>
+    </div>
+  </div>
+
 
 </footer>

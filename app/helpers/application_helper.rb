@@ -10,20 +10,22 @@ module ApplicationHelper
   def flash_message!
     flash.map do |key,msg|
       if key && msg
-        content_tag :div, msg, :id => key, class: "flash #{key}"
+        content_tag(:div, msg, id: key, class: "#{flash_class(key)}")
       end
     end.join.html_safe
   end
 
-  def set_err_flash(resource)
-    resource.errors.full_messages.each do |message|
-       flash.now[:alert]||=[]
-       flash.now[:alert] << message
-     end
+  def flash_class(level)
+    case level
+        when :notice then "alert alert-info"
+        when :success then "alert alert-success"
+        when :error then "alert alert-error"
+        when :alert then "alert alert-error"
+    end
   end
 
   def icon(filename, options = {})
-    #byebug
+
     assets = Rails.application.assets
     asset = assets.find_asset(filename)
 

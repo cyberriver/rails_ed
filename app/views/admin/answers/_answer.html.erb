@@ -1,17 +1,21 @@
 
+
+
+<li class="list-group-item">
+  <div class="row align-items-start">
+    <div class="col col-md">
       <%= answer.title%>
-      <p>
-        <%= link_to t('edit'), edit_admin_answer_path(answer) %>
-      </p>
+    </div>
+    <div class="col-md-auto">
+      <%= link_to t('edit'), edit_admin_answer_path(answer), class: "btn btn-warning"%>
 
-         <p>
-           <%= link_to t('nav.back,answers'), admin_question_path(@question) %>
-         </p>
-
-<p>
-  <%= button_to t('delete'), admin_question_path(@question),
-                                       method: :delete,
-                                       form: {
-                                         data: { confirm: t('confirm')}
-                                       }%>
-</p>
+    </div>
+    <div class="col-md-auto">
+      <%= button_to t('delete'), admin_answer_path(answer),
+                                         method: :delete, class: "btn btn-danger bi bi-eraser",
+                                         form: {
+                                           data: { confirm: t('confirm')}
+                                         }%>
+    </div>
+  </div>
+</li>

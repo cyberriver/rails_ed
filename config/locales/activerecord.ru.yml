@@ -10,6 +10,7 @@ ru:
       admin: "Администратор"
 
   attributes:
+
     test:
       title: "Название"
       level: "Уровень"
@@ -26,8 +27,6 @@ ru:
       body: "Тело вопроса"
       test_id: "номер теста"
 
-    category:
-      title: "Название"
 
     answer:
       title: "Название"
@@ -43,4 +42,7 @@ ru:
   errors:
     messages:
       blank: "не может быть пустым"
+      only_interger: "должно быть целое число"
+      greater_than: "должен быть больше чем 0"
       taken: "%{model} уже занят. Создайте с другими параметрами"
+      other: ""
