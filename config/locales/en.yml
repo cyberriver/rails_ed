@@ -56,6 +56,7 @@ en:
       quit: "Logout"
       all_gists: "Incomming requests"
       all_users: "All users"
+      all_badges: "Badges"
 
   helpers:
     question:

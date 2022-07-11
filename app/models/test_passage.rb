@@ -1,6 +1,7 @@
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
+  has_many :user_badges
   belongs_to :current_question, class_name: :Question, optional: true
   before_validation :before_validation_set_question, on: [:create, :update]
   TEST_SCORE_LIMIT = 0.85  #parameter for success score result
