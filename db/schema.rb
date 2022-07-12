@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_11_183308) do
     t.string "file_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["id"], name: "by badge", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
@@ -111,12 +112,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_11_183308) do
 
   create_table "user_badges", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "test_id", null: false
     t.bigint "badge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_user_badges_on_badge_id"
-    t.index ["test_id"], name: "index_user_badges_on_test_id"
     t.index ["user_id"], name: "index_user_badges_on_user_id"
   end
 
@@ -159,6 +158,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_11_183308) do
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
   add_foreign_key "user_badges", "badges"
-  add_foreign_key "user_badges", "tests"
   add_foreign_key "user_badges", "users"
 end

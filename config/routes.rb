@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 
  get :my_tests, to: 'test_passages#index'
 
+ resources :user_badges, only: :index  do
+   member do
+     get :check
+   end
+ end
+
   resources :tests, only: :index  do
     member do
       post :start

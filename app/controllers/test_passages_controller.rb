@@ -9,12 +9,19 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+
   end
 
   def update
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+
+      ach = UserBadge.check_for_achivement(@test_passage)
+      if ach
+        create_achivements(ach)
+      end
+
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show
@@ -29,6 +36,12 @@ class TestPassagesController < ApplicationController
 
   end
 
+  def create_achivements(ach)
+    ach.each do |badge_id|
+      @badge = Badge.find(badge_id)
+      current_user.badges.push(@badge)
+    end
 
+  end
 
 end

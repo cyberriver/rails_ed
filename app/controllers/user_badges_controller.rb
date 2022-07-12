@@ -1,14 +1,14 @@
 class UserBadgesController < ApplicationController
 
-  before_action :set_user
-
   def index
+    @user_badges = current_user.user_badges.all
+  end
+
+  def check
+    UserBadge.check_for_achivement(obj)
   end
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
 
 end
