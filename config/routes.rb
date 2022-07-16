@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     resources :gists, only: %i[index]
     resources :users
     resources :badges
+    resources :categories
   end
 
 end

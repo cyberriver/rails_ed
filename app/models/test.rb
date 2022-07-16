@@ -14,6 +14,7 @@ class Test < ApplicationRecord
   scope :easy, ->{where(level:0..1)}
   scope :medium, ->{where(level:2..4)}
   scope :hard, ->{where(level:5..Float::INFINITY)}
+  scope :count_by_category, ->(category_id){where("category_id=?",category_id)}
 
   scope :show_tests_by_category, ->(category_name) do
     joins(:category)
@@ -40,6 +41,6 @@ class Test < ApplicationRecord
     if self.test_passages.where.not(current_question:nil).count
       errors.add(:test_has_active_testpassage, "Test has active test_passages. You can delete it")
     end
-  end  
+  end
 
 end

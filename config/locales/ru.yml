@@ -51,12 +51,14 @@ ru:
       title: "Панель Администратора"
       all_tests: "Все тесты"
       my_tests: "Мои тесты"
+      my_badges: "Мои достижения"
       profile: "Мой профиль"
       back: "Назад"
       quit: "Выйти"
       all_gists: "Входящие обращения"
       all_users: "Все пользователи"
       all_badges: "Бейджи"
+      all_categories: "Категории тестов"
 
   helpers:
     score:

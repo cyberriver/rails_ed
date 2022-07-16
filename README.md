@@ -102,6 +102,8 @@ database:
   username: YOURUSERNAME_ROLE
   password: MODIFIEDPASSWORD_IN_PSSQL
 
+#in a case if you lost credentials or master key, then delete credentials file and key file and generate new one using command above. Rails will generate by itself  
+
 * Database creation
 
 after configuration run:

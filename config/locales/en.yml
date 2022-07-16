@@ -51,12 +51,15 @@ en:
       title: "Admin Panel"
       all_tests: "All tests"
       my_tests: "My tests"
+
+      my_badges: "My achivements"
       profile: "My profile"
       back: "Back"
       quit: "Logout"
       all_gists: "Incomming requests"
       all_users: "All users"
       all_badges: "Badges"
+      all_categories: "Tests categories"
 
   helpers:
     question:

@@ -1,0 +1,21 @@
+
+<tr >
+
+  <td class = "align-middle"><%=category.id %> </td>
+  <td class = "align-middle"><%=category.title%> </td>
+
+
+  <td class = "align-middle">
+      <%= link_to t('edit'),
+                     edit_admin_category_path(category),
+                     class: "form-inline-link",
+                     data: { category_id: category.id } %>
+    </td>
+  <td class = "align-middle">
+    <%= link_to t('delete'), admin_category_path(category.id),
+                               class: "btn btn-danger bi bi-eraser",
+                              data: { turbo_method: "delete", turbo_confirm: t('confirm')}
+                                 %>
+
+  </td>
+</tr>

@@ -1,39 +1,44 @@
 class CheckAchivementsService
   attr_reader :achivements
 
-  def initialize(obj,current_user)
+  def initialize(test_passage,current_user)
     @achivements = []
-    @obj=obj
+    @test_passage=test_passage
     @user=current_user
+    @test_passages_count = @user.test_passages.count
 
   end
 
   #universal service for achivements
-  #it receive different objects and starts different methods
 
   def call
-
-    case @obj.class.name
-    when "TestPassage"
-      self.check_testpassage_achive
-    else
-      return 0
-    end
-
+    check_count_testpassage
+    check_count_by_category
+    create_achivements
+    return @achivements
   end
 
   private
 
-  def check_testpassage_achive
+  def check_count_testpassage
 
-    if (1..5).include? @user.test_passages.count
-      @achivements.push(1) #показываем badge1
-    elsif @user.test_passages.count > 5
-      @achivements.push(2) #show badge # 2
+    if (1..5).include? @test_passages_count
+      @achivements.push(1) #save badge1
+    elsif @test_passages_count > 5
+      @achivements.push(2) #save badge # 2
     end
 
-    create_achivements
-    return @achivements
+
+  end
+
+  def check_count_by_category
+    last_category = @test_passage.test.category_id
+
+    if @user.tests.count_by_category(last_category).count >= Test.count_by_category(last_category).count
+      @achivements.push(3) #save badge # 3
+
+    end
+
   end
 
   def create_achivements
