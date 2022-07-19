@@ -23,8 +23,8 @@
         <td><%=test.title %> </td>
         <td><%=test.id %> </td>
         <td><%=level_title(test)%> </td>
-        <td><%=test.category_id%> </td>
-        <td><%=test.author_id %> </td>
+        <td><%=test.category.title%> </td>
+        <td><%=test.author.first_name + " "+ test.author.last_name%> </td>
         <td><%=test.questions.count %></td>
         <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
 

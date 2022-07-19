@@ -1,0 +1,14 @@
+
+<div class="card border-0 w-50 align-items-center"">
+  <div class="card-body">
+    <%= render 'admin/shared/errors', resource: @category %>
+    <%= form_with model: [:admin, @category], data:{turbo:true} do |f| %>
+      <%= f.label :title%><br />
+      <%= f.text_field :title %><br />
+
+      <%= f.submit t('submit'), class: "btn btn-primary" %>
+
+    <% end %>
+
+  </div>
+</div>

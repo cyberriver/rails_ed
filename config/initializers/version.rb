@@ -1,8 +1,8 @@
 class Version
   def self.current_version
-  return   '0.17.0'
+  return   '0.18.0'
   end
 
 end
 
-puts "Current version #{Version.current_version}"
+puts "Current version of Gurucube #{Version.current_version}"

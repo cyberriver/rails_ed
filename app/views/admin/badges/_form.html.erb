@@ -1,0 +1,16 @@
+
+<div class="card border-0 w-50 align-items-center"">
+  <div class="card-body">
+    <%= render 'admin/shared/errors', resource: @badge %>
+    <%= form_with model: [:admin, @badge], data:{turbo:true} do |f| %>
+      <%= f.label :title%><br />
+      <%= f.text_field :title %><br />
+      <%= f.label :file_name %><br />
+      <%= f.text_field :file_name %><br />
+
+      <%= f.submit t('submit'), class: "btn btn-primary" %>
+
+    <% end %>
+
+  </div>
+</div>
