@@ -22,3 +22,5 @@ import "./scripts/progress_bar"
 //    }, {once: true})
 //  })
 //})
+import "trix"
+import "@rails/actiontext"

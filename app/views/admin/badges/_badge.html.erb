@@ -1,14 +1,14 @@
 
 <tr >
-
-  <td class = "align-middle"><%=badge.id %> </td>
+  <td class = "align-middle"><%= image_tag(badge.resized_small) %> </td>
+  <td class = "align-middle"><%=badge.id%> </td>
   <td class = "align-middle"><%=badge.title%> </td>
   <td class = "align-middle"><%=badge.file_name%> </td>
 
   <td class = "align-middle">
       <%= link_to t('edit'),
                      edit_admin_badge_path(badge),
-                     class: "form-inline-link",
+                     class: "btn btn-info bi bi-arrow-repeat",
                      data: { badge_id: badge.id } %>
     </td>
   <td class = "align-middle">

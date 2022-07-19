@@ -1,9 +1,9 @@
 
-<tr >
-
-  <td class = "align-middle"><%=user_badge.badge.id %> </td>
-  <td class = "align-middle"><%=user_badge.badge.title%> </td>
-  <td class = "align-middle"><%=user_badge.badge.file_name%> </td>
-
-
-</tr>
+<div class="col">
+  <div class="card">
+     <%= image_tag(user_badge.badge.resized_small, class: "card-img-top") %>
+    <div class="card-body">
+      <h5 class="card-title"><%=user_badge.badge.title%></h5>
+    </div>
+  </div>
+</div>

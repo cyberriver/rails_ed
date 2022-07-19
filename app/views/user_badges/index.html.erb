@@ -1,33 +1,8 @@
 
-
-<table class="table">
-  <div class="row">
-        <div class="col-sm-3">
-            <div class="card">
-                <img class="card-img-top img-fluid" src="//placehold.it/500x200" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-        </div>
-  </div>
-
-
-
-
-  <thead>
-    <tr>
-      <th scope="col"><%=t('id')%></th>
-      <th scope="col"><%=t('.title')%></th>
-      <th scope="col"><%=t('.file_name')%></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container">
+  <div class="row row-cols-auto row-cols-md-auto g-4">
     <%= render @user_badges %>
 
-  </tbody>
+  </div>
 
-</table>
+</div>

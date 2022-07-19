@@ -22,15 +22,23 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   def update
+    @badge.update(badge_params)
+    if @badge.save
+       redirect_to admin_badges_path, notice: t('.sucess')
+    else
+       render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @badge.destroy
+    redirect_to admin_badges_path, status:303
   end
 
   private
 
   def badge_params
-    params.require(:badge).permit(:title, :file_name)
+    params.require(:badge).permit(:title, :image, :file_name )
   end
 
   def set_badge

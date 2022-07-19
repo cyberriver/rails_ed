@@ -14,8 +14,6 @@ class CheckAchivementsService
   def call
     check_count_testpassage
     check_count_by_category
-    create_achivements
-    return @achivements
   end
 
   private
@@ -23,9 +21,9 @@ class CheckAchivementsService
   def check_count_testpassage
 
     if (1..5).include? @test_passages_count
-      @achivements.push(1) #save badge1
+      @user.badges.push(Badge.where("title LIKE ?", "%ович%"))
     elsif @test_passages_count > 5
-      @achivements.push(2) #save badge # 2
+      @user.badges.push(Badge.where("title LIKE ?", "%етеран%"))  #save badge # 2
     end
 
 
@@ -35,7 +33,7 @@ class CheckAchivementsService
     last_category = @test_passage.test.category_id
 
     if @user.tests.count_by_category(last_category).count >= Test.count_by_category(last_category).count
-      @achivements.push(3) #save badge # 3
+      @user.badges.push(Badge.where("title LIKE ?", "%категори%"))  #save badge # 3
 
     end
 
