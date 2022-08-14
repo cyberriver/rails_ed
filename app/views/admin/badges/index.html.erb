@@ -1,19 +1,25 @@
-<h3><%= link_to t('create'), new_admin_badge_path,
-  class: "btn btn-primary bi bi-bag-plus" %></h3>
+<div class="container">
+  <h3><%= link_to t('create'), new_admin_badge_path,
+    class: "btn btn-primary bi bi-bag-plus" %></h3>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"><%=t('img')%></th>
-      <th scope="col"><%=t('.title')%></th>
-      <th scope="col"><%=t('.file_name')%></th>
-      <th colspan="2" scope="col"><%= t('actions')%></th>
-    </tr>
-  </thead>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%=t('img')%></th>
+        <th scope="col"><%=t('.title')%></th>
+        <th scope="col"><%=t('.file_name')%></th>
+        <th scope="col"><%=t('.rule')%></th>
+        <th scope="col"><%=t('.parameter')%></th>
 
-  <tbody>
-    <%= render @badges %>
+        <th colspan="2" scope="col"><%= t('actions')%></th>
+      </tr>
+    </thead>
 
-  </tbody>
+    <tbody>
+      <%= render @badges %>
 
-</table>
+    </tbody>
+
+  </table>
+
+</div>
