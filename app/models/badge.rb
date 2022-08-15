@@ -6,7 +6,10 @@ class Badge < ApplicationRecord
   has_one_attached :image
 
   def resized_small
-    image.variant(resize_to_limit: [100,100])
+    image.variant(resize: '100x100')
+  end
 
+  def resized_very_small
+    image.variant(resize: '50x50')
   end
 end
