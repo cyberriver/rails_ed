@@ -1,15 +1,4 @@
-<% if @test_passage.test_result_check %>
-
 Hooray!
 =======
 Congrats! you've completed the<%= @test.title%>tests
-Choose your next test?
-
-<% else %>
-
-Oops!
-========
-  Sorry, but you've failed the <b><%= @test.title%></b> tests
-  Try one more time!
-
-<% end %>
+Choose your next test:  <%#= test_url %>?

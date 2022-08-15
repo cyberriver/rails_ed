@@ -23,8 +23,6 @@ en:
   gist_question: "Save question"
   timer: "Time left"
 
-  got_achivement: "You got the badge"
-
   help:
     question: "Pls add new question. After question creation you need to add answers to it"
 

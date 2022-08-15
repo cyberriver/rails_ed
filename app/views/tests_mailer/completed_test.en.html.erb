@@ -1,15 +1,5 @@
-<% if @test_passage.test_result_check %>
 <h1> Hooray!</h1>
 <p>
   Congrats! you've completed the <b><%= @test.title%></b> tests
-  Why not to finish another yet?
+  Why not to finish <%#= link_to 'more', test_url %>?
 </p>
-<% else %>
-
-<h1> Oops!</h1>
-<p>
-  Sorry, but you've failed the <b><%= @test.title%></b> tests
-  Try one more time!
-</p>
-
-<% end %>
