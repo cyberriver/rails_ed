@@ -49,7 +49,6 @@ gem 'faraday-retry'
 #Localization
 gem "rails-i18n", "~> 7"
 
-
 #UI
 gem "jquery-rails"
 gem 'bootstrap', '~> 5.1.3'

@@ -1,23 +1,22 @@
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"><%=t('question')%></th>
-        <th scope="col"><%=t('.gist_url')%></th>
-        <th scope="col"><%=t('.email')%></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @gists.each do |gist| %>
-      <tr>
-        <td><%= link_to "#{gist.question.body.truncate(25)}",admin_question_path(gist.question) %></td>
-        <td><%= link_to "#{gist.gist_url}", gist.gist_url%></td>
-        <td><%= gist.user.email %></td>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%=t('question')%></th>
+      <th scope="col"><%=t('.gist_url')%></th>
+      <th scope="col"><%=t('.email')%></th>
+    </tr>
+  </thead>
 
-      </tr>
-      <% end %>
-    </tbody>
+  <tbody>
+    <% @gists.each do |gist| %>
+    <tr>
+      <td><%= link_to "#{gist.question.body.truncate(25)}",admin_question_path(gist.question) %></td>
+      <td><%= link_to "#{gist.gist_url}", gist.gist_url%></td>
+      <td><%= gist.user.email %></td>
 
-  </table>
-</div>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

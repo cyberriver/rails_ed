@@ -22,8 +22,6 @@ ru:
   failure_gist_question: "Не удалось сохранить вопрос в гист"
   gist_question: "Сохранить вопрос"
 
-  timer: "Осталось времени на прохождение"
-
   help:
     question: "Вам необходимо создать вопрос для теста. После создания вопроса необходимо будет добавить для него ответы."
 
@@ -106,9 +104,7 @@ ru:
       header: "Мои тесты"
       not_started: "Вы не начали ни один тест"
     result:
-      header:
-        passed: "Тест %{title} успешно пройден"
-        failed: "Тест %{title} не пройден"
+      header: "Тест %{title} успешно пройден"
     show:
       header: "Прохождение теста the %{title} "
       question_header: "Question # %{current} from %{total}"

@@ -21,7 +21,6 @@ en:
   success_gist_question: "Question successfully saved to gists"
   failure_gist_question: "Cound't save to gist. Something went wrong"
   gist_question: "Save question"
-  timer: "Time left"
 
   help:
     question: "Pls add new question. After question creation you need to add answers to it"
@@ -114,9 +113,7 @@ en:
       header: "Test %{title} successfully done"
       not_started: "You haven't started any test"
     result:
-      header:
-        passed: "Test %{title} sucess passed"
-        failed: "Test %{title} failed"
+      header: "Test %{title} sucess passed"
     show:
       header: "Pass the %{title} test"
 

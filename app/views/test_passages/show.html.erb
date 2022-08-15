@@ -3,13 +3,6 @@
 
 
 <div class="container">
-
-
-  <%= content_tag :div,
-                "#{ t('timer') }",
-                class: 'timer',
-                data: { timer: @test_passage.time_left } %>
-
   <div class="card mx-auto" style = "border:none">
     <h1><%= t('.header', title: @test_passage.test.title) %> </h1>
     <p>
@@ -17,7 +10,7 @@
            current:@test_passage.current_question_position,
            total: @test_passage.test.questions.count )%>
       </h3>
-
+  
 
     <div class="progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated"

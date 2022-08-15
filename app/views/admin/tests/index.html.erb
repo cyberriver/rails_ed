@@ -1,34 +1,31 @@
-<div class="container">
-  <h2><%= t('.header') %><%= link_to t('create'), new_admin_test_path,
-    class: "btn btn-primary bi bi-bag-plus" %></h2>
+
+<h2><%= t('.header') %><%= link_to t('create'), new_admin_test_path,
+  class: "btn btn-primary bi bi-bag-plus" %></h2>
 
 
-  <table class="table">
-    <thead>
-      <tr>
+<table class="table">
+  <thead>
+    <tr>
 
-        <th class = "sort-by-title pointer" scope="col">
-          <%=t('.title')%>
-          <i class="bi bi-arrow-bar-up " ></i>
-          <i class="bi bi-arrow-bar-down hide" ></i>
-        </th>
-        <th scope="col"><%=t('.num')%></th>
-        <th scope="col"><%=t('.level')%></th>
-        <th scope="col"><%=t('.category')%></th>
-        <th scope="col"><%=t('.author')%></th>
-        <th scope="col"><%=t('.questions_count')%></th>
-        <th scope="col"><%=t('.timer')%></th>
-        <th scope="col"><%=t('.ready')%></th>
-        <th colspan="4" scope="col"><%= t('actions')%></th>
-      </tr>
-    </thead>
+      <th class = "sort-by-title pointer" scope="col">
+        <%=t('.title')%>
+        <i class="bi bi-arrow-bar-up " ></i>
+        <i class="bi bi-arrow-bar-down hide" ></i>
+      </th>
+      <th scope="col"><%=t('.num')%></th>
+      <th scope="col"><%=t('.level')%></th>
+      <th scope="col"><%=t('.category')%></th>
+      <th scope="col"><%=t('.author')%></th>
+      <th scope="col"><%=t('.questions_count')%></th>
+      <th scope="col"><%=t('.ready')%></th>
+      <th colspan="4" scope="col"><%= t('actions')%></th>
+    </tr>
+  </thead>
 
-    <tbody>
+  <tbody>
 
-      <%= render @tests%>
+    <%= render @tests%>
 
 
-    </tbody>
-  </table>
-
-</div>
+  </tbody>
+</table>

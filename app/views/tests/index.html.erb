@@ -1,38 +1,36 @@
-<div class="container">
-  <h3><%= t('.header')%></h3>
+<h3><%= t('.header')%></h3>
 
-  <table class="table">
-    <thead>
+<table class="table">
+  <thead>
+    <tr>
+
+      <th class = "sort-by-title pointer" scope="col">
+        <%=t('.title')%>
+        <i class="bi bi-arrow-bar-up " ></i>
+        <i class="bi bi-arrow-bar-down hide" ></i>
+      </th>
+      <th scope="col"><%=t('.num')%></th>
+      <th scope="col"><%=t('.level')%></th>
+      <th scope="col"><%=t('.category')%></th>
+      <th scope="col"><%=t('.author')%></th>
+      <th scope="col"><%=t('.questions_count')%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tests.each do |test|%>
       <tr>
+        <td><%=test.title %> </td>
+        <td><%=test.id %> </td>
+        <td><%=level_title(test)%> </td>
+        <td><%=test.category.title%> </td>
+        <td><%=test.author.first_name + " "+ test.author.last_name%> </td>
+        <td><%=test.questions.count %></td>
+        <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
 
-        <th class = "sort-by-title pointer" scope="col">
-          <%=t('.title')%>
-          <i class="bi bi-arrow-bar-up " ></i>
-          <i class="bi bi-arrow-bar-down hide" ></i>
-        </th>
-        <th scope="col"><%=t('.num')%></th>
-        <th scope="col"><%=t('.level')%></th>
-        <th scope="col"><%=t('.category')%></th>
-        <th scope="col"><%=t('.author')%></th>
-        <th scope="col"><%=t('.questions_count')%></th>
       </tr>
-    </thead>
 
-    <tbody>
-      <% @tests.each do |test|%>
-        <tr>
-          <td><%=test.title %> </td>
-          <td><%=test.id %> </td>
-          <td><%=level_title(test)%> </td>
-          <td><%=test.category.title%> </td>
-          <td><%=test.author.first_name + " "+ test.author.last_name%> </td>
-          <td><%=test.questions.count %></td>
-          <td> <%=button_to t('start'), start_test_path(test.id), method: :post, class: "btn btn-primary" %></td>
+    <% end %>
+  </tbody>
 
-        </tr>
-
-      <% end %>
-    </tbody>
-
-  </table>
-</div>
+</table>

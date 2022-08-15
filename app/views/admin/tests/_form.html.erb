@@ -7,15 +7,9 @@
       <%= f.text_field :title %><br />
       <%= f.label :level %><br />
       <%= f.text_field :level %><br />
-      <%= f.label :timer %><br />
-      <%= f.number_field :timer %><br />
       <%= f.label :category_id %><br />
 
-      <%= f.select(:category_id,
-                   Category.all.collect
-                   {|cat| [cat.title,cat.id]},
-                   {include_blank: false},
-                   {class:"form-select"}) %><br />
+      <%= f.select(:category_id, Category.all.collect {|cat| [cat.title,cat.id]},{include_blank: false}, {class:"form-select"}) %><br />
 
 
       <%= f.hidden_field :author_id, value: session[:user_id], readonly: true%><br />

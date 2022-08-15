@@ -1,9 +1,10 @@
 <div class="container" >
-  <div class="row">
-
-      <h4 ><%= show_result(@test_passage) %></h4>
-      <p></p>
-
+  <div class="card mx-auto" style = "border:none">
+    <div class="card body" style = "border:none">
+      <h3 class="card-title"><%= t('.header', title: @test_passage.test.title) %> </h3>
+        <h3 class="card-text"><%= show_result(@test_passage) %></h3>
+        <p></p>
+    </div>
 
     <div class="container" style = "border:none">
       <p>

@@ -122,13 +122,6 @@ set proper mailer credentials in rails config
 
 * How to run the test suite
 
-#ActiveStorage Configuration
-To use minimagic pls ensure that you've installed imagemagick:
-
-sudo apt-get install imagemagick
-
-don't forget to install trix
-bin/rails action_text:install
 
 
 * Deployment instructions
