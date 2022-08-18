@@ -19,7 +19,7 @@ class CheckAchivementsService
         puts "LOG: #{badge.title} already given"
       else
         if send(rule, badge.parameter)
-          @user.badges.push(badge)
+          @user.badges.push(badge) #user got the badge if rule is TRUE
         end
       end
     end
@@ -27,13 +27,23 @@ class CheckAchivementsService
 
   private
 
+  # количество прошедших тестов
+
   def check_count_testpassage?(count)
     @test_passages_count > count.to_i
   end
 
+  #прошел с 1го раза тест
+  def got_the_test_by_one_time
+    @user.test_passages.where(test_id: @test).count=1
+  end
+
+  #прошел все тесты в одной категории
+
   def check_count_by_category?(category_name)
-    category = Category.find_by(title: category_name)
-    @user.tests.count_by_category(category).count >= Test.count_by_category(category).count
+
+    @user.tests.show_tests_by_category(category_name).count >= Test.count_by_category(category).count
+
   end
 
 

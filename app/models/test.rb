@@ -14,12 +14,14 @@ class Test < ApplicationRecord
   scope :easy, ->{where(level:0..1)}
   scope :medium, ->{where(level:2..4)}
   scope :hard, ->{where(level:5..Float::INFINITY)}
-  scope :count_by_category, ->(category_id){where("category_id=?",category_id)}
 
   scope :show_tests_by_category, ->(category_name) do
     joins(:category)
     .where(categories: {title: category_name})
+
   end
+
+  
 
   def self.show_title(category_name)
     self.show_tests_by_category(category_name)

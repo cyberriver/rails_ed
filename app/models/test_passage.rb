@@ -42,13 +42,6 @@ class TestPassage < ApplicationRecord
     self.correct_question.to_f / self.test.questions.count.to_f.round(2)
   end
 
-  def time_out?
-    (test.timer - (Time.now - created_at)).to_i <= 0
-  end
-
-  def time_left
-    self.test.timer - (Time.now - self.created_at).to_i if self.test.timer > 0
-  end
 
   private
 

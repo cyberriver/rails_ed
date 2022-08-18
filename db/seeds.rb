@@ -26,9 +26,9 @@ ActiveRecord::Base.connection.disable_referential_integrity do
     Answer.find_or_create_by(title: 'Incorrect seed Answer 2', correct: false, question_id: question.id)
     TestPassage.find_or_create_by(user_id: user.id, test_id: test.id, current_question_id: question.id)
     # badges creation
-    Badge.find_or_create_by(title: "Новичок", file_name: "first_attempt.svg")
-    Badge.find_or_create_by(title: "Ветеран тестов", file_name: "tests_lover.svg")
-    Badge.find_or_create_by(title: "Сделал все в одной категории!", file_name: "one_category.svg")
+    Badge.find_or_create_by(title: "Попал с 1го раза", file_name: "first_attempt.svg", rule: "got_the_test_by_one_time", parameter: "")
+    Badge.find_or_create_by(title: "Ветеран тестов", file_name: "tests_lover.svg", rule: "check_count_testpassage", parameter: "5")
+    Badge.find_or_create_by(title: "Сделал все в одной категории!", file_name: "one_category.svg", rule: "check_count_by_category?", parameter: category.title)
 
   rescue ActiveRecord::RecordNotUnique
   end
