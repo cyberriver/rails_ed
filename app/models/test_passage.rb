@@ -43,6 +43,15 @@ class TestPassage < ApplicationRecord
   end
 
 
+  def time_out?
+    false unless self.time_left
+  end
+
+  def time_left
+    self.test.timer - (Time.now - self.created_at).to_i if self.test.timer > 0
+  end
+
+
   private
 
   def before_validation_set_question
