@@ -1,8 +1,13 @@
 
 <div class="col-sm"  >
   <div class="card h-100">
-      <%= image_tag(user_badge.badge.resized_small, class: "card-img-top") %>
-    <div class="card-body" >
+    <div class="container" style="border: 3px solid #3c85e0;
+            padding: 10px;
+            border-radius: 5px;">
+      <%= image_tag(user_badge.badge.resized_small, class: "card-img-top rounded-circle") %>
+    </div>
+
+    <div class="card-body" style="background-color: #3c85e0; color: white">
       <h5 class="card-title"><%=user_badge.badge.title%></h5>
     </div>
   </div>

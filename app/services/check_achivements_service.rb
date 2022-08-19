@@ -33,8 +33,8 @@ class CheckAchivementsService
   end
 
   #прошел с 1го раза тест
-  def got_the_test_by_one_time
-    @user.test_passages.where(test_id: @test).count=1
+  def got_the_test_by_one_time?(count=1)
+    @user.test_passages.where(test_id: @test).count==1
   end
 
   #прошел все тесты в одной категории
