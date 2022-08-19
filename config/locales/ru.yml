@@ -21,6 +21,9 @@ ru:
   success_gist_question: "Вопрос успешно сохранен в гист, %{url}"
   failure_gist_question: "Не удалось сохранить вопрос в гист"
   gist_question: "Сохранить вопрос"
+  got_achivement: "Вы получили бейдж"
+
+  timer: "Осталось времени на прохождение"
 
   help:
     question: "Вам необходимо создать вопрос для теста. После создания вопроса необходимо будет добавить для него ответы."
@@ -51,11 +54,14 @@ ru:
       title: "Панель Администратора"
       all_tests: "Все тесты"
       my_tests: "Мои тесты"
+      my_badges: "Мои достижения"
       profile: "Мой профиль"
       back: "Назад"
       quit: "Выйти"
       all_gists: "Входящие обращения"
       all_users: "Все пользователи"
+      all_badges: "Бейджи"
+      all_categories: "Категории тестов"
 
   helpers:
     score:
@@ -101,7 +107,9 @@ ru:
       header: "Мои тесты"
       not_started: "Вы не начали ни один тест"
     result:
-      header: "Тест %{title} успешно пройден"
+      header:
+        passed: "Тест %{title} успешно пройден"
+        failed: "Тест %{title} не пройден"
     show:
       header: "Прохождение теста the %{title} "
       question_header: "Question # %{current} from %{total}"

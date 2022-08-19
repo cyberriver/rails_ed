@@ -15,11 +15,19 @@ Rails.application.routes.draw do
 
  get :my_tests, to: 'test_passages#index'
 
+ resources :user_badges, only: :index  do
+   member do
+     get :check
+   end
+ end
+
   resources :tests, only: :index  do
     member do
       post :start
     end
   end
+
+  resources :badges, only: :index
 
   resources :test_passages, only: %i[show update] do
 
@@ -38,7 +46,9 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index]
-    resources :users, only: %i[index]
+    resources :users
+    resources :badges
+    resources :categories
   end
 
 end

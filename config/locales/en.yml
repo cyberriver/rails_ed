@@ -21,6 +21,9 @@ en:
   success_gist_question: "Question successfully saved to gists"
   failure_gist_question: "Cound't save to gist. Something went wrong"
   gist_question: "Save question"
+  timer: "Time left"
+
+  got_achivement: "You got the badge"
 
   help:
     question: "Pls add new question. After question creation you need to add answers to it"
@@ -51,11 +54,15 @@ en:
       title: "Admin Panel"
       all_tests: "All tests"
       my_tests: "My tests"
+
+      my_badges: "My achivements"
       profile: "My profile"
       back: "Back"
       quit: "Logout"
       all_gists: "Incomming requests"
       all_users: "All users"
+      all_badges: "Badges"
+      all_categories: "Tests categories"
 
   helpers:
     question:
@@ -109,7 +116,9 @@ en:
       header: "Test %{title} successfully done"
       not_started: "You haven't started any test"
     result:
-      header: "Test %{title} sucess passed"
+      header:
+        passed: "Test %{title} sucess passed"
+        failed: "Test %{title} failed"
     show:
       header: "Pass the %{title} test"
 

@@ -1,6 +1,7 @@
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
+
   belongs_to :current_question, class_name: :Question, optional: true
   before_validation :before_validation_set_question, on: [:create, :update]
   TEST_SCORE_LIMIT = 0.85  #parameter for success score result
@@ -40,6 +41,7 @@ class TestPassage < ApplicationRecord
   def test_result
     self.correct_question.to_f / self.test.questions.count.to_f.round(2)
   end
+
 
   private
 

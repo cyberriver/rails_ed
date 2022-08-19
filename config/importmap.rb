@@ -7,3 +7,5 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin_all_from "app/javascript/utilities", under: "utilities"
 pin "@hotwired/turbo-rails", to: "turbo.min.js", preload: true
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.js"

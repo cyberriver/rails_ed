@@ -9,11 +9,12 @@
   </td>
   <td class = "align-middle"><%=test.id %> </td>
   <td class = "align-middle"><%=level_title(test)%> </td>
-  <td class = "align-middle"><%=test.category_id%> </td>
+  <td class = "align-middle"><%=test.category.title%> </td>
+
   <td class = "align-middle"><%=test.author_id %> </td>
   <td class = "align-middle"><%=test.questions.count %></td>
-  <td class = "align-middle"><%=test.ready %></td>
 
+  <td class = "align-middle"><%=test.timer %> </td>
   <td class = "align-middle">
     <% if test.ready%>
     <%= button_to t('turn_off'),

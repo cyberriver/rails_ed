@@ -18,7 +18,10 @@ class Test < ApplicationRecord
   scope :show_tests_by_category, ->(category_name) do
     joins(:category)
     .where(categories: {title: category_name})
+
   end
+
+  
 
   def self.show_title(category_name)
     self.show_tests_by_category(category_name)
@@ -40,6 +43,6 @@ class Test < ApplicationRecord
     if self.test_passages.where.not(current_question:nil).count
       errors.add(:test_has_active_testpassage, "Test has active test_passages. You can delete it")
     end
-  end  
+  end
 
 end

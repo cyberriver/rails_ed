@@ -1,0 +1,22 @@
+
+<tr >
+  <td class = "align-middle"><%= image_tag(badge.resized_very_small) %> </td>
+  <td class = "align-middle"><%=badge.title%> </td>
+  <td class = "align-middle"><%=badge.file_name%> </td>
+  <td class = "align-middle"><%=badge.rule%> </td>
+  <td class = "align-middle"><%=badge.parameter%> </td>
+
+  <td class = "align-middle">
+      <%= link_to t('edit'),
+                     edit_admin_badge_path(badge),
+                     class: "btn btn-info bi bi-arrow-repeat",
+                     data: { badge_id: badge.id } %>
+    </td>
+  <td class = "align-middle">
+    <%= link_to t('delete'), admin_badge_path(badge.id),
+                               class: "btn btn-danger bi bi-eraser",
+                              data: { turbo_method: "delete", turbo_confirm: t('confirm')}
+                                 %>
+
+  </td>
+</tr>

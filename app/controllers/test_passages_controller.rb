@@ -9,11 +9,18 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+
   end
 
   def update
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
+      # все проверки запускаются только в случае, если тест выполнен успешно
+      if @test_passage.test_result_check
+        badges_count = current_user.badges.size
+        CheckAchivementsService.new(@test_passage, current_user).call
+        flash[:notice] = t('got_achivement') if current_user.badges.size > badges_count
+      end
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
     else

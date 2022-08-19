@@ -102,6 +102,8 @@ database:
   username: YOURUSERNAME_ROLE
   password: MODIFIEDPASSWORD_IN_PSSQL
 
+#in a case if you lost credentials or master key, then delete credentials file and key file and generate new one using command above. Rails will generate by itself  
+
 * Database creation
 
 after configuration run:
@@ -120,6 +122,13 @@ set proper mailer credentials in rails config
 
 * How to run the test suite
 
+#ActiveStorage Configuration
+To use minimagic pls ensure that you've installed imagemagick:
+
+sudo apt-get install imagemagick
+
+don't forget to install trix
+bin/rails action_text:install
 
 
 * Deployment instructions
