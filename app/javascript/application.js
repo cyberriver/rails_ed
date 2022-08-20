@@ -11,7 +11,7 @@ import "./scripts/sorting"
 import "./scripts/check_pass"
 import "./scripts/form_inline"
 import "./scripts/progress_bar"
-//import "./scripts/timer"
+import "./scripts/timer"
 
 import "trix"
 import "@rails/actiontext"

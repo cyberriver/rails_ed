@@ -18,9 +18,8 @@ class CheckAchivementsService
       if @user.badges.exists?(badge.id) #check if user already has such achivements
         puts "LOG: #{badge.title} already given"
       else
-        if send(rule, badge.parameter)
-          @user.badges.push(badge) #user got the badge if rule is TRUE
-        end
+        @user.badges.push(badge) if send(rule, badge.parameter)
+           #user got the badge if rule is TRUE
       end
     end
   end

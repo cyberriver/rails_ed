@@ -14,7 +14,7 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
-    if @test_passage.completed?
+    if @test_passage.completed? || @test_passage.time_out?
       # все проверки запускаются только в случае, если тест выполнен успешно
       if @test_passage.test_result_check
         badges_count = current_user.badges.size
