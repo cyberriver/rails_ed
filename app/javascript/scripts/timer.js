@@ -1,4 +1,4 @@
-document.addEventListener('turbo:load', function () {
+document.addEventListener('turbo:load',function () {
   var timer = document.querySelector('.timer')
 
   if (timer) {

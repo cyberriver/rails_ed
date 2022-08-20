@@ -22,6 +22,7 @@ en:
   failure_gist_question: "Cound't save to gist. Something went wrong"
   gist_question: "Save question"
   timer: "Time left"
+  search: "Enter the test's title"
 
   got_achivement: "You got the badge"
 
